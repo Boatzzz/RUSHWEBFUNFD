@@ -1,0 +1,2280 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>รวมเฉลยแบบทดสอบหลังเรียน (พร้อมตัวเลือกครบทุกข้อ) & สรุปเนื้อหาเสริม</title>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1e40af;
+            --primary-light: #eff6ff;
+            --secondary: #0f172a;
+            --success-bg: #ecfdf5;
+            --success-border: #10b981;
+            --success-text: #065f46;
+            --info-bg: #f8fafc;
+            --info-border: #cbd5e1;
+            --supplement-bg: #fffbeb;
+            --supplement-border: #f59e0b;
+            --supplement-text: #92400e;
+            --text-main: #334155;
+            --text-muted: #64748b;
+            --bg-body: #f1f5f9;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Sarabun', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.65;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 980px;
+            margin: 0 auto;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+            color: white;
+            padding: 36px 32px;
+            border-radius: 16px;
+            margin-bottom: 24px;
+            box-shadow: 0 10px 25px -5px rgba(30, 58, 138, 0.2);
+        }
+
+        header h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        header p {
+            font-size: 1.05rem;
+            opacity: 0.92;
+        }
+
+        .nav-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 28px;
+            position: sticky;
+            top: 12px;
+            z-index: 100;
+            background: rgba(241, 245, 249, 0.94);
+            backdrop-filter: blur(8px);
+            padding: 12px;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        .nav-btn {
+            background: white;
+            border: 1px solid #cbd5e1;
+            color: var(--secondary);
+            padding: 7px 14px;
+            border-radius: 8px;
+            font-family: 'Sarabun', sans-serif;
+            font-size: 0.92rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .nav-btn:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            background: var(--primary-light);
+        }
+
+        .nav-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .module-section {
+            margin-bottom: 40px;
+        }
+
+        .module-header {
+            background: white;
+            padding: 20px 24px;
+            border-radius: 12px;
+            border-left: 6px solid var(--primary);
+            margin-bottom: 20px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+        }
+
+        .module-header h2 {
+            color: var(--secondary);
+            font-size: 1.38rem;
+            margin-bottom: 4px;
+        }
+
+        .module-header span {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .question-card {
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            border: 1px solid #e2e8f0;
+        }
+
+        .q-title {
+            font-size: 1.12rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 14px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .q-badge {
+            background: var(--primary-light);
+            color: var(--primary);
+            padding: 2px 10px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            white-space: nowrap;
+            margin-top: 2px;
+        }
+
+        pre {
+            background: #1e293b;
+            color: #f8fafc;
+            padding: 14px 18px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-family: Consolas, Monaco, 'Courier New', monospace;
+            font-size: 0.88rem;
+            margin: 10px 0;
+            line-height: 1.5;
+        }
+
+        code {
+            font-family: Consolas, Monaco, 'Courier New', monospace;
+            background: #f1f5f9;
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: #be123c;
+            font-size: 0.9em;
+        }
+
+        pre code {
+            background: transparent;
+            color: inherit;
+            padding: 0;
+        }
+
+        .choices-list {
+            list-style: none;
+            margin: 14px 0 16px 0;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .choice-item {
+            padding: 10px 14px;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+            background: #f8fafc;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 0.98rem;
+            color: #475569;
+        }
+
+        .choice-item.correct {
+            background: var(--success-bg);
+            border: 1.5px solid var(--success-border);
+            color: var(--success-text);
+            font-weight: 600;
+        }
+
+        .choice-marker {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            font-size: 0.85rem;
+            font-weight: 700;
+            background: #e2e8f0;
+            color: #475569;
+            margin-top: 1px;
+        }
+
+        .choice-item.correct .choice-marker {
+            background: var(--success-border);
+            color: white;
+        }
+
+        .choice-content {
+            flex: 1;
+            width: 100%;
+        }
+
+        .choice-content pre {
+            margin: 6px 0 2px 0;
+        }
+
+        .reason-box {
+            background: var(--info-bg);
+            border: 1px solid var(--info-border);
+            padding: 14px 16px;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            font-size: 0.96rem;
+        }
+
+        .reason-box strong {
+            color: var(--secondary);
+        }
+
+        .supplement-box {
+            background: var(--supplement-bg);
+            border-left: 4px solid var(--supplement-border);
+            padding: 12px 16px;
+            border-radius: 6px;
+            font-size: 0.94rem;
+            color: #78350f;
+        }
+
+        .supplement-box strong {
+            color: var(--supplement-text);
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .flowchart-legend {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+            gap: 10px;
+            margin: 10px 0;
+            background: #fff;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px dashed #f59e0b;
+        }
+
+        footer {
+            text-align: center;
+            color: var(--text-muted);
+            padding: 24px 0;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 640px) {
+            body { padding: 12px; }
+            header { padding: 24px 20px; }
+            header h1 { font-size: 1.45rem; }
+            .question-card { padding: 18px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>คลังเฉลยแบบทดสอบหลังเรียน (พร้อมตัวเลือกครบทุกข้อ) & สรุปเนื้อหาเสริม</h1>
+        <p>รวมครบทั้ง 8 หมวดวิชา (126 ข้อ) แสดงตัวเลือกทั้งหมด ไฮไลต์ข้อที่ถูกต้อง พร้อมเหตุผลและเกร็ดความรู้เพิ่มเติม</p>
+    </header>
+
+    <div class="nav-tabs">
+        <button class="nav-btn active" onclick="filterModule('all', this)">ทั้งหมด (126 ข้อ)</button>
+        <button class="nav-btn" onclick="filterModule('mod1', this)">1. Internet & Network (12)</button>
+        <button class="nav-btn" onclick="filterModule('mod2', this)">2. Cybersecurity Basics (15)</button>
+        <button class="nav-btn" onclick="filterModule('mod3', this)">3. HTML & CSS (12)</button>
+        <button class="nav-btn" onclick="filterModule('mod4', this)">4. SQL & Database (35)</button>
+        <button class="nav-btn" onclick="filterModule('mod5', this)">5. Design Thinking (14)</button>
+        <button class="nav-btn" onclick="filterModule('mod6', this)">6. Computational Thinking (8)</button>
+        <button class="nav-btn" onclick="filterModule('mod7', this)">7. JavaScript (15)</button>
+        <button class="nav-btn" onclick="filterModule('mod8', this)">8. Network & Crypto (15)</button>
+    </div>
+
+    <!-- MODULE 1 -->
+    <section id="mod1" class="module-section">
+        <div class="module-header">
+            <h2>ชุดที่ 1: ระบบเครือข่ายคอมพิวเตอร์และอินเทอร์เน็ต (Internet & Network)</h2>
+            <span>จำนวน 12 ข้อ — โครงสร้างเครือข่าย, โพรโทคอล, TCP/IP Suite และ IPv4</span>
+        </div>
+
+        <div class="question-card">
+            <div class="q-title"><span class="q-badge">ข้อ 1</span> ตัวเลือกใดกล่าวได้ถูกต้องเกี่ยวกับ decentralized network</div>
+            <ul class="choices-list">
+                <li class="choice-item"><span class="choice-marker">1</span><div class="choice-content">มีจุดอ่อนไหวที่หากล้มเหลวแล้วจะทำให้ระบบทั้งหมดหยุดทำงาน</div></li>
+                <li class="choice-item correct"><span class="choice-marker">&check;</span><div class="choice-content">สามารถขยายระบบได้ง่ายและทนทานต่อความเสียหายของส่วนใดส่วนหนึ่ง</div></li>
+                <li class="choice-item"><span class="choice-marker">3</span><div class="choice-content">การควบคุมระบบทั้งหมดจะอยู่ในมือของผู้ใช้งานคนเดียว</div></li>
+                <li class="choice-item"><span class="choice-marker">4</span><div class="choice-content">มีการแลกเปลี่ยนข้อมูลที่ล่าช้าเมื่อเทียบกับระบบเครือข่ายแบบรวมศูนย์</div></li>
+            </ul>
+            <div class="reason-box"><strong>เหตุผล:</strong> เครือข่ายแบบกระจายศูนย์ (Decentralized) ไม่มีจุดศูนย์กลางเพียงจุดเดียวที่คอยควบคุมทั้งหมด ทำให้เมื่อโหนดใดโหนดหนึ่งล่ม ส่วนที่เหลือยังทำงานต่อได้และเพิ่มขยายโหนดได้ง่าย</div>
+            <div class="supplement-box"><strong>เนื้อหาเสริม: โครงสร้างเครือข่าย 3 รูปแบบ</strong>
+                1. <b>Centralized (รวมศูนย์):</b> ทุกเครื่องต่อเข้าศูนย์กลางเดียว มีจุดอ่อนคือ Single Point of Failure (ศูนย์กลางล่ม = ล่มทั้งระบบ)<br>
+                2. <b>Decentralized (กระจายศูนย์):</b> มีศูนย์กลางย่อยหลายจุดกระจายกัน ทนทานต่อความเสียหายสูง (เช่น อินเทอร์เน็ต, บล็อกเชน)<br>
+                3. <b>Distributed (กระจายเต็มรูปแบบ):</b> ทุกโหนดเท่าเทียมกันและเชื่อมต่อถึงกันโดยตรง (Peer-to-Peer)
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="q-title"><span class="q-badge">ข้อ 2</span> โพรโทคอลในเครือข่ายคืออะไร</div>
+            <ul class="choices-list">
+                <li class="choice-item"><span class="choice-marker">1</span><div class="choice-content">ฮาร์ดแวร์ที่เชื่อมต่อคอมพิวเตอร์กับเครือข่าย</div></li>
+                <li class="choice-item correct"><span class="choice-marker">&check;</span><div class="choice-content">ชุดของกฎและมาตรฐานที่กำหนดวิธีการสื่อสารระหว่างอุปกรณ์ในเครือข่าย</div></li>
+                <li class="choice-item"><span class="choice-marker">3</span><div class="choice-content">โปรแกรมที่ช่วยจัดการและควบคุมการทำงานของคอมพิวเตอร์ในเครือข่าย</div></li>
+                <li class="choice-item"><span class="choice-marker">4</span><div class="choice-content">บริการที่ให้ผู้ใช้งานสามารถเข้าถึงอินเทอร์เน็ตได้</div></li>
+            </ul>
+            <div class="reason-box"><strong>เหตุผล:</strong> Protocol เปรียบเสมือน "ภาษากลางและกติกาสากล" ที่ทำให้อุปกรณ์ต่างยี่ห้อ ต่างระบบปฏิบัติการ สามารถส่งและตีความข้อมูลร่วมกันได้อย่างถูกต้อง</div>
+            <div class="supplement-box"><strong>เนื้อหาเสริม: ตัวอย่างโพรโทคอลที่พบบ่อย</strong>
+                - <b>HTTP/HTTPS:</b> รับส่งข้อมูลหน้าเว็บ | <b>FTP/SFTP:</b> รับส่งไฟล์ระหว่างเครื่อง<br>
+                - <b>SMTP / IMAP / POP3:</b> รับส่งอีเมล | <b>DHCP:</b> แจกหมายเลข IP อัตโนมัติในเครือข่าย
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="q-title"><span class="q-badge">ข้อ 3</span> หากเทียบการทำงานของอินเทอร์เน็ตกับระบบไปรษณีย์ บุรุษไปรษณีย์เทียบได้กับบริการอะไร</div>
+            <ul class="choices-list">
+                <li class="choice-item"><span class="choice-marker">1</span><div class="choice-content">IP address</div></li>
+                <li class="choice-item"><span class="choice-marker">2</span><div class="choice-content">DNS</div></li>
+                <li class="choice-item"><span class="choice-marker">3</span><div class="choice-content">Packet</div></li>
+                <li class="choice-item correct"><span class="choice-marker">&check;</span><div class="choice-content">Router</div></li>
+            </ul>
+            <div class="reason-box"><strong>เหตุผล:</strong> Router ทำหน้าที่อ่านที่อยู่ปลายทาง (IP Address) ของแพ็กเก็ตข้อมูล แล้วค้นหาเส้นทางส่งต่อข้อมูลไปยังเครือข่ายปลายทาง เปรียบได้กับบุรุษไปรษณีย์ที่นำส่งจดหมายตามจ่าหน้าซอง</div>
+            <div class="supplement-box"><strong>เนื้อหาเสริม: การเปรียบเทียบระบบไปรษณีย์กับอินเทอร์เน็ต</strong>
+                - <b>บ้านเลขที่:</b> IP Address | <b>สมุดโทรศัพท์/รายชื่อ:</b> DNS<br>
+                - <b>กล่องพัสดุ/ซองจดหมาย:</b> Packet | <b>บุรุษไปรษณีย์:</b> Router
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="q-title"><span class="q-badge">ข้อ 4</span> ระบบ ADSL ในปัจจุบันอาศัยสายโทรศัพท์ เหตุใดเราจึงสามารถใช้โทรศัพท์ไปพร้อมๆ กับเล่นอินเทอร์เน็ตแม้จะเป็นสายเดียวกัน</div>
+            <ul class="choices-list">
+                <li class="choice-item"><span class="choice-marker">1</span><div class="choice-content">เนื่องจากสาย ADSL มีสายย่อยข้างในแยกการเชื่อมต่อโทรศัพท์กับอินเทอร์เน็ตออกจากกัน</div></li>
+                <li class="choice-item"><span class="choice-marker">2</span><div class="choice-content">เนื่องจากสาย ADSL มีคุณภาพสูง เหมาะสำหรับการสื่อสารทางเสียงและข้อมูล</div></li>
+                <li class="choice-item correct"><span class="choice-marker">&check;</span><div class="choice-content">เนื่องจากระบบ ADSL ส่งข้อมูลด้วยสัญญาณคนละแบบกับสัญญาณโทรศัพท์ จึงไม่มีผลกระทบการใช้งาน</div></li>
+                <li class="choice-item"><span class="choice-marker">4</span><div class="choice-content">เนื่องจากระบบ ADSL มีความเสถียร จึงสามารถใช้โทรศัพท์ไปพร้อมกันได้</div></li>
+            </ul>
+            <div class="reason-box"><strong>เหตุผล:</strong> เทคโนโลยี ADSL ใช้เทคนิคแบ่งย่านความถี่ โดยใช้ความถี่ต่ำ (0–4 kHz) สำหรับเสียงพูดโทรศัพท์ และความถี่สูง (25 kHz ขึ้นไป) สำหรับอินเทอร์เน็ต โดยมี Splitter คอยกรองแยกสัญญาณไม่ให้รบกวนกัน</div>
+            <div class="supplement-box"><strong>เนื้อหาเสริม: คำว่า Asymmetric ใน ADSL</strong>
+                ย่อมาจาก Asymmetric Digital Subscriber Line คำว่า "ไม่สมมาตร" หมายถึงความเร็ว Download จะสูงกว่า Upload เพื่อให้สอดคล้องกับพฤติกรรมผู้ใช้ตามบ้านที่เน้นรับข้อมูลมากกว่าส่งข้อมูล
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="q-title"><span class="q-badge">ข้อ 5</span> ตัวเลือกใดไม่ใช่ layer ใน internet protocol suite</div>
+            <ul class="choices-list">
+                <li class="choice-item"><span class="choice-marker">1</span><div class="choice-content">Application layer</div></li>
+                <li class="choice-item"><span class="choice-marker">2</span><div class="choice-content">Transport layer</div></li>
+                <li class="choice-item correct"><span class="choice-marker">&check;</span><div class="choice-content">Database layer</div></li>
+                <li class="choice-item"><span class="choice-marker">4</span><div class="choice-content">Internet layer</div></li>
+            </ul>
+            <div class="reason-box"><strong>เหตุผล:</strong> Internet Protocol Suite (TCP/IP Model) ประกอบด้วย 4 ชั้นหลัก ได้แก่ Application, Transport, Internet และ Network Interface (Link) ไม่มี Database layer</div>
+            <div class="supplement-box"><strong>เนื้อหาเสริม: เปรียบเทียบ TCP/IP (4 ชั้น) กับ OSI Model (7 ชั้น)</strong>
+                - <b>Application (TCP/IP)</b> = Application + Presentation + Session (OSI)<br>
+                - <b>Transport (TCP/IP)</b> = Transport (OSI)<br>
+                - <b>Internet (TCP/IP)</b> = Network (OSI)<br>
+                - <b>Network Access / Link (TCP/IP)</b> = Data Link + Physical (OSI)
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="q-title"><span class="q-badge">ข้อ 6</span> ตัวเลือกใดเป็นหน้าที่ของ Transport layer</div>
+            <ul class="choices-list">
+                <li class="choice-item"><span class="choice-marker">1</span><div class="choice-content">การเข้ารหัสข้อมูลเพื่อความปลอดภัย</div></li>
+                <li class="choice-item"><span class="choice-marker">2</span><div class="choice-content">การสร้างเส้นทางสำหรับการสื่อสาร</div></li>
+                <li class="choice-item"><span class="choice-marker">3</span><div class="choice-content">การกำหนดหมายเลข IP ให้กับอุปกรณ์ในเครือข่าย</div></li>
+                <li class="choice-item correct"><span class="choice-marker">&check;</span><div class="choice-content">การควบคุมการส่งข้อมูลและการเชื่อมต่อระหว่างเครื่อง</div></li>
+            </ul>
+            <div class="reason-box"><strong>เหตุผล:</strong> Transport Layer รับผิดชอบการสื่อสารแบบ End-to-End ระหว่างแอปพลิเคชันของเครื่องต้นทางและปลายทาง รวมถึงควบคุมความถูกต้อง การเรียงลำดับข้อมูล และการควบคุมอัตราการไหล (Flow Control)</div>
+            <div class="supplement-box"><strong>เนื้อหาเสริม: 2 โพรโทคอลพระเอกของ Transport Layer</strong>
+                - <b>TCP:</b> เน้นความถูกต้อง ครบถ้วน มีการตอบรับ (ACK) หากข้อมูลหายจะส่งใหม่ (เว็บ, อีเมล, โอนไฟล์)<br>
+                - <b>UDP:</b> เน้นความเร็ว ไม่รอการตอบรับ ยอมให้ข้อมูลตกหล่นได้บ้าง (Live Stream, เกมออนไลน์, วิดีโอคอล)
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="q-title"><span class="q-badge">ข้อ 7</span> ระบบ LAN น่าจะอยู่ใน layer ใดใน internet protocol suite</div>
+            <ul class="choices-list">
+                <li class="choice-item"><span class="choice-marker">1</span><div class="choice-content">Application layer - เพราะระบบ LAN มักใช้โพรโตคอลและบริการระดับสูงเช่น HTTP, FTP, และ DHCP สำหรับการเชื่อมต่อและการแบ่งปันข้อมูลในเครือข่ายภายใน</div></li>
+                <li class="choice-item"><span class="choice-marker">2</span><div class="choice-content">Network layer - เนื่องจากระบบ LAN มักมีการจัดการเรื่องของเส้นทางการส่งข้อมูลในเครือข่ายภายใน</div></li>
+                <li class="choice-item"><span class="choice-marker">3</span><div class="choice-content">Transport layer - ในบางกรณีระบบ LAN อาจใช้งานโพรโตคอลระดับนี้เพื่อการส่งข้อมูลที่ซับซ้อนระหว่างเครื่อง</div></li>
+                <li class="choice-item correct"><span class="choice-marker">&check;</span><div class="choice-content">Data Link layer - เนื่องจาก Data Link layer เกี่ยวข้องกับการสื่อสารระหว่างอุปกรณ์ในเครือข่ายเชื่อมโยงข้อมูลที่อยู่ในระดับฮาร์ดแวร์</div></li>
+            </ul>
+            <div class="reason-box"><strong>เหตุผล:</strong> เทคโนโลยี LAN เช่น Ethernet และ Wi-Fi ทำงานในระดับ Link / Data Link Layer โดยอ้างอิง MAC Address ของการ์ดเครือข่ายในการส่งเฟรมข้อมูลหากันภายในวงแลนเดียวกัน</div>
+            <div class="supplement-box"><strong>เนื้อหาเสริม: MAC Address vs IP Address</strong>
+                - <b>MAC Address (Physical):</b> ติดมากับฮาร์ดแวร์ เปลี่ยนไม่ได้ ใช้สื่อสารในวง LAN เดียวกัน (Layer 2)<br>
+                - <b>IP Address (Logical):</b> กำหนดโดยเครือข่าย เปลี่ยนไปตามจุดที่เชื่อมต่อ ใช้ส่งข้ามเครือข่าย (Layer 3)
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="q-title"><span class="q-badge">ข้อ 8</span> Transport layer เทียบได้กับการทำงานใดในระบบไปรษณีย์</div>
+            <ul class="choices-list">
+                <li class="choice-item correct"><span class="choice-marker">&check;</span><div class="choice-content">การแบ่งข้อมูลลงเป็นส่วนๆ เพื่อใส่ลงกล่องพัสดุ</div></li>
+                <li class="choice-item"><span class="choice-marker">2</span><div class="choice-content">การระบุที่อยู่ปลายทางเพื่อให้ไปรษณีย์นำส่งตามที่อยู่</div></li>
+                <li class="choice-item"><span class="choice-marker">3</span><div class="choice-content">การออกแบบกล่องพัสดุที่เป็นมาตรฐาน</div></li>
+                <li class="choice-item"><span class="choice-marker">4</span><div class="choice-content">การระบุชื่อผู้รับเพื่อให้ไปถึงบุคคลที่ต้องการ</div></li>
+            </ul>
+            <div class="reason-box"><strong>เหตุผล:</strong> ข้อมูลขนาดใหญ่ไม่สามารถส่งผ่านเครือข่ายรวดเดียวได้ Transport Layer จึงทำหน้าที่ Segmentation หรือการหั่นข้อมูลออกเป็นส่วนย่อยๆ (Segments) พร้อมติดหมายเลขลำดับเพื่อให้ปลายทางนำไปประกอบกลับได้ครบถ้วน</div>
+            <div class="supplement-box"><strong>เนื้อหาเสริม: ชื่อเรียกหน่วยข้อมูล (PDU) ในแต่ละชั้น</strong>
+                Application = Data &rarr; Transport = Segment/Datagram &rarr; Network = Packet &rarr; Data Link = Frame &rarr; Physical = Bits
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="q-title"><span class="q-badge">ข้อ 9</span> ตัวเลือกใดเป็น IP address ในระบบ IPv4 ที่ถูกต้อง</div>
+            <ul class="choices-list">
+                <li class="choice-item correct"><span class="choice-marker">&check;</span><div class="choice-content">1.2.3.4</div></li>
+                <li class="choice-item"><span class="choice-marker">2</span><div class="choice-content">100.200.300.400</div></li>
+                <li class="choice-item"><span class="choice-marker">3</span><div class="choice-content">1.2.3.4.5.6</div></li>
+                <li class="choice-item"><span class="choice-marker">4</span><div class="choice-content">256.256.256.256</div></li>
+            </ul>
+            <div class="reason-box"><strong>เหตุผล:</strong> IPv4 มีขนาด 32 บิต แบ่งเป็น 4 ชุด (Octets) คั่นด้วยจุด โดยแต่ละชุดมีค่าได้ตั้งแต่ <code>0</code> ถึง <code>255</code> เท่านั้น (ข้ออื่นมีเลข 300, 256 ซึ่งเกิน 255 และมี 6 ชุดซึ่งผิดรูปแบบ)</div>
+            <div class="supplement-box"><strong>เนื้อหาเสริม: IPv4 และ IPv6</strong>
+                เนื่องจาก IPv4 มีจำนวนจำกัดราว 4.3 พันล้านหมายเลขและถูกใช้จนเต็มแล้ว ปัจจุบันจึงมีการเปลี่ยนผ่านไปสู่ <b>IPv6</b> ซึ่งมีขนาด 128 บิต เขียนด้วยเลขฐานสิบหก 8 ชุดคั่นด้วยเครื่องหมายโคลอน (:)
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="q-title"><span class="q-badge">ข้อ 10</span> หากไม่มีชื่อโดเมน สามารถรับส่งข้อมูลระหว่างต้นทางและปลายทางได้หรือไม่ เพราะเหตุใด</div>
+            <ul class="choices-list">
+                <li class="choice-item"><span class="choice-marker">1</span><div class="choice-content">ไม่สามารถรับส่งข้อมูลได้ เนื่องจากต้องมีชื่อโดเมนเพื่อให้ระบบ DNS ระบุที่อยู่ IP ของต้นทางและปลายทาง</div></li>
+                <li class="choice-item correct"><span class="choice-marker">&check;</span><div class="choice-content">สามารถรับส่งข้อมูลได้ โดยใช้ที่อยู่ IP เฉพาะเป็นตัวระบุต้นทางและปลายทาง</div></li>
+                <li class="choice-item"><span class="choice-marker">3</span><div class="choice-content">สามารถรับส่งข้อมูลได้ โดยการใช้ชื่อโดเมนชั่วคราวที่ระบบสร้างขึ้นในขณะการสื่อสาร</div></li>
+                <li class="choice-item"><span class="choice-marker">4</span><div class="choice-content">ไม่สามารถรับส่งข้อมูลได้ เนื่องจากการสื่อสารจำเป็นต้องมีการระบุชื่อโดเมนในการสร้างเชื่อมต่อ</div></li>
+            </ul>
+            <div class="reason-box"><strong>เหตุผล:</strong> ในระดับการทำงานจริงของเครือข่าย คอมพิวเตอร์สื่อสารกันด้วยหมายเลข IP Address เสมอ ชื่อโดเมน (Domain Name) เป็นเพียงชื่อเล่นที่สร้างขึ้นมาเพื่ออำนวยความสะดวกให้มนุษย์ไม่ต้องจดจำตัวเลขยาวๆ</div>
+            <div class="supplement-box"><strong>เนื้อหาเสริม: จะเกิดอะไรขึ้นหาก DNS Server ล่ม?</strong>
+                เราจะเข้าเว็บไซต์ผ่านชื่อโดเมนไม่ได้ แต่ถ้าพิมพ์หมายเลข IP ของเซิร์ฟเวอร์นั้นลงในเบราว์เซอร์โดยตรง หรือโปรแกรมที่เชื่อมต่อผ่าน IP โดยตรง จะยังใช้งานได้ตามปกติ
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="q-title"><span class="q-badge">ข้อ 11</span> เหตุใดการส่งข้อมูลไปอินเทอร์เน็ตจึงสามารถเดินทางไปยังปลายทางได้ถูกต้อง</div>
+            <ul class="choices-list">
+                <li class="choice-item"><span class="choice-marker">1</span><div class="choice-content">เนื่องจากมีการเชื่อมต่อโดยตรงระหว่างเครื่องต้นทางกับปลายทาง จึงสามารถส่งข้อมูลไปได้ถูกต้อง</div></li>
+                <li class="choice-item correct"><span class="choice-marker">&check;</span><div class="choice-content">เนื่องจากมีโพรโทคอลในการกำหนดเส้นทางการส่งข้อมูลโดยพิจารณาจากเลขที่อยู่ของเครื่อง</div></li>
+                <li class="choice-item"><span class="choice-marker">3</span><div class="choice-content">เนื่องจากมีโพรโทคอลที่ใช้ในการตรวจสอบและแก้ไขข้อผิดพลาดของข้อมูล จึงทำให้ข้อมูลที่ปลายทางถูกต้อง</div></li>
+                <li class="choice-item"><span class="choice-marker">4</span><div class="choice-content">เนื่องจากมีโพรโทคอลที่กำหนดรูปแบบในการรับส่งข้อมูล จึงทำให้ส่งข้อมูลได้ถูกต้อง</div></li>
+            </ul>
+            <div class="reason-box"><strong>เหตุผล:</strong> Internet Protocol (IP) จะแนบ IP ต้นทางและปลายทางไว้ที่ส่วนหัวของทุก Packet และ Router แต่ละตัวจะใช้ Routing Protocol พิจารณาเลข IP ปลายทางเพื่อส่งต่อ Packet ไปทีละทอดจนถึงจุดหมาย</div>
+            <div class="supplement-box"><strong>เนื้อหาเสริม: Packet Switching</strong>
+                ข้อมูลจากไฟล์เดียวกันอาจถูกแบ่งเป็นหลาย Packet และเดินทางไปคนละเส้นทางตามความหนาแน่นของการจราจรในขณะนั้น ก่อนจะไปรวมตัวและเรียงลำดับใหม่ที่เครื่องปลายทาง
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="q-title"><span class="q-badge">ข้อ 12</span> หากมีเครื่องสองเครื่องในเครือข่าย ที่มี IP address ซ้ำกัน จะเกิดอะไรขึ้นได้บ้าง</div>
+            <ul class="choices-list">
+                <li class="choice-item correct"><span class="choice-marker">&check;</span><div class="choice-content">เครื่องที่มี IP address ซ้ำกันอาจจะไม่สามารถรับส่งข้อมูลกับเครื่องอื่นๆ ได้</div></li>
+                <li class="choice-item"><span class="choice-marker">2</span><div class="choice-content">เครื่องที่มี IP address ซ้ำกันอาจจะเสียหายได้</div></li>
+                <li class="choice-item"><span class="choice-marker">3</span><div class="choice-content">ฮาร์ดแวร์ระบบเครือข่ายอาจจะมีปัญหาได้</div></li>
+                <li class="choice-item"><span class="choice-marker">4</span><div class="choice-content">เครื่องทั้งหมดในระบบเครือข่ายทั้งระบบอาจจะรับส่งข้อมูลไม่ได้</div></li>
+            </ul>
+            <div class="reason-box"><strong>เหตุผล:</strong> เกิดภาวะ <b>IP Address Conflict</b> ทำให้ Router/Switch สับสนว่าจะส่งข้อมูลไปยัง MAC Address ของเครื่องใด ส่งผลให้เครื่องที่มี IP ซ้ำกันหลุดการเชื่อมต่อหรือรับส่งข้อมูลไม่ได้ แต่ไม่ทำให้ฮาร์ดแวร์พังหรือล่มทั้งเครือข่าย</div>
+            <div class="supplement-box"><strong>เนื้อหาเสริม: วิธีป้องกันและแก้ไข IP ชนกัน</strong>
+                มักเกิดจากการตั้งค่า Static IP แบบกำหนดเองซ้ำกับช่วงที่ตัวแจก IP อัตโนมัติ (DHCP Server) ใช้งานอยู่ แก้ได้โดยเปลี่ยนการตั้งค่าเป็น Obtain an IP address automatically (DHCP)
+            </div>
+        </div>
+    </section>
+
+    <!-- MODULE 2 -->
+    <section id="mod2" class="module-section">
+        <div class="module-header">
+            <h2>ชุดที่ 2: ความมั่นคงปลอดภัยทางไซเบอร์เบื้องต้น (Cybersecurity Basics)</h2>
+            <span>จำนวน 15 ข้อ — Social Engineering, รหัสผ่าน, มัลแวร์, ความเป็นส่วนตัว และการใช้งานสาธารณะ</span>
+        </div>
+
+        <div class="question-card">
+            <div class="q-title"><span class="q-badge">ข้อ 1</span> การทำ Social Engineer กับเป้าหมาย จำเป็นจะต้องเข้าถึงต้องเป้าหมายและมีปฏิสัมพันธ์กับเป้าหมายเสมอใช่หรือไม่</div>
+            <ul class="choices-list">
+                <li class="choice-item"><span class="choice-marker">1</span><div class="choice-content">ใช่</div></li>
+                <li class="choice-item correct"><span class="choice-marker">&check;</span><div class="choice-content">ไม่ใช่</div></li>
+            </ul>
+            <div class="reason-box"><strong>เหตุผล:</strong> Social Engineering ทำได้ทั้งแบบมีปฏิสัมพันธ์ (โทรหลอกถามรหัส) และแบบไม่มีปฏิสัมพันธ์โดยตรง เช่น <b>Baiting</b> (วางแฟลชไดรฟ์ที่มีมัลแวร์ทิ้งไว้) หรือ <b>Watering Hole</b> (ดักฝังโค้ดในเว็บที่เหยื่อเข้าบ่อย)</div>
+            <div class="supplement-box"><strong>เนื้อหาเสริม: เทคนิค Social Engineering ยอดฮิต</strong>
+                - <b>Phishing:</b> ส่งอีเมล/SMS ปลอมแนบลิงก์หลอกให้กรอกรหัสผ่าน<br>
+                - <b>Pretexting:</b> สร้างเรื่องราวสมมติ (เช่น อ้างเป็นฝ่าย IT) เพื่อหลอกขอข้อมูล<br>
+                - <b>Tailgating:</b> เดินตามพนักงานที่มีบัตรผ่านเข้าพื้นที่หวงห้ามโดยไม่แตะบัตรเอง
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="q-title"><span class="q-badge">ข้อ 2</span> ข้อใดไม่ใช่การตั้งรหัสผ่านที่ดี</div>
+            <ul class="choices-list">
+                <li class="choice-item"><span class="choice-marker">1</span><div class="choice-content">มีตัวอักขระพิเศษ ผสม ตัวเลข และ ตัวอักษร</div></li>
+                <li class="choice-item correct"><span class="choice-marker">&check;</span><div class="choice-content">ตั้งให้สั้น ๆ เพื่อจะได้จำได้ง่าย</div></li>
+                <li class="choice-item"><span class="choice-marker">3</span><div class="choice-content">ตั้งให้ยาว</div></li>
+                <li class="choice-item"><span class="choice-marker">4</span><div class="choice-content">ใช้ Password Manager ช่วยสร้างรหัสผ่าน</div></li>
+            </ul>
+            <div class="reason-box"><strong>เหตุผล:</strong> ความยาวของรหัสผ่านเป็นปัจจัยสำคัญที่สุดในการต้านทานการเดารหัสแบบสุ่ม (Brute Force Attack) รหัสผ่านที่สั้นเกินไปสามารถถูกถอดรหัสได้ภายในไม่กี่วินาที</div>
+            <div class="supplement-box"><strong>เนื้อหาเสริม: แนวทางตั้งรหัสผ่านยุคใหม่ (NIST Guidelines)</strong>
+                แนะนำให้ใช้ <b>Passphrase</b> (วลีรหัสผ่าน) ที่ยาว 12–16 ตัวอักษรขึ้นไป ไม่ซ้ำกันในแต่ละบริการ ใช้ Password Manager ช่วยจำ และเปิดใช้งาน <b>2FA / MFA</b> เสมอ
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="q-title"><span class="q-badge">ข้อ 3</span> Password ข้อใดต่อไปนี้ปลอดภัยที่สุด</div>
+            <ul class="choices-list">
+                <li class="choice-item"><span class="choice-marker">1</span><div class="choice-content">password123</div></li>
+                <li class="choice-item"><span class="choice-marker">2</span><div class="choice-content">ilovepizza</div></li>
+                <li class="choice-item correct"><span class="choice-marker">&check;</span><div class="choice-content">P@ssw0rd!</div></li>
+                <li class="choice-item"><span class="choice-marker">4</span><div class="choice-content">abcdef</div></li>
+            </ul>
+            <div class="reason-box"><strong>เหตุผล:</strong> เมื่อเปรียบเทียบตัวเลือกทั้งหมด <code>P@ssw0rd!</code> มีองค์ประกอบครบตามเกณฑ์ความซับซ้อน ทั้งตัวพิมพ์ใหญ่ พิมพ์เล็ก ตัวเลข และอักขระพิเศษ ส่วนตัวเลือกอื่นมีแค่ตัวพิมพ์เล็กและตัวเลขธรรมดา</div>
+            <div class="supplement-box"><strong>เนื้อหาเสริม: ข้อควรระวังของคำว่า P@ssw0rd!</strong>
+                แม้จะผ่านเกณฑ์ความซับซ้อนในข้อสอบ แต่ในโลกความจริงคำที่มีรูปแบบแทนตัวอักษรยอดนิยม (Leetspeak เช่น a=@, o=0) อยู่ในพจนานุกรมของแฮกเกอร์ (Dictionary Attack) จึงไม่ควรนำไปใช้จริง
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="q-title"><span class="q-badge">ข้อ 4</span> ข้อใดคือ Malware</div>
+            <ul class="choices-list">
+                <li class="choice-item"><span class="choice-marker">1</span><div class="choice-content">Software A จะทำงานได้ก็ต่อเมื่อใช้สิทธิ์ผู้ดูแลระบบเท่านั้น</div></li>
+                <li class="choice-item"><span class="choice-marker">2</span><div class="choice-content">Software B มี feature ที่จะ update ตัวมันเองอย่างเป็นประจำ</div></li>
+                <li class="choice-item"><span class="choice-marker">3</span><div class="choice-content">Software C คือ Opensource Software</div></li>
+                <li class="choice-item correct"><span class="choice-marker">&check;</span><div class="choice-content">Software D แอบเก็บข้อมูลผู้ใช้งานไปขาย</div></li>
+            </ul>
+            <div class="reason-box"><strong>เหตุผล:</strong> Malware (Malicious Software) คือซอฟต์แวร์ที่มีเจตนาร้าย พฤติกรรมที่แอบดักเก็บข้อมูลผู้ใช้โดยไม่แจ้งให้ทราบคือ <b>Spyware</b> ซึ่งเป็นมัลแวร์ประเภทหนึ่ง</div>
+            <div class="supplement-box"><strong>เนื้อหาเสริม: ประเภทของ Malware ที่ควรรู้จัก</strong>
+                - <b>Virus:</b> แพร่กระจายโดยการฝังตัวไปกับไฟล์อื่น ต้องอาศัยคนเปิดไฟล์<br>
+                - <b>Worm:</b> แพร่กระจายตัวเองผ่านเครือข่ายได้โดยไม่ต้องอาศัยคนคลิก<br>
+                - <b>Trojan:</b> ปลอมตัวเป็นโปรแกรมปกติ แต่แอบเปิดช่องโหว่ (Backdoor) ไว้เบื้องหลัง<br>
+                - <b>Ransomware:</b> เข้ารหัสล็อกไฟล์ในเครื่องแล้วเรียกค่าไถ่
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="q-title"><span class="q-badge">ข้อ 5</span> ใครคำนึงถึงเรื่อง privacy ได้ดีที่สุด</div>
+            <ul class="choices-list">
+                <li class="choice-item"><span class="choice-marker">1</span><div class="choice-content">คุณ Alice จด Password ที่ใช้ประจำ เอาไว้บนสมุดโน๊ต และวางทิ้งไว้บนโต๊ะทำงาน</div></li>
+                <li class="choice-item correct"><span class="choice-marker">&check;</span><div class="choice-content">คุณ Bob เอาเทปกาวปิดกล้อง Laptop ไว้เสมอ ป้องกันการแอบถ่ายโดยมิได้ตั้งใจ</div></li>
+                <li class="choice-item"><span class="choice-marker">3</span><div class="choice-content">คุณ Cat ขยำสำเนาบัตรประชาชนที่ไม่ได้ใช้แล้ว ทิ้งลงถังขยะ</div></li>
+                <li class="choice-item"><span class="choice-marker">4</span><div class="choice-content">คุณ Daisy ส่งไฟล์เอกสารสำคัญของบริษัท ผ่านโปรแกรม Line และ Messenger โดยมิได้เข้ารหัสก่อน</div></li>
+                <li class="choice-item"><span class="choice-marker">5</span><div class="choice-content">คุณ Ellen เก็บ ไฟล์เอกสารสำคัญ และข้อมูล Password ของบริษัท เอาไว้ใน Email ส่วนตัว</div></li>
+            </ul>
+            <div class="reason-box"><strong>เหตุผล:</strong> เป็นการป้องกันการละเมิดความเป็นส่วนตัวทางกายภาพ (Camfecting) ส่วนอีก 4 คนทำพฤติกรรมเสี่ยงต่อข้อมูลรั่วไหลทั้งหมด</div>
+            <div class="supplement-box"><strong>เนื้อหาเสริม: การทำลายเอกสารสำคัญ (Physical Security)</strong>
+                เอกสารที่มีข้อมูลส่วนบุคคล (PII) เช่น สำเนาบัตรประชาชน ควรใช้เครื่องทำลายเอกสาร (Paper Shredder) ก่อนทิ้ง เพื่อป้องกันการคุ้ยขยะหาข้อมูล (Dumpster Diving)
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="q-title"><span class="q-badge">ข้อ 6</span> ช่องทางใดที่น่าจะรอดพ้นจากการถูกติดตามมากที่สุด</div>
+            <ul class="choices-list">
+                <li class="choice-item"><span class="choice-marker">1</span><div class="choice-content">ใช้ Browser ท่องเว็บไซต์ผ่าน HTTPS</div></li>
+                <li class="choice-item"><span class="choice-marker">2</span><div class="choice-content">ใช้บริการ online shopping เลือกซื้อสินค้าในช่วง 12.12</div></li>
+                <li class="choice-item correct"><span class="choice-marker">&check;</span><div class="choice-content">ใช้โปรแกรม chat โดยเลือกการทำงานเป็นแบบเข้ารหัสตั้งแต่ต้นทางถึงปลายทาง (End-to-End Encryption)</div></li>
+                <li class="choice-item"><span class="choice-marker">4</span><div class="choice-content">เล่น quiz บน facebook แข่งกับเพื่อน</div></li>
+            </ul>
+            <div class="reason-box"><strong>เหตุผล:</strong> ระบบ End-to-End Encryption (E2EE) เข้ารหัสข้อความตั้งแต่เครื่องผู้ส่งจนถึงเครื่องผู้รับ ทำให้ทั้งคนกลางและตัวผู้ให้บริการเซิร์ฟเวอร์เองก็ไม่สามารถอ่านเนื้อหาได้</div>
+            <div class="supplement-box"><strong>เนื้อหาเสริม: HTTPS vs E2EE</strong>
+                - <b>HTTPS:</b> เข้ารหัสระหว่างเครื่องเรากับเซิร์ฟเวอร์ (เซิร์ฟเวอร์ยังอ่านข้อมูลได้)<br>
+                - <b>E2EE:</b> เข้ารหัสระหว่างผู้ส่งกับผู้รับโดยตรง (เซิร์ฟเวอร์เป็นเพียงทางผ่าน อ่านเนื้อหาไม่ได้ เช่น Signal, WhatsApp)
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="q-title"><span class="q-badge">ข้อ 7</span> วิธีการใดต่อไปนี้เป็นการชาร์จโทรศัพท์มือถือที่ปลอดภัยที่สุด ไม่เสี่ยงโดนขโมยข้อมูล</div>
+            <ul class="choices-list">
+                <li class="choice-item"><span class="choice-marker">1</span><div class="choice-content">ใช้สาย USB ของตัวเองเสียบกับ USB charger สาธารณะ</div></li>
+                <li class="choice-item"><span class="choice-marker">2</span><div class="choice-content">ใช้ adaptor ชาร์จของคนอื่นเสียบกับปลั๊กไฟสาธารณะ</div></li>
+                <li class="choice-item"><span class="choice-marker">3</span><div class="choice-content">ใช้สาย USB ของตัวเองเสียบกับ computer ของคนอื่น</div></li>
+                <li class="choice-item correct"><span class="choice-marker">&check;</span><div class="choice-content">ใช้ adaptor ชาร์จของตัวเองเสียบกับปลั๊กไฟสาธารณะ</div></li>
+            </ul>
+            <div class="reason-box"><strong>เหตุผล:</strong> พอร์ต USB มีทั้งสายส่งไฟและสายส่งข้อมูล การเสียบกับพอร์ต USB สาธารณะเสี่ยงต่อการถูกดูดข้อมูลหรือฝังมัลแวร์ (<b>Juice Jacking</b>) แต่การใช้อะแดปเตอร์ของตัวเองเสียบปลั๊กไฟบ้านจะจ่ายเฉพาะกระแสไฟฟ้าเท่านั้น</div>
+            <div class="supplement-box"><strong>เนื้อหาเสริม: ทางเลือกหากจำเป็นต้องเสียบพอร์ต USB สาธารณะ</strong>
+                สามารถใช้อุปกรณ์เสริมที่เรียกว่า <b>USB Data Blocker</b> คั่นกลาง ซึ่งจะตัดขาสัญญาณข้อมูลออก เหลือไว้เฉพาะขาส่งกระแสไฟฟ้า
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="q-title"><span class="q-badge">ข้อ 8</span> ข้อใดต่อไปนี้ เป็นไม่ใช่ความเสี่ยงของการใช้งาน face recognition เพื่อยืนยันตัวตนบนมือถือ</div>
+            <ul class="choices-list">
+                <li class="choice-item"><span class="choice-marker">1</span><div class="choice-content">คนที่มีหน้าตาคล้ายกันมากหรือเหมือนกันมีโอกาสที่จะปลดล็อคมือถือเครื่องเดียวกันได้</div></li>
+                <li class="choice-item"><span class="choice-marker">2</span><div class="choice-content">สามารถถูกบังคับให้ปลดล็อคมือถือได้ง่าย</div></li>
+                <li class="choice-item correct"><span class="choice-marker">&check;</span><div class="choice-content">ใช้งาน passcode ที่สามารถคาดเดาได้ง่าย</div></li>
+                <li class="choice-item"><span class="choice-marker">4</span><div class="choice-content">ไม่มีข้อถูก</div></li>
+            </ul>
+            <div class="reason-box"><strong>เหตุผล:</strong> การตั้ง Passcode ที่คาดเดาง่ายเป็นความเสี่ยงของระบบยืนยันตัวตนด้วยรหัสผ่าน (PIN/Passcode) ไม่ใช่ความเสี่ยงโดยตรงของระบบสแกนใบหน้า (Face Recognition)</div>
+            <div class="supplement-box"><strong>เนื้อหาเสริม: จุดอ่อนของ Biometrics (ชีวมิติ)</strong>
+                ลักษณะทางกายภาพ (ใบหน้า ลายนิ้วมือ) สะดวกแต่มีข้อจำกัดคือ <b>"เปลี่ยนใหม่ไม่ได้"</b> หากข้อมูลรั่วไหล และอาจเกิดกรณีฝาแฝดปลดล็อกแทนกันได้ หรือถูกบังคับสแกนขณะหลับ/หมดสติ
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="q-title"><span class="q-badge">ข้อ 9</span> ในกรณีที่ซื้อโทรศัพท์มือถือมือสองมาใช้งาน ในแง่ของความมั่นคงปลอดภัย เพราะเหตุใด จึงต้องลบข้อมูลและ reset การตั้งค่าเก่าทั้งหมด ทิ้งไป (factory reset) ก่อนที่จะนำมาใช้งาน</div>
+            <ul class="choices-list">
+                <li class="choice-item"><span class="choice-marker">1</span><div class="choice-content">เพื่อให้มีที่ว่างใน Storage มากขึ้น</div></li>
+                <li class="choice-item correct"><span class="choice-marker">&check;</span><div class="choice-content">ลดความเสี่ยงในการถูกขโมยข้อมูลจากการที่ผู้ใช้คนก่อนติดตั้ง malware มาในโทรศัพท์มือถือ เพื่อขโมยข้อมูลของเรา</div></li>
+                <li class="choice-item"><span class="choice-marker">3</span><div class="choice-content">ยืดอายุการใช้งานของโทรศัพท์มือถือ</div></li>
+                <li class="choice-item"><span class="choice-marker">4</span><div class="choice-content">ป้องกันการโทรผิดจากเจ้าหนี้ของผู้ใช้คนก่อน</div></li>
+            </ul>
+            <div class="reason-box"><strong>เหตุผล:</strong> เจ้าของเดิมหรือร้านค้าที่ไม่ประสงค์ดีอาจแอบติดตั้งแอปพลิเคชันติดตามตัว (Stalkerware) หรือ Keylogger ไว้ล่วงหน้า การทำ Factory Reset จะล้างแอปพลิเคชันและการตั้งค่าแปลกปลอมออกทั้งหมด</div>
+            <div class="supplement-box"><strong>เนื้อหาเสริม: ข้อควรปฏิบัติทั้งฝั่งผู้ซื้อและผู้ขายมือถือมือสอง</strong>
+                - <b>ผู้ขาย:</b> ควรเข้ารหัสข้อมูล (Encryption) ก่อนทำการ Factory Reset เพื่อป้องกันการกู้คืนไฟล์เก่า<br>
+                - <b>ผู้ซื้อ:</b> ควรตรวจสอบว่าเครื่องไม่ได้ติดล็อกบัญชีเดิม (iCloud / Google FRP) และอัปเดต OS ให้เป็นเวอร์ชันล่าสุดทันที
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="q-title"><span class="q-badge">ข้อ 10</span> การใช้งาน public Wi-Fi ในข้อใดต่อไปนี้ มีความเสี่ยงที่จะถูกขโมยข้อมูลน้อยที่สุด</div>
+            <ul class="choices-list">
+                <li class="choice-item"><span class="choice-marker">1</span><div class="choice-content">กรอก username และ password ของ email ของตนเอง เพื่อ login เข้าใช้งาน public Wi-Fi</div></li>
+                <li class="choice-item"><span class="choice-marker">2</span><div class="choice-content">เมื่อมีแจ้งเตือนจากหน้า login ของ public Wi-Fi ว่าให้ติดตั้งโปรแกรมบางโปรแกรมก่อนจึงจะสามารถใช้งาน internet ได้อย่างปลอดภัย ให้รีบทำการติดตั้งทันที</div></li>
+                <li class="choice-item correct"><span class="choice-marker">&check;</span><div class="choice-content">ใช้งาน HTTPS หรือ VPN เสมอขณะที่กำลังเชื่อมต่อ public Wi-Fi</div></li>
+                <li class="choice-item"><span class="choice-marker">4</span><div class="choice-content">กรอกเลขบัตรประจำตัวประชาชนของตนเองลงไปในหน้า login ของ public Wi-Fi เพื่อให้ใช้งาน Internet ได้</div></li>
+            </ul>
+            <div class="reason-box"><strong>เหตุผล:</strong> Wi-Fi สาธารณะมักไม่มีการเข้ารหัสระดับเครือข่าย ทำให้แฮกเกอร์ในวงเดียวกันดักจับข้อมูลได้ง่าย การใช้ HTTPS และ VPN จะสร้างอุโมงค์เข้ารหัสข้อมูลไว้ ทำให้ดักจับไปก็อ่านไม่ออก</div>
+            <div class="supplement-box"><strong>เนื้อหาเสริม: อันตรายจาก Evil Twin Wi-Fi</strong>
+                แฮกเกอร์มักตั้งชื่อ Hotspot ปลอมให้คล้ายกับชื่อ Wi-Fi ของร้านกาแฟหรือสนามบิน เพื่อหลอกให้เครื่องเราเชื่อมต่ออัตโนมัติและดักขโมยรหัสผ่าน
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="q-title"><span class="q-badge">ข้อ 11</span> การใช้งานเครื่องคอมพิวเตอร์สาธารณะในข้อใดต่อไปนี้มีความเสี่ยงที่จะถูกขโมยข้อมูลน้อยที่สุด</div>
+            <ul class="choices-list">
+                <li class="choice-item"><span class="choice-marker">1</span><div class="choice-content">ใช้เครื่องคอมพิวเตอร์สาธารณะในการ login เข้าสู่ระบบ email</div></li>
+                <li class="choice-item correct"><span class="choice-marker">&check;</span><div class="choice-content">ใช้เครื่องคอมพิวเตอร์สาธารณะในการค้นหาข้อมูลทั่วไป ไม่ได้มีการใช้งาน website ที่ต้องป้อนข้อมูลส่วนตัวหรือข้อมูลที่เป็นความลับ เช่น username และ password</div></li>
+                <li class="choice-item"><span class="choice-marker">3</span><div class="choice-content">เชื่อมต่อมือถือเข้ากับเครื่องคอมพิวเตอร์สาธารณะเพื่อถ่ายโอนข้อมูล</div></li>
+                <li class="choice-item"><span class="choice-marker">4</span><div class="choice-content">ใช้เครื่องคอมพิวเตอร์สาธารณะในการ login เข้าสู่ระบบ social media</div></li>
+            </ul>
+            <div class="reason-box"><strong>เหตุผล:</strong> คอมพิวเตอร์สาธารณะอาจถูกติดตั้งโปรแกรมหรือฮาร์ดแวร์ดักจับการพิมพ์ (Keylogger) และบันทึกประวัติการใช้งานไว้ การไม่ล็อกอินบัญชีส่วนตัวและไม่เสียบอุปกรณ์ส่วนตัวจึงปลอดภัยที่สุด</div>
+            <div class="supplement-box"><strong>เนื้อหาเสริม: หากจำเป็นต้องล็อกอินบนเครื่องสาธารณะ</strong>
+                ควรเปิดโหมดไม่ระบุตัวตน (Incognito Mode) เสมอ ไม่กด "จำรหัสผ่าน" และกด Logout ทุกครั้งหลังใช้งานเสร็จ
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="q-title"><span class="q-badge">ข้อ 12</span> เครื่องของใครน่าจะถูก Hack</div>
+            <ul class="choices-list">
+                <li class="choice-item"><span class="choice-marker">1</span><div class="choice-content">เครื่องของ Johny ใช้ Microsoft Window บ่อยครั้งมีข้อความแสดงให้ทำการ activate ตัว MS Window</div></li>
+                <li class="choice-item"><span class="choice-marker">2</span><div class="choice-content">เครื่องของ Bobby ใช้ Mac OS และ update สม่ำเสมอ</div></li>
+                <li class="choice-item correct"><span class="choice-marker">&check;</span><div class="choice-content">เครื่องของ Nanny มี folder ที่เต็มไปด้วย software เถื่อน</div></li>
+                <li class="choice-item"><span class="choice-marker">4</span><div class="choice-content">เครื่องของ Anthony ติดตั้ง Antivirus</div></li>
+            </ul>
+            <div class="reason-box"><strong>เหตุผล:</strong> โปรแกรมเถื่อนหรือตัว Crack มักถูกดัดแปลงโค้ดเพื่อฝัง Trojan, Backdoor หรือ Ransomware มาพร้อมกับตัวติดตั้ง และผู้ใช้มักต้องปิดแอนตี้ไวรัสเพื่อรันไฟล์ Crack ซึ่งเป็นการเปิดช่องให้แฮกเกอร์โดยตรง</div>
+            <div class="supplement-box"><strong>เนื้อหาเสริม: ความสำคัญของการอัปเดตซอฟต์แวร์</strong>
+                การหมั่นอัปเดต OS และซอฟต์แวร์ (Patch Management) อย่าง Bobby ช่วยอุดช่องโหว่ความปลอดภัยที่แฮกเกอร์ใช้เจาะระบบ
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="q-title"><span class="q-badge">ข้อ 13</span> ข้อใดคือวัตถุประสงค์ของการใช้ VPN (Virtual Private Network)</div>
+            <ul class="choices-list">
+                <li class="choice-item correct"><span class="choice-marker">&check;</span><div class="choice-content">ป้องกันการรั่วไหลของข้อมูลไปสู่เครือข่ายสาธารณะ</div></li>
+                <li class="choice-item"><span class="choice-marker">2</span><div class="choice-content">เพิ่มความเร็ว Internet</div></li>
+                <li class="choice-item"><span class="choice-marker">3</span><div class="choice-content">Block การเข้าถึงเว็บไซต์ที่ไม่เหมาะสม</div></li>
+                <li class="choice-item"><span class="choice-marker">4</span><div class="choice-content">หลบเลี่ยง Firewalls</div></li>
+            </ul>
+            <div class="reason-box"><strong>เหตุผล:</strong> VPN สร้างอุโมงค์เชื่อมต่อแบบเข้ารหัส (Encrypted Tunnel) จากอุปกรณ์ของเราไปยัง VPN Server ช่วยปกป้องข้อมูลและซ่อน IP จริงขณะใช้งานบนเครือข่ายสาธารณะ</div>
+            <div class="supplement-box"><strong>เนื้อหาเสริม: ผลข้างเคียงของการใช้ VPN</strong>
+                การใช้ VPN มักทำให้ความเร็วอินเทอร์เน็ต <b>ช้าลงเล็กน้อย</b> (ไม่ใช่อัปสปีดให้เร็วขึ้น) เนื่องจากต้องเสียเวลาเข้ารหัส/ถอดรหัสข้อมูล และข้อมูลต้องเดินทางอ้อมผ่านเซิร์ฟเวอร์ VPN
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="q-title"><span class="q-badge">ข้อ 14</span> ข้อใดไม่ใช่ประเภทของการโจมตีแบบ Social Engineering</div>
+            <ul class="choices-list">
+                <li class="choice-item"><span class="choice-marker">1</span><div class="choice-content">Phishing</div></li>
+                <li class="choice-item"><span class="choice-marker">2</span><div class="choice-content">Shoulder surfing</div></li>
+                <li class="choice-item correct"><span class="choice-marker">&check;</span><div class="choice-content">Denial of Service (DoS)</div></li>
+                <li class="choice-item"><span class="choice-marker">4</span><div class="choice-content">Pretexting</div></li>
+            </ul>
+            <div class="reason-box"><strong>เหตุผล:</strong> DoS เป็นการโจมตีทางเทคนิคด้วยการยิงคำขอปริมาณมหาศาลเข้าถล่มเซิร์ฟเวอร์จนระบบล่ม ไม่ได้ใช้การหลอกลวงมนุษย์เหมือน Phishing, Shoulder surfing และ Pretexting</div>
+            <div class="supplement-box"><strong>เนื้อหาเสริม: DoS vs DDoS</strong>
+                - <b>DoS:</b> โจมตีจากเครื่องต้นทางเครื่องเดียว<br>
+                - <b>DDoS (Distributed DoS):</b> ใช้เครือข่ายเครื่องคอมพิวเตอร์ที่ติดมัลแวร์นับหมื่นนับแสนเครื่อง (Botnet) รุมโจมตีเป้าหมายพร้อมกัน
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="q-title"><span class="q-badge">ข้อ 15</span> ข้อใดคือจุดประสงค์ของการ Encrypt ข้อมูล</div>
+            <ul class="choices-list">
+                <li class="choice-item"><span class="choice-marker">1</span><div class="choice-content">ทำให้ข้อมูลเข้าถึงง่ายมากขึ้น</div></li>
+                <li class="choice-item"><span class="choice-marker">2</span><div class="choice-content">เพื่อซ่อนข้อมูลจาก Authorized users</div></li>
+                <li class="choice-item correct"><span class="choice-marker">&check;</span><div class="choice-content">เพื่อปกป้องข้อมูลจากการเข้าถึงที่ไม่ได้รับการยืนยัน</div></li>
+                <li class="choice-item"><span class="choice-marker">4</span><div class="choice-content">เพื่อเพิ่มความเร็วในการส่งต่อข้อมูล</div></li>
+            </ul>
+            <div class="reason-box"><strong>เหตุผล:</strong> การเข้ารหัส (Encryption) คือการแปลงข้อมูลปกติ (Plaintext) ให้กลายเป็นข้อมูลที่อ่านไม่รู้เรื่อง (Ciphertext) เพื่อรักษาความลับ ให้เปิดอ่านได้เฉพาะผู้ที่มีกุญแจถอดรหัสที่ถูกต้องเท่านั้น</div>
+            <div class="supplement-box"><strong>เนื้อหาเสริม: หลักการ CIA Triad ในความปลอดภัยข้อมูล</strong>
+                1. <b>Confidentiality (ความลับ):</b> ป้องกันคนไม่มีสิทธิ์อ่าน (Encryption)<br>
+                2. <b>Integrity (ความถูกต้องครบถ้วน):</b> ป้องกันการแก้ไขปลอมแปลง (Hashing)<br>
+                3. <b>Availability (ความพร้อมใช้งาน):</b> ระบบต้องพร้อมให้บริการตลอดเวลา (ป้องกัน DDoS, Backup)
+            </div>
+        </div>
+    </section>
+
+    <!-- MODULE 3 -->
+    <section id="mod3" class="module-section">
+        <div class="module-header">
+            <h2>ชุดที่ 3: การพัฒนาเว็บเบื้องต้น (HTML & CSS)</h2>
+            <span>จำนวน 12 ข้อ — โครงสร้าง HTML5, DOM Tree, Table, Hyperlink และ CSS Styling</span>
+        </div>
+
+        <div class="question-card">
+            <div class="q-title"><span class="q-badge">ข้อ 1</span> ข้อใดต่อไปนี้กล่าวผิดเกี่ยวกับกระบวนการร้องขอหน้าเว็บ</div>
+            <ul class="choices-list">
+                <li class="choice-item correct"><span class="choice-marker">&check;</span><div class="choice-content">HTTP ทำหน้าที่ระบุที่อยู่เว็บ ที่อยู่ไฟล์ ที่อยู่ของทรัพยากรต่าง ๆ บนระบบอินเทอร์เน็ต</div></li>
+                <li class="choice-item"><span class="choice-marker">2</span><div class="choice-content">ภาษา HTML เป็นภาษาที่ประมวลผลบนเครื่อง Client</div></li>
+                <li class="choice-item"><span class="choice-marker">3</span><div class="choice-content">ภาษา PHP เป็นภาษาที่ประมวลผลบนเครื่อง Web Server</div></li>
+                <li class="choice-item"><span class="choice-marker">4</span><div class="choice-content">Web Browser เป็นโปรแกรมฝั่งเครื่อง client สำหรับสำหรับเรียกดูเว็บ</div></li>
+            </ul>
+            <div class="reason-box"><strong>เหตุผล:</strong> สิ่งที่ทำหน้าที่ระบุที่อยู่ของทรัพยากรบนเว็บคือ <b>URL (Uniform Resource Locator)</b> ส่วน HTTP เป็นโพรโทคอลกำหนดรูปแบบการรับส่งข้อมูลระหว่าง Client กับ Server</div>
+            <div class="supplement-box"><strong>เนื้อหาเสริม: Client-Side vs Server-Side</strong>
+                - <b>Client-Side (HTML, CSS, JS):</b> ส่งโค้ดมาประมวลผลและวาดหน้าเว็บที่เบราว์เซอร์ของผู้ใช้<br>
+                - <b>Server-Side (PHP, Python, Node.js):</b> ประมวลผลบนเซิร์ฟเวอร์ให้เสร็จก่อน แล้วส่งผลลัพธ์เป็น HTML กลับมาให้เบราว์เซอร์
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="q-title"><span class="q-badge">ข้อ 2</span> HTML เวอร์ชั่นใดต่อไปนี้ ที่มีการเสริมการทำงานให้รองรับการสร้างเว็บเพจที่ปรับเปลี่ยนได้ (dynamic) และรองรับองค์ประกอบมัลติมีเดีย เช่น video, audio และ animation บนเว็บเพจ</div>
+            <ul class="choices-list">
+                <li class="choice-item"><span class="choice-marker">1</span><div class="choice-content">HTML2</div></li>
+                <li class="choice-item"><span class="choice-marker">2</span><div class="choice-content">HTML3</div></li>
+                <li class="choice-item"><span class="choice-marker">3</span><div class="choice-content">HTML4</div></li>
+                <li class="choice-item correct"><span class="choice-marker">&check;</span><div class="choice-content">HTML5</div></li>
+            </ul>
+            <div class="reason-box"><strong>เหตุผล:</strong> HTML5 เปิดตัวแท็กมัลติมีเดียพื้นฐานอย่าง <code>&lt;video&gt;</code>, <code>&lt;audio&gt;</code> และ <code>&lt;canvas&gt;</code> ทำให้เล่นสื่อบนเว็บได้ทันทีโดยไม่ต้องติดตั้งปลั๊กอินเสริมอย่าง Adobe Flash</div>
+            <div class="supplement-box"><strong>เนื้อหาเสริม: Semantic Tags ใน HTML5</strong>
+                HTML5 เพิ่มแท็กที่บอกความหมายโครงสร้างเว็บชัดเจน เช่น <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;article&gt;</code>, <code>&lt;section&gt;</code> และ <code>&lt;footer&gt;</code> ช่วยให้ SEO ทำงานได้ดีขึ้น
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="q-title"><span class="q-badge">ข้อ 3</span> พิจารณารหัสเอชทีเอ็มแอลของหน้าเว็บต่อไปนี้ ข้อใดต่อไปนี้กล่าวผิดเกี่ยวกับตำแหน่งของ element ต่าง ๆ ในต้นไม้ดอม (DOM Tree)</div>
+            <pre><code>&lt;!DOCTYPE html&gt; 
+&lt;html&gt; 
+&lt;body&gt; 
+&lt;h1&gt;Street Food Destinations&lt;/h1&gt; 
+&lt;p&gt;Explore street food in  
+&lt;a href="https://www.willflyforfood.net/bangkok-street-food/"&gt; 
+Bangkok&lt;/a&gt;&lt;/p&gt; 
+&lt;img src="img_foodbkk.jpg" alt="Bangkok Street Food" width="500" height="600"&gt; 
+&lt;/body&gt; 
+&lt;/html&gt;</code></pre>
+            <ul class="choices-list">
+                <li class="choice-item"><span class="choice-marker">a</span><div class="choice-content">Element Node ที่นำเสนอแท็ก &lt;body&gt;…&lt;/body&gt; เป็น parent ของ Element Node ที่นำเสนอแท็ก &lt;h1&gt;…&lt;/h1&gt;</div></li>
+                <li class="choice-item correct"><span class="choice-marker">&check;</span><div class="choice-content"><strong>ข้อ b.</strong> Element Node ที่นำเสนอแท็ก &lt;img&gt; เป็น child ของ Element Node ที่นำเสนอแท็ก &lt;p&gt;…&lt;/p&gt;</div></li>
+                <li class="choice-item"><span class="choice-marker">c</span><div class="choice-content">Element Node ที่นำเสนอแท็ก &lt;img&gt; เป็น Sibling ของ Element Node ที่นำเสนอแท็ก &lt;h1&gt;…&lt;/h1&gt;</div></li>
+                <li class="choice-item"><span class="choice-marker">d</span><div class="choice-content">Text ที่บรรจุใน HTML Element แท็ก &lt;h1&gt;…&lt;/h1&gt; เป็น Text Node</div></li>
+            </ul>
+            <div class="reason-box"><strong>เหตุผล:</strong> จากโค้ด แท็ก <code>&lt;/p&gt;</code> ปิดเรียบร้อยแล้วก่อนจะถึงแท็ก <code>&lt;img&gt;</code> ดังนั้นทั้ง <code>&lt;h1&gt;</code>, <code>&lt;p&gt;</code> และ <code>&lt;img&gt;</code> จึงอยู่ในระดับเดียวกัน (เป็น <b>Sibling / พี่น้อง</b> กัน) และเป็น <b>Child</b> ของ <code>&lt;body&gt;</code></div>
+            <div class="supplement-box"><strong>เนื้อหาเสริม: ประเภทของ Node หลักใน DOM Tree</strong>
+                1. <b>Document Node</b> | 2. <b>Element Node</b> (แท็ก HTML) | 3. <b>Text Node</b> (ข้อความข้างในแท็ก) | 4. <b>Attribute Node</b> (แอตทริบิวต์ในแท็กเปิด)
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="q-title"><span class="q-badge">ข้อ 4</span> ข้อใดต่อไปนี้กล่าวผิดเกี่ยวกับการสร้างเอกสารรหัสเอชทีเอ็มแอล (HTML Document) ตามโครงสร้างพื้นฐานของรหัสเอชทีเอ็มแอล</div>
+            <ul class="choices-list">
+                <li class="choice-item"><span class="choice-marker">a</span><div class="choice-content">แท็ก &lt;head&gt;…&lt;/head&gt; นำเสนอส่วนหัวของเอกสาร HTML ที่บรรจุข้อมูลที่อธิบายเอกสาร HTML นั้น เช่น ชื่อหัวข้อ (Title)</div></li>
+                <li class="choice-item"><span class="choice-marker">b</span><div class="choice-content">HTML Element สามารถมี attribute ได้เพื่อระบุข้อมูลเพิ่มเติมเกี่ยวกับ HTML Element นั้น ๆ โดยกำหนดไว้ในแท็กเปิด</div></li>
+                <li class="choice-item correct"><span class="choice-marker">&check;</span><div class="choice-content"><strong>ข้อ c.</strong> alt เป็น Global Attributes ที่ใช้ได้กับ HTML Element ทุกประเภท</div></li>
+                <li class="choice-item"><span class="choice-marker">d</span><div class="choice-content">&lt;!DOCTYPE html&gt; เป็นส่วนที่ระบุว่าเอกสารนี้เป็น HTML5</div></li>
+            </ul>
+            <div class="reason-box"><strong>เหตุผล:</strong> <code>alt</code> ใช้ได้เฉพาะกับแท็กที่เกี่ยวกับรูปภาพเท่านั้น เช่น <code>&lt;img&gt;</code>, <code>&lt;area&gt;</code> และ <code>&lt;input type="image"&gt;</code> ไม่ใช่ Global Attribute</div>
+            <div class="supplement-box"><strong>เนื้อหาเสริม: ตัวอย่าง Global Attributes ที่ใช้ได้กับทุกแท็ก</strong>
+                เช่น <code>id</code>, <code>class</code>, <code>style</code>, <code>title</code>, <code>lang</code>, <code>hidden</code> และ <code>data-*</code>
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="q-title"><span class="q-badge">ข้อ 5</span> จงพิจารณารหัสเอชทีเอ็มแอลของหน้าเว็บเพื่อนำเสนอรายการที่มีลำดับ (1. Milk, 2. Honey) รหัสเอชทีเอ็มแอลข้างต้น มีข้อผิดพลาดหรือไม่ หากมี ควรเป็นไปตามข้อใด</div>
+            <pre><code>&lt;!DOCTYPE html&gt; 
+&lt;html&gt; 
+&lt;body&gt; 
+&lt;li&gt; 
+ &lt;oi&gt;Milk&lt;/oi&gt; 
+ &lt;oi&gt;Honey&lt;/oi&gt; 
+&lt;/li&gt; 
+&lt;/body&gt; 
+&lt;/html&gt;</code></pre>
+            <ul class="choices-list">
+                <li class="choice-item"><span class="choice-marker">a</span><div class="choice-content">ไม่มีข้อผิดพลาด</div></li>
+                <li class="choice-item"><span class="choice-marker">b</span><div class="choice-content">มีข้อผิดพลาด โดยรหัสที่ถูกต้องใช้ <code>&lt;li&gt; &lt;ol&gt;Milk&lt;/ol&gt; &lt;oi&gt;Honey&lt;/oi&gt; &lt;/li&gt;</code></div></li>
+                <li class="choice-item"><span class="choice-marker">c</span><div class="choice-content">มีข้อผิดพลาด โดยรหัสที่ถูกต้องใช้ <code>&lt;ul&gt; &lt;li&gt;Milk&lt;/li&gt; &lt;li&gt;Honey&lt;/li&gt; &lt;/ul&gt;</code></div></li>
+                <li class="choice-item correct"><span class="choice-marker">&check;</span><div class="choice-content"><strong>ข้อ d.</strong> มีข้อผิดพลาด โดยรหัสเอชทีเอ็มแอลที่ถูกต้องควรเป็นดังนี้
+                    <pre><code>&lt;!DOCTYPE html&gt; 
+&lt;html&gt; 
+&lt;body&gt; 
+&lt;ol&gt; 
+ &lt;li&gt;Milk&lt;/li&gt; 
+ &lt;li&gt;Honey&lt;/li&gt; 
+&lt;/ol&gt; 
+&lt;/body&gt; 
+&lt;/html&gt;</code></pre>
+                </div></li>
+            </ul>
+            <div class="reason-box"><strong>เหตุผล:</strong> รายการแบบมีลำดับเลข (Ordered List) ใช้แท็ก <code>&lt;ol&gt;</code> เป็นตัวครอบด้านนอก และใช้แท็ก <code>&lt;li&gt;</code> (List Item) สำหรับแต่ละรายการย่อย (ส่วนข้อ c ใช้ <code>&lt;ul&gt;</code> ซึ่งแสดงเป็นจุด Bullet)</div>
+            <div class="supplement-box"><strong>เนื้อหาเสริม: List 3 แบบใน HTML</strong>
+                - <code>&lt;ol&gt;</code> (Ordered List): มีลำดับ (1, 2, 3) | - <code>&lt;ul&gt;</code> (Unordered List): ไม่มีลำดับ (จุด Bullet) | - <code>&lt;dl&gt;</code> (Description List): รายการคำศัพท์และคำอธิบาย
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="q-title"><span class="q-badge">ข้อ 6</span> ในการสร้างเนื้อหาแบบตาราง หากต้องการให้เซลล์ของตารางครอบคลุม 2 แถว ต้องตั้งแอททริบิวต์ใดให้กับแท็กใดอย่างไร</div>
+            <ul class="choices-list">
+                <li class="choice-item"><span class="choice-marker">a</span><div class="choice-content"><code>&lt;tr rowspan="2"&gt; … &lt;/tr&gt;</code></div></li>
+                <li class="choice-item"><span class="choice-marker">b</span><div class="choice-content"><code>&lt;tr colspan="2"&gt; … &lt;/tr&gt;</code></div></li>
+                <li class="choice-item correct"><span class="choice-marker">&check;</span><div class="choice-content"><strong>ข้อ c.</strong> <code>&lt;td rowspan="2"&gt; … &lt;/td&gt;</code></div></li>
+                <li class="choice-item"><span class="choice-marker">d</span><div class="choice-content"><code>&lt;td colspan="2"&gt; … &lt;/td&gt;</code></div></li>
+            </ul>
+            <div class="reason-box"><strong>เหตุผล:</strong> การผสานเซลล์ในแนวตั้ง (รวมหลายแถว) ใช้แอตทริบิวต์ <code>rowspan</code> โดยต้องกำหนดที่ตัวเซลล์ (<code>&lt;td&gt;</code> หรือ <code>&lt;th&gt;</code>) ไม่ใช่ที่แท็กแถว (<code>&lt;tr&gt;</code>)</div>
+            <div class="supplement-box"><strong>เนื้อหาเสริม: เทคนิคจำง่ายๆ</strong>
+                - <b>rowspan:</b> ขยายข้าม <b>Row</b> (แนวตั้ง/ลงล่าง) | - <b>colspan:</b> ขยายข้าม <b>Column</b> (แนวนอน/ไปทางขวา)
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="q-title"><span class="q-badge">ข้อ 7</span> ถ้าต้องการกำหนดลิงก์ (hyperlink) เพื่อเปิดหน้าเว็บ https://www.chula.ac.th บนพื้นที่เต็มของหน้าต่างซึ่งเป็นเฟรมระดับบนสุด ต้องกำหนด HTML Element เป็นอย่างไร</div>
+            <ul class="choices-list">
+                <li class="choice-item correct"><span class="choice-marker">&check;</span><div class="choice-content"><strong>ข้อ a.</strong> <code>&lt;a href="https://www.chula.ac.th" target="_top"&gt;Chula&lt;/a&gt;</code></div></li>
+                <li class="choice-item"><span class="choice-marker">b</span><div class="choice-content"><code>&lt;a href="https://www.chula.ac.th" target="_blank"&gt;Chula&lt;/a&gt;</code></div></li>
+                <li class="choice-item"><span class="choice-marker">c</span><div class="choice-content"><code>&lt;a src="https://www.chula.ac.th"&gt;Chula&lt;/a&gt;</code></div></li>
+                <li class="choice-item"><span class="choice-marker">d</span><div class="choice-content"><code>&lt;a href="https://www.chula.ac.th" target="_parent"&gt;Chula&lt;/a&gt;</code></div></li>
+            </ul>
+            <div class="reason-box"><strong>เหตุผล:</strong> แอตทริบิวต์ <code>target="_top"</code> สั่งให้เปิดลิงก์ในหน้าต่างเบราว์เซอร์เต็มพื้นที่ระดับบนสุด (ทะลุออกจาก <code>&lt;iframe&gt;</code> ซ้อนๆ กันทั้งหมด)</div>
+            <div class="supplement-box"><strong>เนื้อหาเสริม: ค่าของ target ในแท็ก &lt;a&gt;</strong>
+                - <code>_self</code>: เปิดในเฟรม/แท็บเดิม | - <code>_blank</code>: เปิดในแท็บใหม่ | - <code>_parent</code>: เปิดในเฟรมแม่ 1 ชั้น | - <code>_top</code>: เปิดเต็มหน้าต่างระดับบนสุดทั้งหมด
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="q-title"><span class="q-badge">ข้อ 8</span> รหัสภาษาซีเอสเอสในข้อใด แสดงการกำหนดให้ข้อความภายใต้ HTML element แท็ก &lt;p&gt;…&lt;/p&gt; มีสีข้อความเป็นสีเขียว และจัดวางข้อความไว้ชิดด้านขวา</div>
+            <ul class="choices-list">
+                <li class="choice-item correct"><span class="choice-marker">&check;</span><div class="choice-content"><strong>ข้อ a.</strong> <code>p { color:green; text-align:right; }</code></div></li>
+                <li class="choice-item"><span class="choice-marker">b</span><div class="choice-content"><code>p { color:green text-align:right }</code> (ขาดเครื่องหมาย ;)</div></li>
+                <li class="choice-item"><span class="choice-marker">c</span><div class="choice-content"><code>p { color:green, text-align:right }</code> (ใช้จุลภาคผิด)</div></li>
+                <li class="choice-item"><span class="choice-marker">d</span><div class="choice-content"><code>p ( color:green, text-align:right )</code> (ใช้วงเล็บโค้งผิด)</div></li>
+            </ul>
+            <div class="reason-box"><strong>เหตุผล:</strong> โครงสร้างไวยากรณ์ CSS ที่ถูกต้องคือ <code>selector { property: value; property: value; }</code> ต้องใช้วงเล็บปีกกา <code>{ }</code> และปิดท้ายแต่ละคำสั่งด้วยเครื่องหมายเซมิโคลอน <code>;</code></div>
+            <div class="supplement-box"><strong>เนื้อหาเสริม: Property จัดรูปแบบข้อความพื้นฐาน</strong>
+                - <code>color</code>: สีตัวอักษร (ไม่ใช่ font-color) | - <code>background-color</code>: สีพื้นหลัง | - <code>text-align</code>: จัดแนวข้อความ (left, right, center, justify)
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="q-title"><span class="q-badge">ข้อ 9</span> ข้อใดต่อไปนี้กล่าวผิดเกี่ยวกับการกำหนดไฟล์ประเภทซีเอสเอสให้แก่หน้าเว็บ</div>
+            <ul class="choices-list">
+                <li class="choice-item"><span class="choice-marker">a</span><div class="choice-content">นักพัฒนาสามารถใส่สไตล์ภาษาซีเอสเอส ผ่านแอททริบิวต์ style สำหรับ HTML element ที่ต้องการกำหนดสไตล์ได้</div></li>
+                <li class="choice-item"><span class="choice-marker">b</span><div class="choice-content">นักพัฒนาสามารถนำไฟล์สไตล์ นามสกุล .css ไปประยุกต์ใช้กับเอกสาร HTML ได้โดยอ้างอิงไว้ใน HTML Element &lt;link&gt; ในส่วน &lt;head&gt; … &lt;/head&gt; ของเอกสาร HTML</div></li>
+                <li class="choice-item correct"><span class="choice-marker">&check;</span><div class="choice-content"><strong>ข้อ c.</strong> ในการประกาศ CSS แบบ Internal ทำได้โดยใส่ selector และการประกาศสไตล์ไว้ใน HTML Element &lt;css&gt;…&lt;/css&gt; ในส่วน &lt;head&gt; … &lt;/head&gt; ของเอกสาร HTML นั้น ๆ</div></li>
+                <li class="choice-item"><span class="choice-marker">d</span><div class="choice-content">หากนักพัฒนาสามารถสร้างไฟล์สไตล์ภาษาซีเอสเอสเป็นไฟล์นามสกุล .css ที่บรรจุรายการของ selector และการประกาศสไตล์ นักพัฒนาสามารถนำไฟล์ที่สร้างนี้ไปประยุกต์ใช้กับเอกสาร HTML ได้ หลายเอกสาร</div></li>
+            </ul>
+            <div class="reason-box"><strong>เหตุผล:</strong> การเขียน CSS แบบ Internal ภายในหน้าเว็บ ต้องเขียนไว้ในแท็ก <code>&lt;style&gt;…&lt;/style&gt;</code> ใน HTML ไม่มีแท็กชื่อ <code>&lt;css&gt;</code></div>
+            <div class="supplement-box"><strong>เนื้อหาเสริม: 3 วิธีในการใส่ CSS และลำดับความสำคัญ</strong>
+                1. <b>Inline CSS:</b> เขียนในแอตทริบิวต์ <code>style="..."</code> (สำคัญสูงสุด) | 2. <b>Internal CSS:</b> เขียนในแท็ก <code>&lt;style&gt;</code> | 3. <b>External CSS:</b> แยกเป็นไฟล์ <code>.css</code> แล้วดึงมาใช้ด้วย <code>&lt;link&gt;</code>
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="q-title"><span class="q-badge">ข้อ 10</span> ข้อใดต่อไปนี้หมายถึงการกำหนดให้ HTML element ที่มี id เท่ากับ subtopic แสดงฟอนต์เป็นตัวเอน</div>
+            <ul class="choices-list">
+                <li class="choice-item"><span class="choice-marker">a</span><div class="choice-content"><code>?subtopic {font-style:italic;}</code></div></li>
+                <li class="choice-item"><span class="choice-marker">b</span><div class="choice-content"><code>.subtopic {font-style:italic;}</code></div></li>
+                <li class="choice-item"><span class="choice-marker">c</span><div class="choice-content"><code>$subtopic {font-style:italic;}</code></div></li>
+                <li class="choice-item correct"><span class="choice-marker">&check;</span><div class="choice-content"><strong>ข้อ d.</strong> <code>#subtopic {font-style:italic;}</code></div></li>
+            </ul>
+            <div class="reason-box"><strong>เหตุผล:</strong> ใน CSS Selector เครื่องหมายสี่เหลี่ยม <code>#</code> ใช้สำหรับอ้างอิงแอตทริบิวต์ <code>id</code> และใช้ <code>font-style: italic;</code> สำหรับทำตัวเอน</div>
+            <div class="supplement-box"><strong>เนื้อหาเสริม: ID (#) vs Class (.)</strong>
+                - <code>#idname</code>: ใช้กับ ID ซึ่งใน 1 หน้าเว็บควรมีชื่อนี้แค่ <b>1 จุดเท่านั้น</b> | - <code>.classname</code>: ใช้กับ Class ซึ่งนำไปแปะซ้ำกับกี่ Element ก็ได้
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="q-title"><span class="q-badge">ข้อ 11</span> ข้อใดต่อไปนี้แสดงประกาศสไตล์สำหรับกำหนดรูปแบบการแสดงผลให้แสดงแบบขึ้นบรรทัดใหม่ และแสดงผลเต็มความกว้างหน้าจอ</div>
+            <ul class="choices-list">
+                <li class="choice-item"><span class="choice-marker">a</span><div class="choice-content"><code>display:inline;</code></div></li>
+                <li class="choice-item correct"><span class="choice-marker">&check;</span><div class="choice-content"><strong>ข้อ b.</strong> <code>display:block;</code></div></li>
+                <li class="choice-item"><span class="choice-marker">c</span><div class="choice-content"><code>position:inline;</code></div></li>
+                <li class="choice-item"><span class="choice-marker">d</span><div class="choice-content"><code>position:block;</code></div></li>
+            </ul>
+            <div class="reason-box"><strong>เหตุผล:</strong> คุณสมบัติ <code>display: block;</code> จะบังคับให้ Element เริ่มต้นขึ้นบรรทัดใหม่เสมอ และขยายความกว้างเต็ม 100% ของพื้นที่คอนเทนเนอร์แม่</div>
+            <div class="supplement-box"><strong>เนื้อหาเสริม: Block vs Inline vs Inline-Block</strong>
+                - <b>block:</b> ขึ้นบรรทัดใหม่ กว้างเต็มพื้นที่ ปรับ width/height ได้ (<code>&lt;div&gt;</code>, <code>&lt;p&gt;</code>) | - <b>inline:</b> ต่อท้ายในบรรทัดเดิม กว้างเท่าเนื้อหา ปรับ width/height ไม่ได้ (<code>&lt;span&gt;</code>, <code>&lt;a&gt;</code>)
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="q-title"><span class="q-badge">ข้อ 12</span> จงพิจารณาเอกสารเอชทีเอ็มแอล (พัทยา / หาดพัทยา / ที่มา) ข้อใดต่อไปนี้ แสดงผลลัพธ์ของหน้าเว็บได้ถูกต้อง</div>
+            <ul class="choices-list">
+                <li class="choice-item"><span class="choice-marker">a</span><div class="choice-content">ย่อหน้าทั้งสองติดกันเป็นก้อนเดียว (ผิดเพราะมีแท็ก &lt;p&gt; แยกย่อหน้า)</div></li>
+                <li class="choice-item"><span class="choice-marker">b</span><div class="choice-content">ไม่มีระยะเว้นซ้าย-ขวาที่คำว่า "พัทยา" และ "หาดพัทยา" และมีบรรทัดว่างคั่นก่อนคำว่า "ที่มา:"</div></li>
+                <li class="choice-item correct"><span class="choice-marker">&check;</span><div class="choice-content"><strong>ข้อ c.</strong> คำว่า "พัทยา" และ "หาดพัทยา" อยู่ในบรรทัดเดียวกับเนื้อหาและมีระยะเว้นหน้า-หลังคำ, แยก 2 ย่อหน้าชัดเจน, และบรรทัด "ที่มา:" ขึ้นบรรทัดใหม่ชิดต่อจากย่อหน้าที่ 2 ทันที</div></li>
+                <li class="choice-item"><span class="choice-marker">d</span><div class="choice-content">คำว่า "พัทยา" และ "หาดพัทยา" ชิดขอบซ้ายโดยไม่มี padding ด้านหน้า</div></li>
+            </ul>
+            <div class="reason-box"><strong>เหตุผล:</strong> 1) <code>div.pname</code> ตั้งเป็น <code>display: inline;</code> และมี <code>padding-left/right: 8px;</code> ทำให้คำอยู่ในบรรทัดเดียวกับเนื้อหาและมีช่องว่างหน้า-หลังคำ 2) ย่อหน้า 1 และ 2 แยกกันด้วย <code>&lt;p&gt;</code> 3) ส่วนท้าย <code>&lt;div id="source"&gt;</code> ขึ้นบรรทัดใหม่ชิดต่อจากย่อหน้าที่ 2 ทันทีและเป็นตัวเอียง (<code>oblique</code>)</div>
+            <div class="supplement-box"><strong>เนื้อหาเสริม: หน่วย vw (Viewport Width)</strong>
+                ในโค้ดมีการกำหนด <code>body { width: 50vw; }</code> ซึ่งหมายถึงกำหนดความกว้างของเนื้อหาให้เท่ากับ 50% ของความกว้างหน้าต่างเบราว์เซอร์ทั้งหมด
+            </div>
+        </div>
+    </section>
+
+    <!-- MODULE 4 -->
+    <section id="mod4" class="module-section">
+        <div class="module-header">
+            <h2>ชุดที่ 4: ระบบจัดการฐานข้อมูลและภาษา SQL (SQL & Database)</h2>
+            <span>จำนวน 35 ข้อ — DBMS, DDL, DML, Queries, Joins, Aggregation และ Wildcards</span>
+        </div>
+
+        <div class="question-card">
+            <div class="q-title"><span class="q-badge">ข้อ 1</span> ข้อใดไม่ใช่โปรแกรมจัดการฐานข้อมูล (DBMS)</div>
+            <ul class="choices-list">
+                <li class="choice-item"><span class="choice-marker">1</span><div class="choice-content">MySQL</div></li>
+                <li class="choice-item correct"><span class="choice-marker">&check;</span><div class="choice-content">PHP</div></li>
+                <li class="choice-item"><span class="choice-marker">3</span><div class="choice-content">Microsoft Access</div></li>
+                <li class="choice-item"><span class="choice-marker">4</span><div class="choice-content">Oracle</div></li>
+            </ul>
+            <div class="reason-box"><strong>เหตุผล:</strong> PHP เป็นภาษาเขียนโปรแกรมฝั่งเซิร์ฟเวอร์สำหรับสร้างเว็บแอปพลิเคชัน ส่วน MySQL, Microsoft Access และ Oracle ล้วนเป็นซอฟต์แวร์ระบบจัดการฐานข้อมูล (DBMS)</div>
+            <div class="supplement-box"><strong>เนื้อหาเสริม: หน้าที่ของ DBMS</strong>
+                DBMS ทำหน้าที่เป็นตัวกลางคอยจัดการการจัดเก็บ ค้นหา แก้ไข ควบคุมสิทธิ์การเข้าถึง และสำรองข้อมูลในฐานข้อมูลให้ปลอดภัยและมีประสิทธิภาพ
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="q-title"><span class="q-badge">ข้อ 2</span> SQL สามารถใช้ทำอะไรได้บ้าง</div>
+            <ul class="choices-list">
+                <li class="choice-item"><span class="choice-marker">1</span><div class="choice-content">Update ข้อมูล</div></li>
+                <li class="choice-item"><span class="choice-marker">2</span><div class="choice-content">Insert ข้อมูล</div></li>
+                <li class="choice-item correct"><span class="choice-marker">&check;</span><div class="choice-content">Update ข้อมูล และ Insert ข้อมูล</div></li>
+                <li class="choice-item"><span class="choice-marker">4</span><div class="choice-content">ไม่มีข้อใดถูก</div></li>
+            </ul>
+            <div class="reason-box"><strong>เหตุผล:</strong> ภาษา SQL ใช้จัดการข้อมูลได้ครบวงจร ทั้งเพิ่มข้อมูลใหม่ (<code>INSERT</code>), แก้ไขข้อมูลเดิม (<code>UPDATE</code>), ลบข้อมูล (<code>DELETE</code>) และสืบค้นข้อมูล (<code>SELECT</code>)</div>
+            <div class="supplement-box"><strong>เนื้อหาเสริม: หมวดหมู่ย่อยของคำสั่ง SQL</strong>
+                - <b>DDL:</b> จัดการโครงสร้าง (<code>CREATE</code>, <code>ALTER</code>, <code>DROP</code>) | - <b>DML:</b> จัดการข้อมูลข้างใน (<code>INSERT</code>, <code>UPDATE</code>, <code>DELETE</code>) | - <b>DQL:</b> สืบค้นข้อมูล (<code>SELECT</code>)
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="q-title"><span class="q-badge">ข้อ 3</span> SQL ถูกออกแบบมาโดยเฉพาะเพื่อใช้กับระบบฐานข้อมูลแบบใด</div>
+            <ul class="choices-list">
+                <li class="choice-item"><span class="choice-marker">1</span><div class="choice-content">Hierarchical database</div></li>
+                <li class="choice-item correct"><span class="choice-marker">&check;</span><div class="choice-content">Relational database</div></li>
+                <li class="choice-item"><span class="choice-marker">3</span><div class="choice-content">Network database</div></li>
+                <li class="choice-item"><span class="choice-marker">4</span><div class="choice-content">Object-oriented database</div></li>
+            </ul>
+            <div class="reason-box"><strong>เหตุผล:</strong> SQL (Structured Query Language) ถูกพัฒนาขึ้นมาเพื่อใช้สื่อสารกับระบบฐานข้อมูลเชิงสัมพันธ์ (RDBMS) ที่จัดเก็บข้อมูลในรูปแบบตารางที่เชื่อมโยงกันด้วยคีย์</div>
+            <div class="supplement-box"><strong>เนื้อหาเสริม: SQL vs NoSQL</strong>
+                - <b>SQL (Relational):</b> โครงสร้างตารางชัดเจน เหมาะกับงานที่ต้องการความถูกต้องสูง (MySQL, PostgreSQL) | - <b>NoSQL:</b> เก็บแบบ Document, Key-Value ยืดหยุ่นสูง (MongoDB, Firestore)
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="q-title"><span class="q-badge">ข้อ 4</span> คำสั่งภาษา SQL ข้อใด ใช้สำหรับเรียกดูข้อมูลในฐานข้อมูล</div>
+            <ul class="choices-list">
+                <li class="choice-item"><span class="choice-marker">1</span><div class="choice-content">SHOW</div></li>
+                <li class="choice-item correct"><span class="choice-marker">&check;</span><div class="choice-content">SELECT</div></li>
+                <li class="choice-item"><span class="choice-marker">3</span><div class="choice-content">VIEW</div></li>
+                <li class="choice-item"><span class="choice-marker">4</span><div class="choice-content">DISPLAY</div></li>
+            </ul>
+            <div class="reason-box"><strong>เหตุผล:</strong> <code>SELECT</code> เป็นคำสั่งมาตรฐานในการดึงข้อมูลจากตารางในฐานข้อมูลออกมาแสดงผล</div>
+            <div class="supplement-box"><strong>เนื้อหาเสริม: ลำดับการเขียนคำสั่ง SELECT พื้นฐาน</strong>
+                <code>SELECT คอลัมน์ FROM ตาราง WHERE เงื่อนไข GROUP BY จัดกลุ่ม HAVING เงื่อนไขกลุ่ม ORDER BY เรียงลำดับ LIMIT จำนวนแถว;</code>
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="q-title"><span class="q-badge">ข้อ 5</span> คำสั่งภาษา SQL ข้อใด ใช้สำหรับการสร้างตารางใหม่</div>
+            <ul class="choices-list">
+                <li class="choice-item correct"><span class="choice-marker">&check;</span><div class="choice-content">CREATE TABLE</div></li>
+                <li class="choice-item"><span class="choice-marker">2</span><div class="choice-content">BUILD TABLE</div></li>
+                <li class="choice-item"><span class="choice-marker">3</span><div class="choice-content">GENERATE TABLE</div></li>
+                <li class="choice-item"><span class="choice-marker">4</span><div class="choice-content">ไม่มีข้อใดถูก</div></li>
+            </ul>
+            <div class="reason-box"><strong>เหตุผล:</strong> คำสั่ง DDL สำหรับสร้างตารางใหม่คือ <code>CREATE TABLE ชื่อตาราง (ชื่อคอลัมน์ ชนิดข้อมูล, ...);</code></div>
+            <div class="supplement-box"><strong>เนื้อหาเสริม: การแก้ไขและลบโครงสร้างตาราง</strong>
+                - <code>ALTER TABLE</code>: เพิ่ม ลบ หรือแก้ไขคอลัมน์ในตารางที่มีอยู่แล้ว | - <code>DROP TABLE</code>: ลบตารางทิ้งทั้งโครงสร้างและข้อมูล
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="q-title"><span class="q-badge">ข้อ 6</span> คำสั่ง SQL “DROP TABLE student;” ทำหน้าที่อะไร</div>
+            <ul class="choices-list">
+                <li class="choice-item correct"><span class="choice-marker">&check;</span><div class="choice-content">ลบตารางที่มีชื่อว่า student</div></li>
+                <li class="choice-item"><span class="choice-marker">2</span><div class="choice-content">สร้างตารางที่มีชื่อว่า student</div></li>
+                <li class="choice-item"><span class="choice-marker">3</span><div class="choice-content">เช็คว่ามีตารางที่มีชื่อว่า student หรือไม่</div></li>
+                <li class="choice-item"><span class="choice-marker">4</span><div class="choice-content">ไม่มีข้อใดถูก</div></li>
+            </ul>
+            <div class="reason-box"><strong>เหตุผล:</strong> <code>DROP TABLE</code> จะลบทั้งตัวตาราง student โครงสร้างคอลัมน์ และข้อมูลทุกแถวข้างในออกจากฐานข้อมูลอย่างถาวร</div>
+            <div class="supplement-box"><strong>เนื้อหาเสริม: ข้อแตกต่างระหว่าง DELETE, TRUNCATE และ DROP</strong>
+                - <code>DELETE</code>: ลบข้อมูลทีละแถว (เหลือโครงสร้าง, ใส่ WHERE ได้) | - <code>TRUNCATE</code>: ล้างข้อมูลทั้งหมดอย่างเร็ว (เหลือโครงสร้าง) | - <code>DROP</code>: ลบหายทั้งตาราง
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="q-title"><span class="q-badge">ข้อ 7</span> คำสั่ง SQL ในข้อใด ใช้สำหรับการจำกัดจำนวนแถวที่ส่งคืนจากการสืบค้นข้อมูลจากฐานข้อมูล</div>
+            <ul class="choices-list">
+                <li class="choice-item correct"><span class="choice-marker">&check;</span><div class="choice-content">LIMIT</div></li>
+                <li class="choice-item"><span class="choice-marker">2</span><div class="choice-content">LIKE</div></li>
+                <li class="choice-item"><span class="choice-marker">3</span><div class="choice-content">WHERE</div></li>
+                <li class="choice-item"><span class="choice-marker">4</span><div class="choice-content">GROUP BY</div></li>
+            </ul>
+            <div class="reason-box"><strong>เหตุผล:</strong> <code>LIMIT n</code> ใช้จำกัดให้ผลลัพธ์แสดงออกมาไม่เกิน n แถวแรก (นิยมใช้คู่กับ <code>ORDER BY</code> เช่น หาอันดับ Top 5)</div>
+            <div class="supplement-box"><strong>เนื้อหาเสริม: การใช้ LIMIT ร่วมกับ OFFSET</strong>
+                เช่น <code>LIMIT 10 OFFSET 20</code> หมายถึงข้าม 20 แถวแรกไปแล้วดึงมา 10 แถวถัดไป นิยมใช้ทำระบบแบ่งหน้า (Pagination) บนเว็บไซต์
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="q-title"><span class="q-badge">ข้อ 8</span> ข้อใดต่อไปนี้ เป็นตัวดำเนินการเชิงตรรกะ (Logical Operator) ที่ใช้ใน SQL</div>
+            <ul class="choices-list">
+                <li class="choice-item"><span class="choice-marker">1</span><div class="choice-content">SUM</div></li>
+                <li class="choice-item"><span class="choice-marker">2</span><div class="choice-content">COUNT</div></li>
+                <li class="choice-item correct"><span class="choice-marker">&check;</span><div class="choice-content">AND</div></li>
+                <li class="choice-item"><span class="choice-marker">4</span><div class="choice-content">ถูกต้องทุกข้อ</div></li>
+            </ul>
+            <div class="reason-box"><strong>เหตุผล:</strong> ตัวดำเนินการเชิงตรรกะใน SQL ได้แก่ <code>AND</code>, <code>OR</code> และ <code>NOT</code> ใช้สำหรับเชื่อมเงื่อนไขในส่วนของ <code>WHERE</code> (ส่วน SUM และ COUNT เป็น Aggregate Functions)</div>
+            <div class="supplement-box"><strong>เนื้อหาเสริม: ลำดับความสำคัญของ Logical Operator</strong>
+                SQL จะประมวลผล <code>NOT</code> ก่อน ตามด้วย <code>AND</code> และตามด้วย <code>OR</code> เสมอ หากมีเงื่อนไขซับซ้อนควรใส่วงเล็บ <code>( )</code> กำกับให้ชัดเจน
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="q-title"><span class="q-badge">ข้อ 9</span> DISTINCT มีหน้าที่สำหรับทำอะไร</div>
+            <ul class="choices-list">
+                <li class="choice-item correct"><span class="choice-marker">&check;</span><div class="choice-content">ใช้เพื่อระบุคอลัมน์ของตารางให้ส่งคืนค่าที่ไม่ซ้ำกัน (unique)</div></li>
+                <li class="choice-item"><span class="choice-marker">2</span><div class="choice-content">ใช้เพื่อลบข้อมูลในตาราง</div></li>
+                <li class="choice-item"><span class="choice-marker">3</span><div class="choice-content">ใช้เพื่อเปรียบเทียบค่าของข้อมูลตามเงื่อนไขที่กำหนด</div></li>
+                <li class="choice-item"><span class="choice-marker">4</span><div class="choice-content">ไม่มีข้อใดถูก</div></li>
+            </ul>
+            <div class="reason-box"><strong>เหตุผล:</strong> เมื่อใส่ <code>DISTINCT</code> หลัง <code>SELECT</code> ระบบจะยุบค่าที่ซ้ำกันในคอลัมน์ผลลัพธ์ให้เหลือแสดงเพียงค่าละ 1 แถว</div>
+            <div class="supplement-box"><strong>เนื้อหาเสริม: การนับจำนวนค่าที่ไม่ซ้ำ</strong>
+                สามารถใช้ร่วมกับ <code>COUNT</code> ได้ เช่น <code>SELECT COUNT(DISTINCT Country) FROM Customers;</code> เพื่อนับว่าลูกค้ามาจากกี่ประเทศที่ไม่ซ้ำกัน
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="q-title"><span class="q-badge">ข้อ 10</span> คำสั่ง Count(A) ใช้สำหรับทำอะไร</div>
+            <ul class="choices-list">
+                <li class="choice-item"><span class="choice-marker">1</span><div class="choice-content">ใช้เพื่อหาจำนวน data record ในตาราง A</div></li>
+                <li class="choice-item"><span class="choice-marker">2</span><div class="choice-content">ใช้เพื่อหาจำนวน data record ในฐานข้อมูล A</div></li>
+                <li class="choice-item"><span class="choice-marker">3</span><div class="choice-content">ใช้เพื่อหาจำนวน data record ในแถว A</div></li>
+                <li class="choice-item correct"><span class="choice-marker">&check;</span><div class="choice-content">ใช้เพื่อหาจำนวน data record ในคอลัมน์ A</div></li>
+            </ul>
+            <div class="reason-box"><strong>เหตุผล:</strong> <code>COUNT(A)</code> จะนับจำนวนแถวข้อมูลที่มีค่าปรากฏอยู่ในคอลัมน์ A (โดยไม่นับแถวที่คอลัมน์ A เป็นค่า NULL)</div>
+            <div class="supplement-box"><strong>เนื้อหาเสริม: COUNT(*) vs COUNT(คอลัมน์)</strong>
+                - <code>COUNT(*)</code> นับจำนวนแถวทั้งหมดในตาราง (รวมแถวที่มีค่า NULL) | - <code>COUNT(column_name)</code> นับเฉพาะแถวที่คอลัมน์นั้นไม่เป็น NULL
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="q-title"><span class="q-badge">ข้อ 11</span> Keyword ที่ใช้กับคำสั่ง ORDER BY เพื่อเรียงลำดับจากน้อยไปมาก (Ascending) และ มากไปน้อย (Descending) ได้แก่ข้อใด</div>
+            <ul class="choices-list">
+                <li class="choice-item"><span class="choice-marker">1</span><div class="choice-content">ASCE, DESC</div></li>
+                <li class="choice-item"><span class="choice-marker">2</span><div class="choice-content">ASC, DES</div></li>
+                <li class="choice-item"><span class="choice-marker">3</span><div class="choice-content">ASCE, DES</div></li>
+                <li class="choice-item correct"><span class="choice-marker">&check;</span><div class="choice-content">ASC, DESC</div></li>
+            </ul>
+            <div class="reason-box"><strong>เหตุผล:</strong> <code>ASC</code> ย่อมาจาก Ascending (เรียงจากน้อยไปมาก: 1&rarr;9, A&rarr;Z) และ <code>DESC</code> ย่อมาจาก Descending (เรียงจากมากไปน้อย: 9&rarr;1, Z&rarr;A)</div>
+            <div class="supplement-box"><strong>เนื้อหาเสริม: การเรียงลำดับหลายคอลัมน์</strong>
+                สามารถเรียงซ้อนหลายคอลัมน์ได้ เช่น <code>ORDER BY Department ASC, Salary DESC;</code> คือเรียงชื่อแผนกจาก A-Z ก่อน หากอยู่แผนกเดียวกันให้เรียงเงินเดือนจากมากไปน้อย
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="q-title"><span class="q-badge">ข้อ 12</span> คำสั่ง INSERT สามารถใช้ในการเพิ่มข้อมูลแบบใด</div>
+            <ul class="choices-list">
+                <li class="choice-item correct"><span class="choice-marker">&check;</span><div class="choice-content">ครั้งละ 1 data record หรือ หลาย data record ในคราวเดียวกัน</div></li>
+                <li class="choice-item"><span class="choice-marker">2</span><div class="choice-content">ครั้งละ 1 database หรือ หลาย database ในคราวเดียวกัน</div></li>
+                <li class="choice-item"><span class="choice-marker">3</span><div class="choice-content">ครั้งละ 1 ตาราง หรือ หลายตารางในคราวเดียวกัน</div></li>
+                <li class="choice-item"><span class="choice-marker">4</span><div class="choice-content">ไม่มีข้อใดถูก</div></li>
+            </ul>
+            <div class="reason-box"><strong>เหตุผล:</strong> คำสั่ง <code>INSERT INTO table (col1, col2) VALUES (val1, val2), (val3, val4);</code> รองรับการใส่ชุดข้อมูลหลายวงเล็บคั่นด้วยเครื่องหมายจุลภาคเพื่อเพิ่มหลายแถวพร้อมกันได้</div>
+            <div class="supplement-box"><strong>เนื้อหาเสริม: ข้อดีของการ Insert หลายแถวพร้อมกัน</strong>
+                ช่วยลดภาระการเชื่อมต่อ (Network Round-trip) ระหว่างแอปพลิเคชันกับฐานข้อมูล ทำให้บันทึกข้อมูลจำนวนมากได้เร็วกว่าการรันคำสั่ง INSERT ทีละบรรทัด
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="q-title"><span class="q-badge">ข้อ 13</span> ข้อใดกล่าวถูกต้องเมื่อมีการใช้ UNION, INTERSECT, และ EXCEPT</div>
+            <ul class="choices-list">
+                <li class="choice-item"><span class="choice-marker">1</span><div class="choice-content">คอลัมน์ของทั้งสองตารางต้องมีจำนวนเท่ากัน</div></li>
+                <li class="choice-item"><span class="choice-marker">2</span><div class="choice-content">Data type ของข้อมูลแต่ละคอลัมน์ของทั้งสองตารางต้องเหมือนกัน</div></li>
+                <li class="choice-item correct"><span class="choice-marker">&check;</span><div class="choice-content">คอลัมน์ของทั้งสองตารางต้องมีจำนวนเท่ากัน และ Data type ของข้อมูลแต่ละคอลัมน์ของทั้งสองตารางต้องเหมือนกัน</div></li>
+                <li class="choice-item"><span class="choice-marker">4</span><div class="choice-content">ไม่มีข้อใดถูก</div></li>
+            </ul>
+            <div class="reason-box"><strong>เหตุผล:</strong> Set Operators ใน SQL เป็นการนำผลลัพธ์ของคำสั่ง <code>SELECT</code> สองชุดมาต่อกันในแนวตั้ง จึงบังคับว่าจำนวนคอลัมน์ต้องเท่ากันและชนิดข้อมูลในตำแหน่งคอลัมน์เดียวกันต้องสอดคล้องกัน</div>
+            <div class="supplement-box"><strong>เนื้อหาเสริม: ความแตกต่างของ Set Operators</strong>
+                - <code>UNION</code>: รวมผลลัพธ์ทั้ง 2 ชุดและตัดแถวซ้ำออก (<code>UNION ALL</code> เก็บแถวซ้ำ) | - <code>INTERSECT</code>: เอาเฉพาะแถวที่ซ้ำกัน | - <code>EXCEPT</code>: เอาแถวที่อยู่ในชุดแรก แต่ไม่อยู่ในชุดที่สอง
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="q-title"><span class="q-badge">ข้อ 14</span> Sub query เป็น SQL expression ที่มักปรากฏอยู่ _________ คำสั่ง SQL อีกคำสั่งหนึ่ง</div>
+            <ul class="choices-list">
+                <li class="choice-item"><span class="choice-marker">1</span><div class="choice-content">ก่อนหน้า</div></li>
+                <li class="choice-item"><span class="choice-marker">2</span><div class="choice-content">ภายหลัง</div></li>
+                <li class="choice-item correct"><span class="choice-marker">&check;</span><div class="choice-content">ภายใน</div></li>
+                <li class="choice-item"><span class="choice-marker">4</span><div class="choice-content">ภายนอก</div></li>
+            </ul>
+            <div class="reason-box"><strong>เหตุผล:</strong> Subquery (หรือ Inner Query) คือคำสั่ง <code>SELECT</code> ที่เขียนซ้อนอยู่ภายในวงเล็บของคำสั่ง SQL หลัก (Outer Query) เพื่อให้คำสั่งด้านในทำงานหาผลลัพธ์ก่อนแล้วส่งต่อให้คำสั่งด้านนอก</div>
+            <div class="supplement-box"><strong>เนื้อหาเสริม: ตัวอย่างการใช้งาน Subquery</strong>
+                <code>SELECT Name FROM Employees WHERE Salary &gt; (SELECT AVG(Salary) FROM Employees);</code> (หาชื่อพนักงานที่ได้เงินเดือนสูงกว่าค่าเฉลี่ยของบริษัท)
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="q-title"><span class="q-badge">ข้อ 15</span> คำสั่ง BETWEEN สามารถใช้ได้กับข้อมูลประเภทใด</div>
+            <ul class="choices-list">
+                <li class="choice-item"><span class="choice-marker">1</span><div class="choice-content">Data (Date)</div></li>
+                <li class="choice-item"><span class="choice-marker">2</span><div class="choice-content">Text</div></li>
+                <li class="choice-item"><span class="choice-marker">3</span><div class="choice-content">Number</div></li>
+                <li class="choice-item correct"><span class="choice-marker">&check;</span><div class="choice-content">ถูกทุกข้อ</div></li>
+            </ul>
+            <div class="reason-box"><strong>เหตุผล:</strong> <code>BETWEEN</code> ใช้ตรวจสอบช่วงค่าได้ทั้งตัวเลข (Number), วันที่/เวลา (Date) และข้อความ (Text) โดยอิงตามลำดับตัวอักษร</div>
+            <div class="supplement-box"><strong>เนื้อหาเสริม: ข้อควรระวังของ BETWEEN กับข้อมูลวันที่ (Datetime)</strong>
+                หากคอลัมน์เก็บทั้งวันที่และเวลา การใช้ <code>BETWEEN '2026-11-01' AND '2026-11-24'</code> จะนับถึงแค่เวลา <code>00:00:00</code> ของวันที่ 24 เท่านั้น ทำให้ข้อมูลช่วงบ่ายของวันที่ 24 ตกหล่นได้
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="q-title"><span class="q-badge">ข้อ 16</span> คำสั่ง “… ProjectNum BETWEEN value1 AND value2” จะให้ค่าเป็น TRUE ถ้าข้อมูลในคอลัมน์มีคุณสมบัติใด</div>
+            <ul class="choices-list">
+                <li class="choice-item"><span class="choice-marker">1</span><div class="choice-content">value1 &gt;= ProjectNum &gt;= value2</div></li>
+                <li class="choice-item"><span class="choice-marker">2</span><div class="choice-content">value1 &gt; ProjectNum &gt; value2</div></li>
+                <li class="choice-item correct"><span class="choice-marker">&check;</span><div class="choice-content">value1 &lt;= ProjectNum &lt;= value2</div></li>
+                <li class="choice-item"><span class="choice-marker">4</span><div class="choice-content">value1 &lt; ProjectNum &lt; value2</div></li>
+            </ul>
+            <div class="reason-box"><strong>เหตุผล:</strong> ตัวดำเนินการ <code>BETWEEN</code> ใน SQL เป็นแบบรวมขอบเขตทั้งต้นและปลาย (Inclusive) ซึ่งมีความหมายเหมือนกับ <code>ProjectNum &gt;= value1 AND ProjectNum &lt;= value2</code></div>
+            <div class="supplement-box"><strong>เนื้อหาเสริม: การปฏิเสธช่วงข้อมูล</strong>
+                หากต้องการข้อมูลที่อยู่นอกช่วงดังกล่าว สามารถใช้ <code>NOT BETWEEN value1 AND value2</code> ซึ่งเทียบเท่ากับ <code>ProjectNum &lt; value1 OR ProjectNum &gt; value2</code>
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="q-title"><span class="q-badge">ข้อ 17</span> คำสั่ง EXCEPT ใน SQL มีการทำงานคล้ายกับ operator ทางคณิตศาสตร์ในข้อใด</div>
+            <ul class="choices-list">
+                <li class="choice-item"><span class="choice-marker">1</span><div class="choice-content">+</div></li>
+                <li class="choice-item correct"><span class="choice-marker">&check;</span><div class="choice-content">-</div></li>
+                <li class="choice-item"><span class="choice-marker">3</span><div class="choice-content">*</div></li>
+                <li class="choice-item"><span class="choice-marker">4</span><div class="choice-content">/</div></li>
+            </ul>
+            <div class="reason-box"><strong>เหตุผล:</strong> <code>EXCEPT</code> เปรียบเสมือนผลต่างของเซต ($A - B$) คือดึงรายการข้อมูลที่มีอยู่ในผลลัพธ์ชุดแรก แต่หักลบรายการที่ปรากฏในผลลัพธ์ชุดที่สองออกไป</div>
+            <div class="supplement-box"><strong>เนื้อหาเสริม: ชื่อเรียกที่ต่างกันในแต่ละค่าย DBMS</strong>
+                ในมาตรฐาน SQL, PostgreSQL และ SQL Server จะใช้คำสั่ง <code>EXCEPT</code> แต่ในฐานข้อมูล Oracle จะใช้คำสั่งชื่อ <code>MINUS</code> แทนซึ่งทำงานเหมือนกันทุกประการ
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="q-title"><span class="q-badge">ข้อ 18</span> หากต้องการสร้างการเชื่อมโยงข้อมูลระหว่างสองตาราง จะต้องใช้ key ประเภทใด</div>
+            <ul class="choices-list">
+                <li class="choice-item"><span class="choice-marker">1</span><div class="choice-content">Primary key</div></li>
+                <li class="choice-item correct"><span class="choice-marker">&check;</span><div class="choice-content">Foreign key</div></li>
+                <li class="choice-item"><span class="choice-marker">3</span><div class="choice-content">Composite key</div></li>
+                <li class="choice-item"><span class="choice-marker">4</span><div class="choice-content">Unique key</div></li>
+            </ul>
+            <div class="reason-box"><strong>เหตุผล:</strong> Foreign Key (คีย์นอก) คือคอลัมน์ในตารางหนึ่งที่เก็บค่าอ้างอิงไปยัง Primary Key ของอีกตารางหนึ่ง เพื่อสร้างความสัมพันธ์และรักษาความถูกต้องของข้อมูลระหว่างตาราง</div>
+            <div class="supplement-box"><strong>เนื้อหาเสริม: Referential Integrity</strong>
+                กฎของ Foreign Key ช่วยป้องกันไม่ให้เกิดข้อมูลกำพร้า เช่น ไม่สามารถเพิ่มรายการสั่งซื้อของรหัสลูกค้าที่ไม่มีตัวตนอยู่ในตารางลูกค้าได้
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="q-title"><span class="q-badge">ข้อ 19</span> หากต้องการเก็บค่าความสูงของลุกค้า ควรเลือกใช้ data type ใด</div>
+            <ul class="choices-list">
+                <li class="choice-item"><span class="choice-marker">1</span><div class="choice-content">Integer</div></li>
+                <li class="choice-item"><span class="choice-marker">2</span><div class="choice-content">Text</div></li>
+                <li class="choice-item correct"><span class="choice-marker">&check;</span><div class="choice-content">Real</div></li>
+                <li class="choice-item"><span class="choice-marker">4</span><div class="choice-content">Blob</div></li>
+            </ul>
+            <div class="reason-box"><strong>เหตุผล:</strong> ค่าความสูงสามารถมีจุดทศนิยมได้ (เช่น 168.5 ซม. หรือ 1.72 เมตร) จึงควรเลือกชนิดข้อมูลเลขทศนิยมอย่าง <code>REAL</code> หรือ <code>FLOAT</code> (ในขณะที่ Integer เก็บได้เฉพาะจำนวนเต็ม)</div>
+            <div class="supplement-box"><strong>เนื้อหาเสริม: Data Types พื้นฐานใน SQLite / SQL</strong>
+                - <code>INTEGER</code>: จำนวนเต็ม | - <code>REAL</code> / <code>FLOAT</code>: เลขทศนิยม | - <code>TEXT</code>: ข้อความ | - <code>BLOB</code>: ข้อมูลไบนารี เช่น ไฟล์รูปภาพหรือเสียง
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="q-title"><span class="q-badge">ข้อ 20</span> ข้อใดที่สามารถใช้ร่วมกับคำสั่ง LIKE ได้</div>
+            <ul class="choices-list">
+                <li class="choice-item"><span class="choice-marker">1</span><div class="choice-content">%</div></li>
+                <li class="choice-item"><span class="choice-marker">2</span><div class="choice-content">_</div></li>
+                <li class="choice-item"><span class="choice-marker">3</span><div class="choice-content">NOT</div></li>
+                <li class="choice-item correct"><span class="choice-marker">&check;</span><div class="choice-content">ถูกทุกข้อ</div></li>
+            </ul>
+            <div class="reason-box"><strong>เหตุผล:</strong> คำสั่ง <code>LIKE</code> ใช้ร่วมกับ Wildcard <code>%</code> (แทนอักขระกี่ตัวก็ได้), <code>_</code> (แทนอักขระ 1 ตัว) และสามารถใช้ <code>NOT LIKE</code> เพื่อค้นหาข้อความที่ไม่ตรงตามรูปแบบได้ทั้งหมด</div>
+            <div class="supplement-box"><strong>เนื้อหาเสริม: ถ้าต้องการค้นหาเครื่องหมาย % หรือ _ จริงๆ ในข้อความ?</strong>
+                สามารถใช้คีย์เวิร์ด <code>ESCAPE</code> กำหนดตัวอักษรหลีกได้ เช่น <code>WHERE Discount LIKE '50\%' ESCAPE ''</code> เพื่อหาข้อความคำว่า "50%" ตรงๆ
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="q-title"><span class="q-badge">ข้อ 21</span> ข้อใดกล่าวไม่ถูกต้องเกี่ยวกับ Primary key</div>
+            <ul class="choices-list">
+                <li class="choice-item correct"><span class="choice-marker">&check;</span><div class="choice-content">Primary key สามารถมีค่าเป็น NULL ได้</div></li>
+                <li class="choice-item"><span class="choice-marker">2</span><div class="choice-content">Primary key ไม่สามารถมีค่าเป็น NULL ได้</div></li>
+                <li class="choice-item"><span class="choice-marker">3</span><div class="choice-content">ข้อมูลในคอลัมน์ที่เป็น Primary key จะไม่มีค่าที่ซ้ำกันเลย</div></li>
+                <li class="choice-item"><span class="choice-marker">4</span><div class="choice-content">สามารถใช้ข้อมูลมากกว่า 1 คอลัมน์ร่วมกันเป็น Primary key ได้</div></li>
+            </ul>
+            <div class="reason-box"><strong>เหตุผล:</strong> คุณสมบัติบังคับของ Primary Key มี 2 ข้อคือ 1. ห้ามมีค่าซ้ำกัน (Unique) และ 2. ห้ามเป็นค่าว่าง (<code>NOT NULL</code>) เพราะต้องใช้ระบุตัวตนของแต่ละแถวได้อย่างแม่นยำ</div>
+            <div class="supplement-box"><strong>เนื้อหาเสริม: Composite Primary Key</strong>
+                หากคอลัมน์เดียวไม่สามารถระบุเอกลักษณ์ได้ (เช่น ตารางลงทะเบียนเรียนที่มี รหัสนิสิต กับ รหัสวิชา) สามารถนำ 2 คอลัมน์มารวมกันเป็น Primary Key เดียวได้ เรียกว่า Composite Key
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="q-title"><span class="q-badge">ข้อ 22</span> หากต้องการเปลี่ยนข้อมูลในคอลัมน์ “Name” ของตาราง Users จาก “Smith” เป็น “Paul” ควรต้องใช้คำสั่งใด</div>
+            <ul class="choices-list">
+                <li class="choice-item"><span class="choice-marker">1</span><div class="choice-content">UPDATE Users SET Name = “Smith” INTO Name = “Paul”</div></li>
+                <li class="choice-item"><span class="choice-marker">2</span><div class="choice-content">MODIFY Users SET Name = “Paul” WHERE Name = “Smith”</div></li>
+                <li class="choice-item"><span class="choice-marker">3</span><div class="choice-content">MODIFY Users SET Name = “Smith” INTO Name = “Paul”</div></li>
+                <li class="choice-item correct"><span class="choice-marker">&check;</span><div class="choice-content">UPDATE Users SET Name = “Paul” WHERE Name = “Smith”</div></li>
+            </ul>
+            <div class="reason-box"><strong>เหตุผล:</strong> ไวยากรณ์มาตรฐานของการแก้ไขข้อมูลคือ <code>UPDATE ชื่อตาราง SET คอลัมน์ = ค่าใหม่ WHERE เงื่อนไข;</code> (ใน SQL ไม่มีคำสั่ง <code>MODIFY</code> สำหรับเปลี่ยนค่าข้อมูลในแถว)</div>
+            <div class="supplement-box"><strong>เนื้อหาเสริม: ข้อควรระวังร้ายแรงของคำสั่ง UPDATE / DELETE</strong>
+                หากลืมใส่ <code>WHERE</code> ในคำสั่ง <code>UPDATE Users SET Name = 'Paul';</code> ระบบจะเปลี่ยนชื่อของผู้ใช้ <b>ทุกคนทั้งตาราง</b> ให้กลายเป็น Paul ทันที!
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="q-title"><span class="q-badge">ข้อ 23</span> คำสั่ง AS ใช้สำหรับทำอะไร</div>
+            <ul class="choices-list">
+                <li class="choice-item correct"><span class="choice-marker">&check;</span><div class="choice-content">เปลี่ยนชื่อคอลัมน์ในการแสดงผล</div></li>
+                <li class="choice-item"><span class="choice-marker">2</span><div class="choice-content">เลือกคอลัมน์ในการแสดงผล</div></li>
+                <li class="choice-item"><span class="choice-marker">3</span><div class="choice-content">JOIN ตาราง</div></li>
+                <li class="choice-item"><span class="choice-marker">4</span><div class="choice-content">เลือกแถวของข้อมูลในการแสดงผล</div></li>
+            </ul>
+            <div class="reason-box"><strong>เหตุผล:</strong> <code>AS</code> ใช้ตั้งชื่อนามแฝง (Alias) ชั่วคราวให้คอลัมน์หรือตารางในระหว่างแสดงผลลัพธ์ (ไม่ได้เปลี่ยนชื่อคอลัมน์จริงในฐานข้อมูล)</div>
+            <div class="supplement-box"><strong>เนื้อหาเสริม: ประโยชน์ของ AS</strong>
+                นิยมใช้ตั้งชื่อหัวตารางให้อ่านเข้าใจง่ายขึ้นเมื่อใช้ฟังก์ชันคำนวณ เช่น <code>SELECT SUM(Price) AS TotalSales FROM Orders;</code>
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="q-title"><span class="q-badge">ข้อ 24</span> ข้อใดต่อไปนี้ ไม่ใช่ aggregate function ที่ใช้ใน DBMS</div>
+            <ul class="choices-list">
+                <li class="choice-item"><span class="choice-marker">1</span><div class="choice-content">Count()</div></li>
+                <li class="choice-item"><span class="choice-marker">2</span><div class="choice-content">Sum()</div></li>
+                <li class="choice-item correct"><span class="choice-marker">&check;</span><div class="choice-content">Average()</div></li>
+                <li class="choice-item"><span class="choice-marker">4</span><div class="choice-content">Min()</div></li>
+            </ul>
+            <div class="reason-box"><strong>เหตุผล:</strong> ฟังก์ชันหาค่าเฉลี่ยในภาษา SQL ใช้ชื่อย่อว่า <code>AVG()</code> ไม่ใช่ <code>Average()</code></div>
+            <div class="supplement-box"><strong>เนื้อหาเสริม: 5 Aggregate Functions มาตรฐานใน SQL</strong>
+                1. <code>COUNT()</code>: นับจำนวนแถว | 2. <code>SUM()</code>: หาผลรวม | 3. <code>AVG()</code>: หาค่าเฉลี่ย | 4. <code>MIN()</code>: หาค่าน้อยสุด | 5. <code>MAX()</code>: หาค่ามากสุด
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="q-title"><span class="q-badge">ข้อ 25</span> เติมคำสั่งที่เหมาะสมในช่องว่าง เพื่อแสดงข้อมูลทุกคอลัมน์จากตาราง Customers: ____________ * FROM Customers;</div>
+            <ul class="choices-list">
+                <li class="choice-item"><span class="choice-marker">1</span><div class="choice-content">DISPLAY</div></li>
+                <li class="choice-item correct"><span class="choice-marker">&check;</span><div class="choice-content">SELECT</div></li>
+                <li class="choice-item"><span class="choice-marker">3</span><div class="choice-content">SHOW</div></li>
+                <li class="choice-item"><span class="choice-marker">4</span><div class="choice-content">INSERT</div></li>
+            </ul>
+            <div class="reason-box"><strong>เหตุผล:</strong> เครื่องหมายดอกจัน <code>*</code> หลัง <code>SELECT</code> หมายถึงการดึงข้อมูลทุกคอลัมน์ที่มีอยู่ในตารางออกมาแสดง</div>
+            <div class="supplement-box"><strong>เนื้อหาเสริม: แนวปฏิบัติที่ดีในการเขียน Query</strong>
+                ในการทำงานจริงกับฐานข้อมูลขนาดใหญ่ ควรหลีกเลี่ยง <code>SELECT *</code> และระบุเฉพาะชื่อคอลัมน์ที่ต้องใช้จริง เพื่อประหยัดหน่วยความจำและแบนด์วิดท์เครือข่าย
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="q-title"><span class="q-badge">ข้อ 26</span> ข้อใดเป็นคำสั่งที่แสดงข้อมูล City จากตาราง Customers</div>
+            <ul class="choices-list">
+                <li class="choice-item"><span class="choice-marker">1</span><div class="choice-content">SHOW City FROM Customers;</div></li>
+                <li class="choice-item"><span class="choice-marker">2</span><div class="choice-content">SELECT * FROM City;</div></li>
+                <li class="choice-item correct"><span class="choice-marker">&check;</span><div class="choice-content">SELECT City FROM Customers;</div></li>
+                <li class="choice-item"><span class="choice-marker">4</span><div class="choice-content">SELECT * FROM City, Customers;</div></li>
+            </ul>
+            <div class="reason-box"><strong>เหตุผล:</strong> โครงสร้างพื้นฐานของการเลือกดูเฉพาะบางคอลัมน์คือ <code>SELECT ชื่อคอลัมน์ FROM ชื่อตาราง;</code></div>
+            <div class="supplement-box"><strong>เนื้อหาเสริม: Case Sensitivity ใน SQL</strong>
+                คำสั่งหลักของ SQL (เช่น SELECT, FROM, WHERE) ไม่แยกตัวพิมพ์เล็ก-ใหญ่ แต่การเขียนด้วยตัวพิมพ์ใหญ่ทั้งหมดเป็นมาตรฐานสากลที่ช่วยให้แยกคำสั่งออกจากชื่อตาราง/คอลัมน์ได้ง่าย
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="q-title"><span class="q-badge">ข้อ 27</span> เติมคำสั่งที่เหมาะสมในช่องว่าง เพื่อแสดงข้อมูล Country ที่ไม่ซ้ำกัน จากตาราง Customers: _______________ Country FROM Customers;</div>
+            <ul class="choices-list">
+                <li class="choice-item"><span class="choice-marker">1</span><div class="choice-content">SELECT *</div></li>
+                <li class="choice-item correct"><span class="choice-marker">&check;</span><div class="choice-content">SELECT DISTINCT</div></li>
+                <li class="choice-item"><span class="choice-marker">3</span><div class="choice-content">SELECT UNIQUE</div></li>
+                <li class="choice-item"><span class="choice-marker">4</span><div class="choice-content">SELECT * DISTINCT</div></li>
+            </ul>
+            <div class="reason-box"><strong>เหตุผล:</strong> <code>SELECT DISTINCT Country</code> สั่งให้ดึงรายชื่อประเทศออกมาแสดงโดยตัดชื่อประเทศที่ซ้ำกันออก</div>
+            <div class="supplement-box"><strong>เนื้อหาเสริม: DISTINCT กับหลายคอลัมน์</strong>
+                หากเขียน <code>SELECT DISTINCT City, Country FROM Customers;</code> ระบบจะตรวจสอบความซ้ำซ้อนจาก <b>คู่ของ (City + Country)</b> รวมกัน
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="q-title"><span class="q-badge">ข้อ 28</span> เครื่องหมายวรรคตอนใด ใช้ในคำสั่ง SELECT เมื่อต้องการแสดงข้อมูลมากกว่าหนึ่งคอลัมน์</div>
+            <ul class="choices-list">
+                <li class="choice-item correct"><span class="choice-marker">&check;</span><div class="choice-content">,</div></li>
+                <li class="choice-item"><span class="choice-marker">2</span><div class="choice-content">;</div></li>
+                <li class="choice-item"><span class="choice-marker">3</span><div class="choice-content">&amp;</div></li>
+                <li class="choice-item"><span class="choice-marker">4</span><div class="choice-content">|</div></li>
+            </ul>
+            <div class="reason-box"><strong>เหตุผล:</strong> ใช้เครื่องหมายจุลภาค (Comma) คั่นระหว่างรายชื่อคอลัมน์ เช่น <code>SELECT CustomerName, City, Country FROM Customers;</code></div>
+            <div class="supplement-box"><strong>เนื้อหาเสริม: การเชื่อมข้อความ 2 คอลัมน์เป็นคอลัมน์เดียว</strong>
+                หากต้องการรวมคอลัมน์เข้าด้วยกัน (เช่น ชื่อ + นามสกุล) จะใช้ฟังก์ชัน <code>CONCAT(FirstName, ' ', LastName)</code> หรือเครื่องหมาย <code>||</code> (ใน SQLite/PostgreSQL)
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="q-title"><span class="q-badge">ข้อ 29</span> คำสั่ง SQL ใด ใช้สำหรับการเรียงข้อมูลในคอลัมน์ Name จากมากไปน้อย</div>
+            <ul class="choices-list">
+                <li class="choice-item"><span class="choice-marker">1</span><div class="choice-content">… ORDER BY Name</div></li>
+                <li class="choice-item"><span class="choice-marker">2</span><div class="choice-content">… ORDER BY Name ASC</div></li>
+                <li class="choice-item"><span class="choice-marker">3</span><div class="choice-content">… GROUP BY Name DESC</div></li>
+                <li class="choice-item correct"><span class="choice-marker">&check;</span><div class="choice-content">… ORDER BY Name DESC</div></li>
+            </ul>
+            <div class="reason-box"><strong>เหตุผล:</strong> ใช้ <code>ORDER BY</code> ตามด้วยชื่อคอลัมน์ <code>Name</code> และต่อท้ายด้วย <code>DESC</code> เพื่อเรียงจากมากไปน้อย (Z ลงมา A)</div>
+            <div class="supplement-box"><strong>เนื้อหาเสริม: ลำดับการทำงานของ ORDER BY</strong>
+                <code>ORDER BY</code> เป็นขั้นตอนเกือบท้ายสุดในการประมวลผล Query จึงสามารถอ้างอิงชื่อเล่น (Alias) ที่ตั้งไว้ใน <code>SELECT</code> มาใช้เรียงลำดับได้
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="q-title"><span class="q-badge">ข้อ 30</span> จากคำสั่ง SELECT Count(CustomerID) FROM Customers WHERE Age >35 มีการทำงานตรงกับข้อใด</div>
+            <ul class="choices-list">
+                <li class="choice-item"><span class="choice-marker">1</span><div class="choice-content">แสดงข้อมูลทั้งหมดของ Customers ที่มีอายุมากกว่า 35</div></li>
+                <li class="choice-item"><span class="choice-marker">2</span><div class="choice-content">แสดงเฉพาะข้อมูล CustomerID ของข้อมูล Customers ที่มีอายุมากกว่า 35</div></li>
+                <li class="choice-item correct"><span class="choice-marker">&check;</span><div class="choice-content">แสดงเฉพาะจำนวน data record ของข้อมูล Customers ที่มีอายุมากกว่า 35</div></li>
+                <li class="choice-item"><span class="choice-marker">4</span><div class="choice-content">แสดงเฉพาะผลรวมของ CustomerID ของข้อมูล Customers ที่มีอายุมากกว่า 35</div></li>
+            </ul>
+            <div class="reason-box"><strong>เหตุผล:</strong> <code>WHERE Age &gt; 35</code> กรองเฉพาะลูกค้าที่อายุเกิน 35 ปี จากนั้น <code>COUNT(CustomerID)</code> นับจำนวนรายการที่ผ่านเงื่อนไขออกมาเป็นตัวเลขจำนวนนับ</div>
+            <div class="supplement-box"><strong>เนื้อหาเสริม: เปรียบเทียบ COUNT กับ SUM</strong>
+                - <code>COUNT(CustomerID)</code> = นับว่ามี <b>กี่คน</b> | - <code>SUM(Age)</code> = เอาอายุของทุกคนมา <b>บวกรวมกัน</b> ได้เท่าไหร่
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="q-title"><span class="q-badge">ข้อ 31</span> ข้อใดกล่าวถูกต้อง เกี่ยวกับคำสั่ง GROUP BY</div>
+            <ul class="choices-list">
+                <li class="choice-item"><span class="choice-marker">1</span><div class="choice-content">ต้องใช้ร่วมกับคำสั่ง HAVING เสมอ</div></li>
+                <li class="choice-item correct"><span class="choice-marker">&check;</span><div class="choice-content">มักใช้ร่วมกับ Aggregate Functions</div></li>
+                <li class="choice-item"><span class="choice-marker">3</span><div class="choice-content">ใช้สำหรับการจัดเรียงข้อมูลตามคอลัมน์ที่กำหนด</div></li>
+                <li class="choice-item"><span class="choice-marker">4</span><div class="choice-content">ไม่สามารถจัดกลุ่มคอลัมน์มากกว่าหนึ่งคอลัมน์ได้</div></li>
+            </ul>
+            <div class="reason-box"><strong>เหตุผล:</strong> <code>GROUP BY</code> ทำหน้าที่ยุบแถวที่มีค่าในคอลัมน์เดียวกันเข้าเป็นกลุ่มเดียว เพื่อคำนวณค่าสรุปรายกลุ่มผ่าน Aggregate Functions เช่น <code>COUNT</code>, <code>SUM</code>, <code>AVG</code></div>
+            <div class="supplement-box"><strong>เนื้อหาเสริม: WHERE vs HAVING</strong>
+                - <code>WHERE</code> กรองข้อมูล <b>ก่อน</b> การจัดกลุ่ม (GROUP BY) | - <code>HAVING</code> กรองข้อมูล <b>หลัง</b> การจัดกลุ่ม (ใช้กรองเงื่อนไขที่เป็นผลลัพธ์จาก Aggregate Function)
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="q-title"><span class="q-badge">ข้อ 32</span> คำสั่ง SQL “…WHERE CustomerName LIKE ‘a_%’” ทำหน้าที่อะไร</div>
+            <ul class="choices-list">
+                <li class="choice-item"><span class="choice-marker">1</span><div class="choice-content">หา CustomerName ใดๆที่เริ่มต้นด้วย “a”</div></li>
+                <li class="choice-item"><span class="choice-marker">2</span><div class="choice-content">หา CustomerName ใดๆที่เริ่มต้นด้วย “a%”</div></li>
+                <li class="choice-item correct"><span class="choice-marker">&check;</span><div class="choice-content">หา CustomerName ที่มีความยาวไม่น้อยกว่า 2 ตัวอักขระ และเริ่มต้นด้วย “a”</div></li>
+                <li class="choice-item"><span class="choice-marker">4</span><div class="choice-content">ถูกทุกข้อ</div></li>
+            </ul>
+            <div class="reason-box"><strong>เหตุผล:</strong> <code>a</code> คือตัวอักษรตัวแรก, <code>_</code> บังคับว่าต้องมีตัวอักษรตัวที่ 2 อีก 1 ตัว และ <code>%</code> หมายถึงจะมีตัวอักษรต่อท้ายอีก 0 ตัวหรือมากกว่านั้นก็ได้ ดังนั้นความยาวขั้นต่ำจึงต้องเป็น 2 ตัวอักษร</div>
+            <div class="supplement-box"><strong>เนื้อหาเสริม: ตัวอย่างแพทเทิร์น LIKE ที่พบบ่อย</strong>
+                - <code>'a%'</code>: ขึ้นต้นด้วย a (ยาว 1 ตัวขึ้นไป) | - <code>'%a'</code>: ลงท้ายด้วย a | - <code>'_r%'</code>: ตัวอักษรตัวที่ 2 เป็น r
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="q-title"><span class="q-badge">ข้อ 33</span> คำสั่ง SQL “…WHERE CustomerName LIKE ‘%or%’” ทำหน้าที่อะไร</div>
+            <ul class="choices-list">
+                <li class="choice-item"><span class="choice-marker">1</span><div class="choice-content">หา CustomerName ใดๆที่เริ่มต้นด้วย “or”</div></li>
+                <li class="choice-item correct"><span class="choice-marker">&check;</span><div class="choice-content">หา CustomerName ที่มี “or” ปรากฏอยู่ในตำแหน่งใดก็ได้</div></li>
+                <li class="choice-item"><span class="choice-marker">3</span><div class="choice-content">หา CustomerName ที่มีความยาว 4 ตัวอักขระ โดยมี “o” เป็นอักขระที่ 2 และมี “r” เป็นอักขระที่ 3</div></li>
+                <li class="choice-item"><span class="choice-marker">4</span><div class="choice-content">หา CustomerName ที่มี “or” ปรากฏอยู่ โดยที่ต้องมีอักขระอย่างน้อย 1 ตัวนำหน้า และตามหลัง “or”</div></li>
+            </ul>
+            <div class="reason-box"><strong>เหตุผล:</strong> เครื่องหมาย <code>%</code> แทนอักขระจำนวน 0 ตัวขึ้นไป ดังนั้น <code>%or%</code> จึงครอบคลุมทั้งกรณีที่ "or" อยู่หน้าสุด ตรงกลาง หรือท้ายสุดของข้อความ</div>
+            <div class="supplement-box"><strong>เนื้อหาเสริม: Case Sensitivity ของ LIKE</strong>
+                ใน MySQL และ SQLite คำสั่ง <code>LIKE</code> โดยค่าเริ่มต้นจะไม่สนใจตัวพิมพ์เล็ก-ใหญ่ (Case-insensitive) แต่ใน PostgreSQL จะแยกตัวพิมพ์เล็ก-ใหญ่
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="q-title"><span class="q-badge">ข้อ 34</span> คำสั่ง IN ใน SQL เทียบได้กับ operator ทางคณิตศาสตร์ในข้อใด</div>
+            <ul class="choices-list">
+                <li class="choice-item"><span class="choice-marker">a</span><div class="choice-content">สัญลักษณ์ &notin; (ไม่เป็นสมาชิกของเซต) / &cap; (อินเตอร์เซกชัน)</div></li>
+                <li class="choice-item correct"><span class="choice-marker">&check;</span><div class="choice-content"><strong>ข้อที่เป็นสัญลักษณ์ &isin; (เป็นสมาชิกของเซต) หรือชุดเงื่อนไข OR ( &or; ) หลายตัวรวมกัน</strong> <em>(เทียบสัญลักษณ์ในตัวเลือก a, b, c, d ตามหน้าจอ)</em></div></li>
+            </ul>
+            <div class="reason-box"><strong>เหตุผล:</strong> คำสั่ง <code>WHERE Country IN ('Thailand', 'Japan', 'Korea')</code> เป็นการตรวจสอบว่าค่าในคอลัมน์เป็นสมาชิกตัวใดตัวหนึ่งในรายการที่กำหนด (ทางคณิตศาสตร์คือ $x \in \{a, b, c\}$)</div>
+            <div class="supplement-box"><strong>เนื้อหาเสริม: ข้อดีของ IN</strong>
+                ช่วยให้เขียนเงื่อนไข <code>OR</code> ยาวๆ ได้สั้นและอ่านง่ายขึ้น และยังใช้ครอบ Subquery ได้ เช่น <code>WHERE CustomerID IN (SELECT CustomerID FROM Orders)</code>
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="q-title"><span class="q-badge">ข้อ 35</span> การใช้คำสั่ง ORDER BY โดยที่ไม่ได้ระบุลำดับการเรียง SQL จะแสดงผลในลำดับใด</div>
+            <ul class="choices-list">
+                <li class="choice-item"><span class="choice-marker">1</span><div class="choice-content">จากมากไปน้อย</div></li>
+                <li class="choice-item correct"><span class="choice-marker">&check;</span><div class="choice-content">จากน้อยไปมาก</div></li>
+                <li class="choice-item"><span class="choice-marker">3</span><div class="choice-content">แบบสุ่ม</div></li>
+                <li class="choice-item"><span class="choice-marker">4</span><div class="choice-content">ให้ค่า Error เพราะต้องมีการระบุการเรียงลำดับเสมอ</div></li>
+            </ul>
+            <div class="reason-box"><strong>เหตุผล:</strong> หากเขียนเพียง <code>ORDER BY ColumnName</code> โดยไม่ใส่คีย์เวิร์ดต่อท้าย SQL จะถือว่าค่าเริ่มต้น (Default) คือ <code>ASC</code> (เรียงจากน้อยไปมาก) เสมอ</div>
+            <div class="supplement-box"><strong>เนื้อหาเสริม: ตำแหน่งของค่า NULL ใน ORDER BY</strong>
+                ในฐานข้อมูลส่วนใหญ่ (เช่น SQLite, MySQL) เมื่อเรียงจากน้อยไปมาก (<code>ASC</code>) ค่า <code>NULL</code> จะถูกจัดให้อยู่ลำดับบนสุด (ถือว่ามีค่าน้อยที่สุด)
+            </div>
+        </div>
+    </section>
+
+    <!-- MODULE 5 -->
+    <section id="mod5" class="module-section">
+        <div class="module-header">
+            <h2>ชุดที่ 5: การคิดเชิงออกแบบและการสร้างตัวต้นแบบ (Design Thinking & Prototype)</h2>
+            <span>จำนวน 14 ข้อ — กระบวนการ 5 ขั้นตอน, Fidelity ของต้นแบบ, Wireframe และ Prototype Testing</span>
+        </div>
+
+        <div class="question-card">
+            <div class="q-title"><span class="q-badge">ข้อ 1</span> ข้อใด คือ เป้าหมายของการทำ Prototype</div>
+            <ul class="choices-list">
+                <li class="choice-item"><span class="choice-marker">1</span><div class="choice-content">เพื่อวิเคราะห์แนวคิดผลิตภัณฑ์ที่คิดขึ้นมา</div></li>
+                <li class="choice-item"><span class="choice-marker">2</span><div class="choice-content">เพื่อค้นคว้าหรือต่อยอดแนวคิดผลิตภัณฑ์ของเรา</div></li>
+                <li class="choice-item"><span class="choice-marker">3</span><div class="choice-content">เพื่อสื่อสารแนวคิดผลิตภัณฑ์ให้ผู้ใช้งาน</div></li>
+                <li class="choice-item correct"><span class="choice-marker">&check;</span><div class="choice-content">ถูกทุกข้อ</div></li>
+            </ul>
+            <div class="reason-box"><strong>เหตุผล:</strong> Prototype คือตัวต้นแบบจำลองที่สร้างขึ้นอย่างรวดเร็วและประหยัด เพื่อใช้ทดสอบแนวคิด ต่อยอดไอเดีย และเป็นสื่อกลางให้ทั้งทีมพัฒนาและผู้ใช้งานเห็นภาพการทำงานตรงกันก่อนลงมือสร้างจริง</div>
+            <div class="supplement-box"><strong>เนื้อหาเสริม: แนวคิด "Fail Fast, Fail Cheap"</strong>
+                หัวใจของการทำ Prototype คือการค้นพบข้อผิดพลาดให้เร็วที่สุดและเสียค่าใช้จ่ายน้อยที่สุด เพราะการแก้ไขบนกระดาษหรือ Figma ถูกกว่าการแก้โค้ดที่เขียนเสร็จแล้วหลายสิบเท่า
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="q-title"><span class="q-badge">ข้อ 2</span> ข้อใด คือ เหตุผลที่ทำไมเราต้องทำ Prototype ก่อนเริ่มพัฒนา Product หรือ ผลิตภัณฑ์จริง</div>
+            <ul class="choices-list">
+                <li class="choice-item"><span class="choice-marker">1</span><div class="choice-content">เพราะเป็นการช่วยลดต้นทุน</div></li>
+                <li class="choice-item"><span class="choice-marker">2</span><div class="choice-content">เพราะจะช่วยให้เราผลิต Product หรือ ผลิตภัณฑ์ออกสู่ตลาดได้เร็วกว่าคู่แข่ง</div></li>
+                <li class="choice-item correct"><span class="choice-marker">&check;</span><div class="choice-content">เพราะจะช่วยให้เรามั่นใจได้ระดับนึงว่าเมื่อเราลงทุนลงแรงไปแล้ว จะมีผู้ใช้งานผลิตภัณฑ์ของเรา</div></li>
+                <li class="choice-item"><span class="choice-marker">4</span><div class="choice-content">เพราะจะช่วยให้เราทำผลิตภัณฑ์ไปได้อย่างมีจุดหมาย ไม่หลงทาง</div></li>
+            </ul>
+            <div class="reason-box"><strong>เหตุผล:</strong> การนำ Prototype ไปทดสอบกับกลุ่มเป้าหมายช่วยให้เรายืนยันสมมติฐานทางธุรกิจ (Idea Validation) ได้ว่าผลิตภัณฑ์นี้แก้ปัญหาให้ผู้ใช้ได้จริงและมีคนต้องการใช้งาน ก่อนทุ่มงบประมาณพัฒนาเต็มรูปแบบ</div>
+            <div class="supplement-box"><strong>เนื้อหาเสริม: MVP (Minimum Viable Product)</strong>
+                หลังจากผ่านขั้น Prototype Testing แล้ว ขั้นถัดไปของการพัฒนาผลิตภัณฑ์มักเป็นการสร้าง <b>MVP</b> คือผลิตภัณฑ์เวอร์ชันจริงที่ตัดฟีเจอร์รองออก เหลือเฉพาะฟีเจอร์หลักที่ใช้งานได้จริงเพื่อออกสู่ตลาดเร็วที่สุด
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="q-title"><span class="q-badge">ข้อ 3</span> ประเภทของ Prototype ในข้อใด มีรายละเอียดที่เสมือนจริงและทำให้ผู้ใช้งานเห็นภาพรวมการใช้งานมากที่สุด</div>
+            <ul class="choices-list">
+                <li class="choice-item"><span class="choice-marker">1</span><div class="choice-content">Low-fidelity Prototype</div></li>
+                <li class="choice-item correct"><span class="choice-marker">&check;</span><div class="choice-content">High-fidelity Prototype</div></li>
+                <li class="choice-item"><span class="choice-marker">3</span><div class="choice-content">Mid-fidelity Prototype</div></li>
+                <li class="choice-item"><span class="choice-marker">4</span><div class="choice-content">Clickable and Functional Prototype</div></li>
+            </ul>
+            <div class="reason-box"><strong>เหตุผล:</strong> High-fidelity (Hi-Fi) Prototype มีการลงรายละเอียดครบถ้วนทั้งโทนสี ฟอนต์ รูปภาพจริง และการกดโต้ตอบ (Interactive) ที่ใกล้เคียงกับแอปพลิเคชันหรือเว็บไซต์จริงมากที่สุด</div>
+            <div class="supplement-box"><strong>เนื้อหาเสริม: ระดับความละเอียดของ Prototype (Fidelity)</strong>
+                - <b>Low-fidelity (Lo-Fi):</b> ภาพร่างลายเส้นบนกระดาษ เน้นโครงสร้างอย่างรวดเร็ว | - <b>Mid-fidelity (Mid-Fi):</b> Wireframe ขาว-เทา | - <b>High-fidelity (Hi-Fi):</b> สวยงามเสมือนจริง กดคลิกเปลี่ยนหน้าได้จริง
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="q-title"><span class="q-badge">ข้อ 4</span> จงเรียงลำดับขั้นตอนในกระบวนการ Design Thinking</div>
+            <ul class="choices-list">
+                <li class="choice-item"><span class="choice-marker">1</span><div class="choice-content">Ideate &gt; Empathize &gt; Define &gt; Prototype &gt; Test</div></li>
+                <li class="choice-item"><span class="choice-marker">2</span><div class="choice-content">Ideate &gt; Empathize &gt; Define &gt; Test &gt; Prototype</div></li>
+                <li class="choice-item correct"><span class="choice-marker">&check;</span><div class="choice-content">Empathize &gt; Define &gt; Ideate &gt; Prototype &gt; Test</div></li>
+                <li class="choice-item"><span class="choice-marker">4</span><div class="choice-content">Empathize &gt; Ideate &gt; Define &gt; Prototype &gt; Test</div></li>
+            </ul>
+            <div class="reason-box"><strong>เหตุผล:</strong> เป็นกระบวนการมาตรฐาน 5 ขั้นตอนของ Stanford d.school เริ่มจากการเข้าใจผู้ใช้ &rarr; ระบุปัญหา &rarr; ระดมไอเดีย &rarr; สร้างต้นแบบ &rarr; ทดสอบ</div>
+            <div class="supplement-box"><strong>เนื้อหาเสริม: Double Diamond Model</strong>
+                กระบวนการคิดนี้มีลักษณะเป็นการคิดแบบบานออกและหุบเข้า (Divergent & Convergent Thinking) คือเปิดกว้างรับข้อมูล/ไอเดียให้มาก แล้วค่อยกลั่นกรองคัดเลือกสิ่งที่ดีที่สุด
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="q-title"><span class="q-badge">ข้อ 5</span> ในกระบวนการ Design Thinking ขั้นตอนใดบ้างจัดเป็นส่วนการค้นหาปัญหาของผู้ใช้งาน หรือจัดเป็นขั้นตอนก่อนลงมือสร้าง Prototype (Pre-Prototyping Design Process)</div>
+            <ul class="choices-list">
+                <li class="choice-item correct"><span class="choice-marker">&check;</span><div class="choice-content">Empathize, Define และ Ideate</div></li>
+                <li class="choice-item"><span class="choice-marker">2</span><div class="choice-content">Empathize, Define และ Prototype</div></li>
+                <li class="choice-item"><span class="choice-marker">3</span><div class="choice-content">Ideate, Define และ Prototype</div></li>
+                <li class="choice-item"><span class="choice-marker">4</span><div class="choice-content">Ideate, Define และ Test</div></li>
+            </ul>
+            <div class="reason-box"><strong>เหตุผล:</strong> ทั้ง 3 ขั้นตอนแรกเป็นกระบวนการทำความเข้าใจปัญหา วิเคราะห์ความต้องการ และตกผลึกแนวทางแก้ไข ก่อนจะนำไอเดียที่ได้มาลงมือสร้างเป็นชิ้นงานต้นแบบในขั้น Prototype</div>
+            <div class="supplement-box"><strong>เนื้อหาเสริม: ผลลัพธ์สำคัญของแต่ละขั้นก่อนสร้างต้นแบบ</strong>
+                Empathize ได้ <b>ข้อมูลเชิงลึก (Insights)</b> &rarr; Define ได้ <b>โจทย์ปัญหา (Point of View)</b> &rarr; Ideate ได้ <b>แนวทางแก้ไข (Solutions)</b>
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="q-title"><span class="q-badge">ข้อ 6</span> ในกระบวนการ Empathize ข้อใด คือ วิธีการทำความเข้าใจความต้องการของผู้ใช้งาน</div>
+            <ul class="choices-list">
+                <li class="choice-item"><span class="choice-marker">1</span><div class="choice-content">การพูดคุยกับกลุ่มผู้ใช้งาน</div></li>
+                <li class="choice-item"><span class="choice-marker">2</span><div class="choice-content">การส่งแบบสอบถามออนไลน์ ให้ผู้ใช้งานกรอกแบบสอบถาม</div></li>
+                <li class="choice-item"><span class="choice-marker">3</span><div class="choice-content">การสร้าง Persona</div></li>
+                <li class="choice-item correct"><span class="choice-marker">&check;</span><div class="choice-content">ถูกทุกข้อ</div></li>
+            </ul>
+            <div class="reason-box"><strong>เหตุผล:</strong> ขั้นตอน Empathize ใช้เครื่องมือหลากหลายเพื่อเข้าถึงความรู้สึกและพฤติกรรมผู้ใช้ ทั้งการสัมภาษณ์เชิงลึก การสังเกตการณ์ แบบสอบถาม และการสรุปเป็น Persona</div>
+            <div class="supplement-box"><strong>เนื้อหาเสริม: Empathy Map</strong>
+                เครื่องมือยอดนิยมในการจัดระเบียบข้อมูลจาก Empathize โดยแบ่งสิ่งที่ผู้ใช้แสดงออกเป็น 4 ด้าน คือ <b>Says</b> (พูดอะไร), <b>Thinks</b> (คิดอะไร), <b>Does</b> (ทำอะไร) และ <b>Feels</b> (รู้สึกอย่างไร)
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="q-title"><span class="q-badge">ข้อ 7</span> ในกระบวนการ Define เกี่ยวข้องกับการทำอะไร</div>
+            <ul class="choices-list">
+                <li class="choice-item"><span class="choice-marker">1</span><div class="choice-content">การกำหนดฟังก์ชันการใช้งานของเว็บไซต์</div></li>
+                <li class="choice-item"><span class="choice-marker">2</span><div class="choice-content">การทดสอบ Prototype</div></li>
+                <li class="choice-item correct"><span class="choice-marker">&check;</span><div class="choice-content">การสร้าง Persona</div></li>
+                <li class="choice-item"><span class="choice-marker">4</span><div class="choice-content">การสร้าง Wireframe</div></li>
+            </ul>
+            <div class="reason-box"><strong>เหตุผล:</strong> ขั้นตอน Define คือการนำข้อมูลดิบที่ได้จาก Empathize มาวิเคราะห์ สังเคราะห์ และสร้างตัวแทนกลุ่มเป้าหมาย (User Persona) รวมถึงระบุปัญหาหลักให้ชัดเจน (ส่วน Wireframe อยู่ในขั้น Prototype)</div>
+            <div class="supplement-box"><strong>เนื้อหาเสริม: องค์ประกอบของ User Persona</strong>
+                ประกอบด้วยข้อมูลประชากรศาสตร์ (อายุ อาชีพ) พฤติกรรมการใช้งาน เป้าหมายที่ต้องการ (Goals) และปัญหาอุปสรรคที่พบเจอ (Pain Points)
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="q-title"><span class="q-badge">ข้อ 8</span> ในกระบวนการ Ideation เป็นขั้นตอนที่มีจุดประสงค์เพื่อทำอะไร</div>
+            <ul class="choices-list">
+                <li class="choice-item"><span class="choice-marker">1</span><div class="choice-content">เพื่อสร้าง Prototype ใน Google Slide</div></li>
+                <li class="choice-item"><span class="choice-marker">2</span><div class="choice-content">เพื่อกำหนดลักษณะเว็บไซต์</div></li>
+                <li class="choice-item correct"><span class="choice-marker">&check;</span><div class="choice-content">เพื่อคิดค้นแนวคิดการพัฒนาเว็บไซต์</div></li>
+                <li class="choice-item"><span class="choice-marker">4</span><div class="choice-content">เพื่อทดสอบ Prototype กับผู้ใช้งาน</div></li>
+            </ul>
+            <div class="reason-box"><strong>เหตุผล:</strong> Ideation คือขั้นตอนการระดมสมอง (Brainstorming) เพื่อสร้างสรรค์แนวคิดและทางเลือกในการแก้ปัญหาให้หลากหลายที่สุดโดยยังไม่ตัดสินผิดถูกในช่วงแรก</div>
+            <div class="supplement-box"><strong>เนื้อหาเสริม: เทคนิค Brainstorming ยอดนิยม</strong>
+                เช่น <b>Crazy 8s</b> (พับกระดาษเป็น 8 ช่อง แล้วบังคับตัวเองให้วาดไอเดียแก้ปัญหา 8 แบบภายใน 8 นาที เพื่อกระตุ้นความคิดนอกกรอบ)
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="q-title"><span class="q-badge">ข้อ 9</span> ในกระบวนการทำ Prototype ควรเน้นการทำ Prototype ในส่วนใดของหน้าเว็บไซต์</div>
+            <ul class="choices-list">
+                <li class="choice-item correct"><span class="choice-marker">&check;</span><div class="choice-content">ส่วนที่เกี่ยวข้องกับสมมติฐานที่ตั้งไว้</div></li>
+                <li class="choice-item"><span class="choice-marker">2</span><div class="choice-content">ส่วนที่ต้องการแสดงความสวยงามของหน้าตาเว็บไซต์</div></li>
+                <li class="choice-item"><span class="choice-marker">3</span><div class="choice-content">ส่วนที่เป็นเป้าหมายของการทำเว็บไซต์</div></li>
+                <li class="choice-item"><span class="choice-marker">4</span><div class="choice-content">ถูกทั้งข้อ 1) และ 2)</div></li>
+            </ul>
+            <div class="reason-box"><strong>เหตุผล:</strong> การทำ Prototype ไม่ควรเสียเวลาทำทุกหน้าย่อยในระบบ แต่ควรโฟกัสเฉพาะฟีเจอร์หรือเส้นทางการใช้งานหลัก (User Flow) ที่เชื่อมโยงกับสมมติฐานที่ต้องการนำไปพิสูจน์กับผู้ใช้</div>
+            <div class="supplement-box"><strong>เนื้อหาเสริม: User Flow</strong>
+                คือแผนภาพแสดงลำดับขั้นตอนการเดินทางของผู้ใช้ตั้งแต่เข้ามาในหน้าแรกจนทำเป้าหมายสำเร็จ (เช่น ค้นหาสินค้า &rarr; หยิบใส่ตะกร้า &rarr; ชำระเงิน)
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="q-title"><span class="q-badge">ข้อ 10</span> ข้อใด คือ ปัญหาที่สามารถแก้ไขได้โดยการทำ Pagination</div>
+            <ul class="choices-list">
+                <li class="choice-item"><span class="choice-marker">1</span><div class="choice-content">ความช้าของอินเทอร์เน็ตในการเข้าถึงเว็บไซต์</div></li>
+                <li class="choice-item correct"><span class="choice-marker">&check;</span><div class="choice-content">ข้อมูลในเว็บไซต์ที่มีมากเกินไปในหน้าเดียว</div></li>
+                <li class="choice-item"><span class="choice-marker">3</span><div class="choice-content">ความล้าสมัยของหน้าตาเว็บไซต์</div></li>
+                <li class="choice-item"><span class="choice-marker">4</span><div class="choice-content">เว็บไซต์มีขนาดและสีของตัวอักษรที่อ่านยากเกินไป</div></li>
+            </ul>
+            <div class="reason-box"><strong>เหตุผล:</strong> Pagination คือการแบ่งรายการข้อมูลจำนวนมากออกเป็นหน้าย่อยๆ (เช่น หน้า 1, 2, 3... ถัดไป) ช่วยลดความยาวของหน้าเว็บ ลดภาระการโหลดข้อมูลทีเดียวทั้งหมด และช่วยให้ผู้ใช้จดจำตำแหน่งข้อมูลได้ง่าย</div>
+            <div class="supplement-box"><strong>เนื้อหาเสริม: Pagination vs Infinite Scroll</strong>
+                - <b>Pagination:</b> เหมาะกับเว็บค้นหาข้อมูล อีคอมเมิร์ซ ที่ผู้ใช้ต้องการกลับมาดูรายการเดิมได้ | - <b>Infinite Scroll:</b> เหมาะกับโซเชียลมีเดียที่เน้นการเสพคอนเทนต์เพลินๆ
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="q-title"><span class="q-badge">ข้อ 11</span> ข้อใด ไม่ใช่ เครื่องมือที่สามารถใช้ทำ Prototype นอกเหนือจาก Google Slide</div>
+            <ul class="choices-list">
+                <li class="choice-item correct"><span class="choice-marker">&check;</span><div class="choice-content">Figjam</div></li>
+                <li class="choice-item"><span class="choice-marker">2</span><div class="choice-content">Figma</div></li>
+                <li class="choice-item"><span class="choice-marker">3</span><div class="choice-content">Marvel</div></li>
+                <li class="choice-item"><span class="choice-marker">4</span><div class="choice-content">ทุกข้อเป็นเครื่องมือที่สามารถใช้ทำ Prototype</div></li>
+            </ul>
+            <div class="reason-box"><strong>เหตุผล:</strong> FigJam เป็นกระดานไวท์บอร์ดออนไลน์สำหรับระดมความคิด (Brainstorming) และเขียนแผนภาพ Flow ส่วน Figma และ Marvel เป็นเครื่องมือออกแบบ UI และทำ Interactive Prototype โดยตรง</div>
+            <div class="supplement-box"><strong>เนื้อหาเสริม: เครื่องมือทำ Prototype ยอดนิยม</strong>
+                นอกจาก Figma และ Marvel แล้ว ยังมี Adobe XD, Sketch, InVision และ ProtoPie ที่นิยมใช้ในอุตสาหกรรมออกแบบ UX/UI
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="q-title"><span class="q-badge">ข้อ 12</span> เหตุใดเราควรกำหนดโจทย์การใช้งานที่ครอบคลุมฟังก์ชันที่ต้องการทดสอบทั้งหมดก่อนไปทำการทดสอบ Prototype (Prototype Testing)</div>
+            <ul class="choices-list">
+                <li class="choice-item correct"><span class="choice-marker">&check;</span><div class="choice-content">เพื่อให้ผู้ใช้งานรู้ว่าเขาต้องทำอะไรบ้าง หรือมีขั้นตอนอะไรที่เขาต้องให้สำเร็จบ้างในการทดสอบครั้งนี้</div></li>
+                <li class="choice-item"><span class="choice-marker">2</span><div class="choice-content">เพื่อให้ผู้ใช้งานได้รู้ว่าเว็บไซต์หรือแอปพลิเคชั่นของเรามีฟังก์ชั่นอะไรบ้างและสามารถทำอะไรได้บ้าง</div></li>
+                <li class="choice-item"><span class="choice-marker">3</span><div class="choice-content">เพื่อให้ผู้ใช้งานเห็นหน้าตาความสวยงามของ Prototype ที่เราทำมาครบทุกฟังก์ชัน</div></li>
+                <li class="choice-item"><span class="choice-marker">4</span><div class="choice-content">ถูกทุกข้อ</div></li>
+            </ul>
+            <div class="reason-box"><strong>เหตุผล:</strong> การกำหนดโจทย์หรือสถานการณ์จำลอง (Task Scenario) ช่วยให้ผู้ทดสอบมีเป้าหมายชัดเจนในการทดลองใช้งาน ทำให้ทีมงานสังเกตเห็นพฤติกรรมจริงและจุดติดขัดในแต่ละขั้นตอนได้ครบถ้วน</div>
+            <div class="supplement-box"><strong>เนื้อหาเสริม: เทคนิค Think Aloud Protocol</strong>
+                ระหว่างให้ผู้ทดสอบทำตามโจทย์ ควรขอให้เขา "พูดความคิดออกมาดังๆ" ขณะใช้งาน เพื่อให้ทีมงานเข้าใจว่าเขากำลังมองหาอะไรหรือสับสนตรงจุดไหน
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="q-title"><span class="q-badge">ข้อ 13</span> ข้อใด คือ สิ่งที่ควรทำในขั้นตอนการทดสอบ Prototype (Prototype Testing)</div>
+            <ul class="choices-list">
+                <li class="choice-item"><span class="choice-marker">1</span><div class="choice-content">ให้ทีมงานเข้าไปพูดคุยกับผู้ใช้งานเพียง 1-2 คน เพื่อลดความตื่นเต้นของผู้ทดสอบ</div></li>
+                <li class="choice-item"><span class="choice-marker">2</span><div class="choice-content">ต้องดูพฤติกรรมของผู้ใช้งานอย่างละเอียดว่าติดปัญหาการใช้งานตรงไหนบ้าง</div></li>
+                <li class="choice-item correct"><span class="choice-marker">&check;</span><div class="choice-content">ถูกทุกข้อ</div></li>
+            </ul>
+            <div class="reason-box"><strong>เหตุผล:</strong> ระหว่างการทดสอบ ควรส่งทีมงานเข้าไปพูดคุยเพียง 1–2 คนเพื่อไม่ให้ผู้ทดสอบรู้สึกถูกกดดันหรือประหม่า และต้องสังเกตสีหน้า ท่าทาง และจุดที่ผู้ใช้กดผิดหรือลังเลอย่างละเอียด</div>
+            <div class="supplement-box"><strong>เนื้อหาเสริม: กฎเหล็กของ Usability Testing</strong>
+                "เรากำลังทดสอบตัวระบบ ไม่ได้กำลังทดสอบความฉลาดของผู้ใช้" ดังนั้นห้ามชี้นำหรือบอกใบ้ว่าต้องกดปุ่มไหน หากผู้ใช้หาปุ่มไม่เจอ แปลว่างานออกแบบของเราต้องปรับปรุง
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="q-title"><span class="q-badge">ข้อ 14</span> ข้อใด คือ ขั้นตอนหลังการสร้าง Prototype (Post-Prototyping Design Process)</div>
+            <ul class="choices-list">
+                <li class="choice-item"><span class="choice-marker">1</span><div class="choice-content">พัฒนาออกแบบเป็นหน้าเว็บไซต์ให้มีความเสมือนจริงมากที่สุดในทุก ๆ หน้าเพื่อส่งต่อให้ทาง Developer</div></li>
+                <li class="choice-item"><span class="choice-marker">2</span><div class="choice-content">สรุปผลการทดสอบ Prototype และส่งต่อให้ทาง Developer ไปดำเนินการแก้ไขตามผลการทดสอบต่อไป</div></li>
+                <li class="choice-item correct"><span class="choice-marker">&check;</span><div class="choice-content">นำเสนอผลการทดสอบ Prototype ให้ทีมผู้บริหาร หุ้นส่วน หรือผู้มีอำนาจตัดสินใจ เพื่อพิจารณาว่าหน้าตาเว็บไซต์ควรปรับแก้ไปในทิศทางใด</div></li>
+                <li class="choice-item"><span class="choice-marker">4</span><div class="choice-content">กลับไปทำกระบวนการ Design Thinking ใหม่อีกครั้ง เนื่องจากผลทดสอบ Prototype ไม่เป็นไปตามที่ทีมอยากให้เป็น</div></li>
+            </ul>
+            <div class="reason-box"><strong>เหตุผล:</strong> หลังเสร็จสิ้นการสร้างและทดสอบต้นแบบ ทีมออกแบบต้องรวบรวมข้อเสนอแนะและผลลัพธ์ที่ได้ไปนำเสนอต่อผู้มีส่วนได้ส่วนเสีย (Stakeholders) เพื่อตัดสินใจทิศทางการปรับปรุงก่อนส่งต่อให้ฝ่ายพัฒนา</div>
+            <div class="supplement-box"><strong>เนื้อหาเสริม: Design Handoff</strong>
+                เมื่อดีไซน์ผ่านการอนุมัติแล้ว ทีม UX/UI จะส่งมอบไฟล์ออกแบบ สเปกสี ฟอนต์ และระยะห่าง (Design System) ให้กับทีม Developer นำไปเขียนโค้ดพัฒนาจริงต่อไป
+            </div>
+        </div>
+    </section>
+
+    <!-- MODULE 6 -->
+    <section id="mod6" class="module-section">
+        <div class="module-header">
+            <h2>ชุดที่ 6: แนวคิดเชิงคำนวณ (Computational Thinking)</h2>
+            <span>จำนวน 8 ข้อ — Decomposition, Pattern Recognition, Abstraction, Algorithm และ Flowchart</span>
+        </div>
+
+        <div class="question-card">
+            <div class="q-title"><span class="q-badge">ข้อ 1</span> แพรวาต้องการเขียนขั้นตอน “ลิสต์เมนูอาหาร” แพรวาควรเลือกใช้สัญลักษณ์ใดในการเขียน flow chart</div>
+            <ul class="choices-list">
+                <li class="choice-item correct"><span class="choice-marker">&check;</span><div class="choice-content"><strong>ตัวเลือก 1: รูปสี่เหลี่ยมผืนผ้า (Process)</strong></div></li>
+                <li class="choice-item"><span class="choice-marker">2</span><div class="choice-content">ตัวเลือก 2: รูปสี่เหลี่ยมขนมเปียกปูน (Decision)</div></li>
+                <li class="choice-item"><span class="choice-marker">3</span><div class="choice-content">ตัวเลือก 3: รูปวงกลม (Connector)</div></li>
+                <li class="choice-item"><span class="choice-marker">4</span><div class="choice-content">ตัวเลือก 4: รูปสี่เหลี่ยมมุมมน/แคปซูล (Terminator)</div></li>
+            </ul>
+            <div class="reason-box"><strong>เหตุผล:</strong> รูปสี่เหลี่ยมผืนผ้า (Process) ใช้แทนขั้นตอนการปฏิบัติงาน การคำนวณ หรือการประมวลผลทั่วไป เช่น การลิสต์รายการอาหาร</div>
+            <div class="supplement-box"><strong>เนื้อหาเสริม: ความหมายของสัญลักษณ์ทั้ง 4 รูปในโจทย์</strong>
+                <div class="flowchart-legend">
+                    <div><b>1. สี่เหลี่ยมผืนผ้า (Process):</b> การปฏิบัติงาน/ประมวลผล</div>
+                    <div><b>2. ขนมเปียกปูน (Decision):</b> การตัดสินใจ/เงื่อนไข (จริง-เท็จ)</div>
+                    <div><b>3. วงกลม (Connector):</b> จุดเชื่อมต่อผังงานในหน้าเดียวกัน</div>
+                    <div><b>4. แคปซูล (Terminator):</b> จุดเริ่มต้น (Start) / สิ้นสุด (End)</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="q-title"><span class="q-badge">ข้อ 2</span> ข้อใดกล่าวถูกต้องเกี่ยวกับ computational thinking</div>
+            <ul class="choices-list">
+                <li class="choice-item"><span class="choice-marker">1</span><div class="choice-content">Algorithm คือการหารูปแบบ หรือการจำรูปแบบของสิ่งต่าง ๆ เพื่อแก้ปัญหา</div></li>
+                <li class="choice-item"><span class="choice-marker">2</span><div class="choice-content">Pattern recognition คือการแบ่งปัญหาเป็นส่วนย่อยเพื่อให้ง่ายต่อการแก้ไข</div></li>
+                <li class="choice-item"><span class="choice-marker">3</span><div class="choice-content">Decomposition คือการออกแบบขั้นตอนการแก้ไขปัญหาอย่างมีระเบียบเพื่อให้ได้ผลลัพธ์ที่ถูกต้อง</div></li>
+                <li class="choice-item correct"><span class="choice-marker">&check;</span><div class="choice-content">Abstraction คือการลดข้อมูล หรือสรุปอย่างสั้น ๆ โดยไม่เสียความหมายของข้อมูล</div></li>
+            </ul>
+            <div class="reason-box"><strong>เหตุผล:</strong> Abstraction (การคิดเชิงนามธรรม) คือการคัดกรองเอาเฉพาะสาระสำคัญที่จำเป็นต่อการแก้ปัญหา และตัดรายละเอียดปลีกย่อยที่ไม่เกี่ยวข้องออกไป (ส่วน 3 ข้อแรกนำนิยามของแต่ละองค์ประกอบมาสลับกัน)</div>
+            <div class="supplement-box"><strong>เนื้อหาเสริม: 4 เสาหลักของ Computational Thinking</strong>
+                1. <b>Decomposition:</b> แยกปัญหาใหญ่เป็นส่วนย่อย | 2. <b>Pattern Recognition:</b> หารูปแบบความเหมือน | 3. <b>Abstraction:</b> คัดกรองเฉพาะสาระสำคัญ | 4. <b>Algorithm:</b> ออกแบบลำดับขั้นตอนแก้ปัญหา
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="q-title"><span class="q-badge">ข้อ 3</span> แพรวต้องการเขียนลำดับขั้นตอนในการทำงาน แพรวควรเขียนโดยใช้อะไร</div>
+            <ul class="choices-list">
+                <li class="choice-item"><span class="choice-marker">1</span><div class="choice-content">Mindmap</div></li>
+                <li class="choice-item"><span class="choice-marker">2</span><div class="choice-content">Thinkmap</div></li>
+                <li class="choice-item correct"><span class="choice-marker">&check;</span><div class="choice-content">Flow chart</div></li>
+                <li class="choice-item"><span class="choice-marker">4</span><div class="choice-content">Pie chart</div></li>
+            </ul>
+            <div class="reason-box"><strong>เหตุผล:</strong> Flowchart (ผังงาน) เป็นแผนภาพที่ใช้สัญลักษณ์มาตรฐานและลูกศรแสดงทิศทาง เพื่ออธิบายลำดับขั้นตอนการทำงานตั้งแต่ต้นจนจบได้อย่างเป็นระบบ</div>
+            <div class="supplement-box"><strong>เนื้อหาเสริม: เครื่องมือเขียนอัลกอริทึม 3 รูปแบบ</strong>
+                1. <b>รหัสลำลอง (Pseudocode):</b> ข้อความกึ่งโค้ด | 2. <b>ผังงาน (Flowchart):</b> แผนภาพสัญลักษณ์ | 3. <b>ภาษาธรรมชาติ (Natural Language):</b> บรรยายเป็นภาษาพูดทั่วไปทีละข้อ
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="q-title"><span class="q-badge">ข้อ 4</span> ข้อใดต่อไปนี้เป็นการนำ pattern recognition มาใช้ในการวางแผนการจัดงานฉลองเรียนจบ</div>
+            <ul class="choices-list">
+                <li class="choice-item"><span class="choice-marker">1</span><div class="choice-content">แซมวางแผนการจัดงานฉลองเรียนจบโดยการแบ่งเรื่องที่ต้องจัดการออกเป็น 3 เรื่อง ได้แก่ อาหาร ธีมงาน และ สถานที่ แล้วจัดการทีละเรื่อง</div></li>
+                <li class="choice-item correct"><span class="choice-marker">&check;</span><div class="choice-content">แซมวางแผนการจัดงานฉลองเรียนจบ โดยวางแผนคล้าย ๆ กับการวางแผนการจัดงานวันเกิด</div></li>
+                <li class="choice-item"><span class="choice-marker">3</span><div class="choice-content">แซมเขียนแผนการจัดงานฉลองเรียนจบเป็นลำดับขั้นตอน</div></li>
+                <li class="choice-item"><span class="choice-marker">4</span><div class="choice-content">แซมเลือกอาหารโดยเลือกจากประเภทของอาหารก่อน เช่นเลือกเป็น อาหารจีน หรือ อาหารไทย</div></li>
+            </ul>
+            <div class="reason-box"><strong>เหตุผล:</strong> Pattern Recognition คือการสังเกตเห็นความคล้ายคลึงกันระหว่างปัญหาใหม่ (งานเรียนจบ) กับประสบการณ์เดิม (งานวันเกิด) แล้วนำโครงสร้างการวางแผนเดิมมาประยุกต์ใช้ซ้ำ</div>
+            <div class="supplement-box"><strong>เนื้อหาเสริม: วิเคราะห์ตัวเลือกอื่นในข้อนี้</strong>
+                - แบ่งงานเป็น 3 เรื่อง (อาหาร ธีม สถานที่) = <b>Decomposition</b> | - เขียนแผนเป็นลำดับขั้นตอน = <b>Algorithm</b>
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="q-title"><span class="q-badge">ข้อ 5</span> เจมส์สังเกตว่าเพื่อน ๆ มันใส่เสื้อกันหนาวเวลาเข้าเรียนที่ห้อง 204 เมื่อเจมส์ต้องไปเรียนที่ห้อง 204 จึงเตรียมเสื้อกันหนาวไปเผื่อ เจมส์ใช้ computational thinking ใด</div>
+            <ul class="choices-list">
+                <li class="choice-item"><span class="choice-marker">1</span><div class="choice-content">Decomposition</div></li>
+                <li class="choice-item"><span class="choice-marker">2</span><div class="choice-content">Abstraction</div></li>
+                <li class="choice-item"><span class="choice-marker">3</span><div class="choice-content">Algorithm</div></li>
+                <li class="choice-item correct"><span class="choice-marker">&check;</span><div class="choice-content">Pattern recognition</div></li>
+            </ul>
+            <div class="reason-box"><strong>เหตุผล:</strong> เจมส์สังเกตเห็นรูปแบบพฤติกรรมที่เกิดขึ้นซ้ำๆ ของคนที่เข้าห้อง 204 (ใส่เสื้อกันหนาว) จึงอนุมานได้ว่าห้องนี้แอร์เย็นจัด และนำไปใช้คาดการณ์เตรียมตัวล่วงหน้า</div>
+            <div class="supplement-box"><strong>เนื้อหาเสริม: บทบาทของ Pattern Recognition ในโลก AI</strong>
+                หลักการนี้คือรากฐานสำคัญของ Machine Learning ที่ให้คอมพิวเตอร์เรียนรู้จากข้อมูลในอดีตจำนวนมากเพื่อจับรูปแบบและทำนายอนาคต
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="q-title"><span class="q-badge">ข้อ 6</span> Algortihm เหมาะใช้สำหรับงานได้กับงานด้านใด?</div>
+            <ul class="choices-list">
+                <li class="choice-item"><span class="choice-marker">1</span><div class="choice-content">เฉพาะงานที่เกี่ยวกับคอมพิวเตอร์เท่านั้น</div></li>
+                <li class="choice-item"><span class="choice-marker">2</span><div class="choice-content">งานที่มีการใช้เทคโนโลยีอย่างเดียว</div></li>
+                <li class="choice-item"><span class="choice-marker">3</span><div class="choice-content">งานที่มีความซับซ้อนและต้องการแบ่งเป็นส่วนย่อย ๆ</div></li>
+                <li class="choice-item correct"><span class="choice-marker">&check;</span><div class="choice-content">งานที่ต้องการการแบ่งลำดับการทำงาน และ อาจจะมีขั้นตอนที่แตกต่างกันเมื่อตัดสินใจไม่เหมือนกัน</div></li>
+            </ul>
+            <div class="reason-box"><strong>เหตุผล:</strong> อัลกอริทึมคือลำดับขั้นตอนการแก้ปัญหาที่มีกฎเกณฑ์และเงื่อนไขทางเลือกชัดเจน สามารถนำไปใช้ได้กับทุกงานในชีวิตประจำวัน ไม่จำกัดแค่เรื่องคอมพิวเตอร์</div>
+            <div class="supplement-box"><strong>เนื้อหาเสริม: โครงสร้างควบคุมพื้นฐานของ Algorithm</strong>
+                1. <b>แบบลำดับ (Sequence)</b> | 2. <b>แบบทางเลือก (Selection: If-Else)</b> | 3. <b>แบบทำซ้ำ (Iteration/Loop)</b>
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="q-title"><span class="q-badge">ข้อ 7</span> ข้อใดกล่าวถูกต้องเกี่ยวกับ decomposition</div>
+            <ul class="choices-list">
+                <li class="choice-item"><span class="choice-marker">1</span><div class="choice-content">Decomposition คือการแก้ปัญหาโดยต้องย่อยปัญหาให้เล็กที่สุด</div></li>
+                <li class="choice-item"><span class="choice-marker">2</span><div class="choice-content">Decomposition คือการลดรูปปัญหาโดยเน้นเรื่องสาระสำคัญ</div></li>
+                <li class="choice-item correct"><span class="choice-marker">&check;</span><div class="choice-content">Decomposition ไม่จำเป็นต้องแยกปัญหาให้ย่อยที่สุดเสมอไป ควรต้องคำนึงถึงปัญหาที่ต้องการแก้ แล้วย่อยให้แก้ปัญหาเหล่านั้นได้</div></li>
+                <li class="choice-item"><span class="choice-marker">4</span><div class="choice-content">ถูกต้องมากกว่า 1 ข้อ</div></li>
+            </ul>
+            <div class="reason-box"><strong>เหตุผล:</strong> การย่อยปัญหาควรแบ่งออกเป็นโมดูลหรือส่วนย่อยในระดับที่พอเหมาะต่อการทำความเข้าใจและลงมือแก้ไขได้จริง ไม่จำเป็นต้องย่อยละเอียดจนเกินความจำเป็น</div>
+            <div class="supplement-box"><strong>เนื้อหาเสริม: ประโยชน์ของการย่อยปัญหาในการเขียนโปรแกรม</strong>
+                ช่วยให้แบ่งงานกันทำเป็นทีมได้ง่าย (Modular Programming) และเมื่อเกิด Bug ก็สามารถตรวจสอบแก้ไขเฉพาะส่วนย่อยนั้นได้โดยไม่กระทบระบบอื่น
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="q-title"><span class="q-badge">ข้อ 8</span> ความหมายของ computational thinking คืออะไร</div>
+            <ul class="choices-list">
+                <li class="choice-item"><span class="choice-marker">1</span><div class="choice-content">การเข้าใจและการแก้ไขปัญหาด้วยคอมพิวเตอร์</div></li>
+                <li class="choice-item correct"><span class="choice-marker">&check;</span><div class="choice-content">การคิดอย่างเป็นระบบเพื่อแก้ไขปัญหาที่ซับซ้อน</div></li>
+                <li class="choice-item"><span class="choice-marker">3</span><div class="choice-content">การออกแบบและพัฒนาซอฟต์แวร์</div></li>
+                <li class="choice-item"><span class="choice-marker">4</span><div class="choice-content">การใช้เทคโนโลยีที่เกี่ยวข้องกับคอมพิวเตอร์</div></li>
+            </ul>
+            <div class="reason-box"><strong>เหตุผล:</strong> แนวคิดเชิงคำนวณไม่ใช่การคิดให้เหมือนหุ่นยนต์หรือต้องเขียนโค้ดเป็น แต่คือทักษะการคิดวิเคราะห์ปัญหาอย่างมีตรรกะและเป็นขั้นตอน เพื่อให้ทั้งมนุษย์และคอมพิวเตอร์นำไปปฏิบัติแก้ปัญหาได้</div>
+            <div class="supplement-box"><strong>เนื้อหาเสริม: ผู้ริเริ่มแนวคิด Computational Thinking</strong>
+                แนวคิดนี้ถูกผลักดันอย่างแพร่หลายโดย <b>Jeannette Wing</b> ในปี 2006 โดยเสนอว่าเป็นทักษะพื้นฐานที่ทุกคนควรเรียนรู้เทียบเท่ากับการอ่าน ออก เขียน ได้
+            </div>
+        </div>
+    </section>
+
+    <!-- MODULE 7 -->
+    <section id="mod7" class="module-section">
+        <div class="module-header">
+            <h2>ชุดที่ 7: การเขียนโปรแกรมภาษา JavaScript (JavaScript Programming)</h2>
+            <span>จำนวน 15 ข้อ — Variables, Scope, Loops, Functions, Array Methods และ Objects</span>
+        </div>
+
+        <div class="question-card">
+            <div class="q-title"><span class="q-badge">ข้อ 1</span> คีย์เวิร์ดใดที่ใช้ในการประกาศ ตัวแปรเปลี่ยนค่าได้ภายในบล็อก</div>
+            <ul class="choices-list">
+                <li class="choice-item correct"><span class="choice-marker">&check;</span><div class="choice-content">let</div></li>
+                <li class="choice-item"><span class="choice-marker">2</span><div class="choice-content">window</div></li>
+                <li class="choice-item"><span class="choice-marker">3</span><div class="choice-content">var</div></li>
+                <li class="choice-item"><span class="choice-marker">4</span><div class="choice-content">const</div></li>
+            </ul>
+            <div class="reason-box"><strong>เหตุผล:</strong> <code>let</code> ใช้ประกาศตัวแปรที่มีขอบเขตระดับบล็อก (Block-scoped คืออยู่ภายในเครื่องหมายปีกกา <code>{ }</code>) และสามารถกำหนดค่าใหม่ทับได้</div>
+            <div class="supplement-box"><strong>เนื้อหาเสริม: เปรียบเทียบ var, let และ const</strong>
+                - <code>var</code>: Function-scoped เปลี่ยนค่าได้ (แบบเก่า) | - <code>let</code>: Block-scoped เปลี่ยนค่าได้ | - <code>const</code>: Block-scoped เปลี่ยนค่าไม่ได้ (Constant)
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="q-title"><span class="q-badge">ข้อ 2</span> หลังจากรันโค้ดต่อไปนี้ สิ่งใดจะพิมพ์ไปบนคอนโซล</div>
+            <pre><code>let foo = 7;
+function addThree(foo) {
+  foo = foo + 3;
+}
+addThree(3);
+console.log(foo);</code></pre>
+            <ul class="choices-list">
+                <li class="choice-item correct"><span class="choice-marker">&check;</span><div class="choice-content">7</div></li>
+                <li class="choice-item"><span class="choice-marker">2</span><div class="choice-content">10</div></li>
+                <li class="choice-item"><span class="choice-marker">3</span><div class="choice-content">6</div></li>
+                <li class="choice-item"><span class="choice-marker">4</span><div class="choice-content">Reference Error</div></li>
+            </ul>
+            <div class="reason-box"><strong>เหตุผล:</strong> พารามิเตอร์ <code>foo</code> ในฟังก์ชัน <code>addThree(foo)</code> ถือเป็นตัวแปรท้องถิ่น (Local Variable) ที่แยกขาดจากตัวแปร <code>foo</code> ด้านนอก ดังนั้นการแก้ไขค่าข้างในฟังก์ชันจึงไม่กระทบค่า <code>7</code> ด้านนอก</div>
+            <div class="supplement-box"><strong>เนื้อหาเสริม: Variable Shadowing</strong>
+                การตั้งชื่อพารามิเตอร์หรือตัวแปรข้างในให้ชื่อซ้ำกับตัวแปรด้านนอกเรียกว่า Shadowing ซึ่งตัวแปรด้านในจะบังตัวแปรด้านนอกไว้ชั่วคราวขณะทำงานในฟังก์ชันนั้น
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="q-title"><span class="q-badge">ข้อ 3</span> หากต้องการให้ฟังก์ชัน grade คืนคำว่า “ทำดีแล้ว พยายามต่อไปนะ” เมื่อ score >= 33 หรือคืนคำว่า “ยอดไปเลย” เมื่อ score >= 66 และกรณีอื่นคืนคำว่า “สู้ๆนะ” จะต้อง implement ตามข้อใด</div>
+            <ul class="choices-list">
+                <li class="choice-item correct"><span class="choice-marker">&check;</span><div class="choice-content"><strong>ข้อ ก.</strong>
+                    <pre><code>function grade(score) {
+     if (score &gt;= 66) {
+         return 'ยอดไปเลย';
+     } else if (score &gt;= 33) {
+         return 'ทำดีแล้ว พยายามต่อไปนะ';
+     } else {
+         return 'สู้ๆนะ';
+     }
+}</code></pre>
+                </div></li>
+                <li class="choice-item"><span class="choice-marker">ข</span><div class="choice-content">เช็ก <code>if (score &gt;= 33)</code> ก่อนแล้วค่อย <code>else if (score &gt;= 66)</code></div></li>
+                <li class="choice-item"><span class="choice-marker">ค</span><div class="choice-content">เช็ก <code>if (score &gt;= 33)</code> ก่อนแล้วค่อย <code>else if (score &gt;= 66) else if (score &lt; 33)</code></div></li>
+                <li class="choice-item"><span class="choice-marker">ง</span><div class="choice-content">เช็ก <code>if (score &gt;= 33)</code> ก่อนและปิดปีกกาเกิน</div></li>
+            </ul>
+            <div class="reason-box"><strong>เหตุผล:</strong> ในโครงสร้าง <code>if - else if</code> โปรแกรมจะเช็กเงื่อนไขจากบนลงล่าง เมื่อเจอเงื่อนไขแรกที่เป็นจริงจะทำงานและออกจากฟังก์ชันทันที หากเช็ก <code>score &gt;= 33</code> ก่อน เมื่อได้คะแนน 80 ก็จะเข้าเงื่อนไข 33 ทันทีและคืนคำตอบผิด จึงต้องเช็ก <code>score &gt;= 66</code> ก่อน</div>
+            <div class="supplement-box"><strong>เนื้อหาเสริม: ลำดับการเขียนเงื่อนไขช่วงตัวเลข</strong>
+                การเขียนเงื่อนไขตรวจสอบช่วงคะแนนหรือเกรด ควรเรียงจากเงื่อนไขที่เข้มงวดที่สุด (ค่ามากสุด) ลงไปหาน้อยสุด หรือเรียงจากน้อยสุดขึ้นไปมากสุดอย่างเป็นลำดับ
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="q-title"><span class="q-badge">ข้อ 4</span> คีย์เวิร์ดใดที่สามารถใช้เพื่อออกจากลูป for ก่อนที่จะวนจบ</div>
+            <ul class="choices-list">
+                <li class="choice-item correct"><span class="choice-marker">&check;</span><div class="choice-content">break</div></li>
+                <li class="choice-item"><span class="choice-marker">2</span><div class="choice-content">continue</div></li>
+                <li class="choice-item"><span class="choice-marker">3</span><div class="choice-content">exit</div></li>
+                <li class="choice-item"><span class="choice-marker">4</span><div class="choice-content">label</div></li>
+            </ul>
+            <div class="reason-box"><strong>เหตุผล:</strong> คำสั่ง <code>break</code> จะยุติการทำงานของลูปทันทีและกระโดดไปทำคำสั่งถัดไปนอกลูป</div>
+            <div class="supplement-box"><strong>เนื้อหาเสริม: การใช้ break ใน switch</strong>
+                นอกจากใช้ในลูป (<code>for</code>, <code>while</code>) แล้ว <code>break</code> ยังใช้ในโครงสร้าง <code>switch...case</code> เพื่อป้องกันไม่ให้โปรแกรมไหลไปทำ case ถัดไป (Fall-through)
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="q-title"><span class="q-badge">ข้อ 5</span> ลูปต่อไปนี้จะวนทั้งหมดกี่ครั้ง</div>
+            <pre><code>for (let i = 0; i < 30; i++) { 
+    if (i == 15) { 
+       continue; 
+    } if (i == 20) { 
+       break; 
+    } 
+}</code></pre>
+            <ul class="choices-list">
+                <li class="choice-item correct"><span class="choice-marker">&check;</span><div class="choice-content">21</div></li>
+                <li class="choice-item"><span class="choice-marker">2</span><div class="choice-content">15</div></li>
+                <li class="choice-item"><span class="choice-marker">3</span><div class="choice-content">16</div></li>
+                <li class="choice-item"><span class="choice-marker">4</span><div class="choice-content">30</div></li>
+            </ul>
+            <div class="reason-box"><strong>เหตุผล:</strong> ตัวแปร <code>i</code> เริ่มนับตั้งแต่ <code>0</code> จนถึง <code>20</code> (นับรวม 0 ถึง 20 จะได้ทั้งหมด 21 รอบ) โดยรอบที่ <code>i == 15</code> จะข้ามไปรอบถัดไป และในรอบที่ <code>i == 20</code> ลูปจะเข้าทำงานในรอบนั้นแล้วจึงเจอ <code>break</code> หยุดลูป</div>
+            <div class="supplement-box"><strong>เนื้อหาเสริม: สูตรนับจำนวนรอบของลูป</strong>
+                เมื่อเริ่มจาก <code>0</code> และหยุดที่ <code>N</code> จำนวนรอบที่เข้าทำงานทั้งหมดคือ <code>N + 1</code> รอบเสมอ
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="q-title"><span class="q-badge">ข้อ 6</span> จะเกิดอะไรขึ้นเมื่อคำสั่ง continue ถูกดำเนินการในตัวอย่างต่อไปนี้</div>
+            <pre><code>for (let i = 0; i < 40; i++) { 
+     for (let j = 0; j < 30; j++) { 
+          console.log(i); 
+          continue; 
+          console.log(j); 
+     } 
+}</code></pre>
+            <ul class="choices-list">
+                <li class="choice-item"><span class="choice-marker">1</span><div class="choice-content">ลูปด้านนอกข้ามไปที่การวนซ้ำครั้งถัดไป</div></li>
+                <li class="choice-item"><span class="choice-marker">2</span><div class="choice-content">การวนด้านนอกหยุดลงก่อนเวลา</div></li>
+                <li class="choice-item correct"><span class="choice-marker">&check;</span><div class="choice-content">ลูปด้านในข้ามไปที่การวนซ้ำครั้งถัดไป</div></li>
+                <li class="choice-item"><span class="choice-marker">4</span><div class="choice-content">ลูปด้านในจะหยุดก่อน</div></li>
+            </ul>
+            <div class="reason-box"><strong>เหตุผล:</strong> คำสั่ง <code>continue</code> จะมีผลเฉพาะกับลูปที่มันอาศัยอยู่ใกล้ที่สุด (Inner Loop <code>j</code>) โดยข้ามคำสั่งที่เหลือด้านล่าง (<code>console.log(j)</code>) แล้วเพิ่มค่า <code>j++</code> เพื่อเริ่มรอบใหม่ของลูปใน</div>
+            <div class="supplement-box"><strong>เนื้อหาเสริม: Unreachable Code</strong>
+                คำสั่ง <code>console.log(j);</code> ที่อยู่ใต้ <code>continue;</code> โดยไม่มีเงื่อนไข <code>if</code> กั้น จะไม่มีวันถูกเรียกใช้งานเลยตลอดการทำงานของโปรแกรม
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="q-title"><span class="q-badge">ข้อ 7</span> คำตอบใดแสดงการเรียกฟังก์ชันด้วยผลลัพธ์ของฟังก์ชันอื่น</div>
+            <ul class="choices-list">
+                <li class="choice-item"><span class="choice-marker">1</span><div class="choice-content"><code>function getItem() { latestItem() }</code></div></li>
+                <li class="choice-item"><span class="choice-marker">2</span><div class="choice-content"><code>getItem()</code></div></li>
+                <li class="choice-item"><span class="choice-marker">3</span><div class="choice-content"><code>function getItem(getItem()) { }</code></div></li>
+                <li class="choice-item correct"><span class="choice-marker">&check;</span><div class="choice-content"><code>getItem(latestItem())</code></div></li>
+            </ul>
+            <div class="reason-box"><strong>เหตุผล:</strong> โปรแกรมจะประมวลผลฟังก์ชันด้านใน <code>latestItem()</code> ก่อนเพื่อให้ได้ค่า Return ออกมา แล้วจึงส่งค่านั้นเข้าไปเป็นอาร์กิวเมนต์ให้กับฟังก์ชัน <code>getItem(...)</code> ด้านนอก</div>
+            <div class="supplement-box"><strong>เนื้อหาเสริม: Function Composition vs Callback</strong>
+                - <code>f(g(x))</code> คือการนำผลลัพธ์ของฟังก์ชันมาส่งต่อ | - หากส่งตัวฟังก์ชันเข้าไปโดยไม่มีวงเล็บ เช่น <code>getItem(latestItem)</code> จะเป็นการส่งฟังก์ชันเข้าไปเป็น <b>Callback Function</b>
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="q-title"><span class="q-badge">ข้อ 8</span> ข้อใดเป็นผลลัพธ์จากการรันโค้ดต่อไปนี้</div>
+            <pre><code>function plus(a, b) {
+  return arguments[0] + arguments[1];
+}
+
+plus(5, 5);</code></pre>
+            <ul class="choices-list">
+                <li class="choice-item correct"><span class="choice-marker">&check;</span><div class="choice-content">10</div></li>
+                <li class="choice-item"><span class="choice-marker">2</span><div class="choice-content">Error</div></li>
+                <li class="choice-item"><span class="choice-marker">3</span><div class="choice-content">undefined</div></li>
+                <li class="choice-item"><span class="choice-marker">4</span><div class="choice-content">25</div></li>
+            </ul>
+            <div class="reason-box"><strong>เหตุผล:</strong> ฟังก์ชันแบบดั้งเดิมใน JavaScript จะมีออบเจกต์พิเศษชื่อ <code>arguments</code> เก็บค่าทั้งหมดที่ถูกส่งเข้ามาเรียงตาม Index เริ่มจาก 0 ดังนั้น <code>arguments[0]</code> คือ 5 และ <code>arguments[1]</code> คือ 5 บวกกันจึงได้ 10</div>
+            <div class="supplement-box"><strong>เนื้อหาเสริม: ข้อจำกัดของ arguments ใน Arrow Function</strong>
+                ออบเจกต์ <code>arguments</code> ไม่มีอยู่ใน Arrow Function (<code>() =&gt; {}</code>) ใน JavaScript สมัยใหม่นิยมใช้ <b>Rest Parameters</b> (<code>...args</code>) แทนเพราะเป็น Array แท้ๆ
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="q-title"><span class="q-badge">ข้อ 9</span> ค่าใดจะถูกคืนออกมาจากฟังก์ชัน plus หากเราเรียกฟังก์ชันด้วยพารามิเตอร์ดังนี้ plus(5, 3)</div>
+            <pre><code>function plus(a, b) {
+        a + b;
+}</code></pre>
+            <ul class="choices-list">
+                <li class="choice-item"><span class="choice-marker">1</span><div class="choice-content">8</div></li>
+                <li class="choice-item correct"><span class="choice-marker">&check;</span><div class="choice-content">undefined</div></li>
+                <li class="choice-item"><span class="choice-marker">3</span><div class="choice-content">null</div></li>
+                <li class="choice-item"><span class="choice-marker">4</span><div class="choice-content">15</div></li>
+            </ul>
+            <div class="reason-box"><strong>เหตุผล:</strong> แม้จะมีการคำนวณ <code>a + b</code> ภายในฟังก์ชัน แต่ไม่มีคำสั่ง <code>return</code> เพื่อส่งค่ากลับออกมา ฟังก์ชันใน JavaScript ที่ไม่มี return จะคืนค่าเริ่มต้นเป็น <code>undefined</code> เสมอ</div>
+            <div class="supplement-box"><strong>เนื้อหาเสริม: Implicit Return ใน Arrow Function</strong>
+                หากเขียนเป็น Arrow Function บรรทัดเดียวโดยไม่มีปีกกา เช่น <code>const plus = (a, b) =&gt; a + b;</code> JavaScript จะคืนค่าผลลัพธ์ให้อัตโนมัติโดยไม่ต้องเขียนคำว่า return
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="q-title"><span class="q-badge">ข้อ 10</span> ผลลัพธ์ของ 10 % 5 คืออะไร</div>
+            <ul class="choices-list">
+                <li class="choice-item"><span class="choice-marker">1</span><div class="choice-content">50</div></li>
+                <li class="choice-item"><span class="choice-marker">2</span><div class="choice-content">2</div></li>
+                <li class="choice-item"><span class="choice-marker">3</span><div class="choice-content">undefined</div></li>
+                <li class="choice-item correct"><span class="choice-marker">&check;</span><div class="choice-content">0</div></li>
+            </ul>
+            <div class="reason-box"><strong>เหตุผล:</strong> เครื่องหมาย <code>%</code> คือตัวดำเนินการ Modulo (หารเอาเศษ) เมื่อนำ 10 หารด้วย 5 จะได้ผลลัพธ์ 2 เศษ 0 คำตอบจึงเป็น 0</div>
+            <div class="supplement-box"><strong>เนื้อหาเสริม: การประยุกต์ใช้ Modulo (%)</strong>
+                นิยมใช้ตรวจสอบเลขคู่-เลขคี่ (<code>n % 2 === 0</code> คือเลขคู่) หรือใช้หมุนเวียนค่าดัชนีใน Array ให้วนกลับมาเริ่มต้นใหม่เมื่อเกินขนาด
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="q-title"><span class="q-badge">ข้อ 11</span> หลังจากรันโค้ดต่อไปนี้ ข้อความใดจะพิมพ์ไปบนคอนโซล</div>
+            <pre><code>const numbers = [2, 4, 6, 8]; 
+const doubleNumbers = numbers.map((n) => n * 2); 
+console.log(numbers);</code></pre>
+            <ul class="choices-list">
+                <li class="choice-item"><span class="choice-marker">1</span><div class="choice-content">[4, 8, 12, 16]</div></li>
+                <li class="choice-item correct"><span class="choice-marker">&check;</span><div class="choice-content">[2, 4, 6, 8]</div></li>
+                <li class="choice-item"><span class="choice-marker">3</span><div class="choice-content">[]</div></li>
+                <li class="choice-item"><span class="choice-marker">4</span><div class="choice-content">null</div></li>
+            </ul>
+            <div class="reason-box"><strong>เหตุผล:</strong> เมธอด <code>.map()</code> จะไม่แก้ไขข้อมูลใน Array ต้นฉบับ (Immutable) แต่จะสร้าง Array ก้อนใหม่ขึ้นมาเก็บผลลัพธ์ (<code>doubleNumbers</code>) ดังนั้น <code>numbers</code> จึงยังคงเป็นค่าเดิม</div>
+            <div class="supplement-box"><strong>เนื้อหาเสริม: ตัวอย่างเมธอดที่แก้ไข Array เดิม vs สร้างใหม่</strong>
+                - <b>สร้าง Array ใหม่:</b> <code>.map()</code>, <code>.filter()</code>, <code>.slice()</code> | - <b>แก้ไข Array เดิมโดยตรง:</b> <code>.push()</code>, <code>.pop()</code>, <code>.splice()</code>, <code>.sort()</code>
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="q-title"><span class="q-badge">ข้อ 12</span> หลังจากรันโค้ดต่อไปนี้ ข้อความใดจะพิมพ์ไปบนคอนโซล</div>
+            <pre><code>const fruits = ['apple', 'banana', 'strawberry'];
+
+fruits
+  .filter((fruit) => fruit.length > 5)
+  .forEach((fruit) => {
+    console.log(fruit);
+  })</code></pre>
+            <ul class="choices-list">
+                <li class="choice-item"><span class="choice-marker">1</span><div class="choice-content">apple banana strawberry</div></li>
+                <li class="choice-item"><span class="choice-marker">2</span><div class="choice-content">apple</div></li>
+                <li class="choice-item"><span class="choice-marker">3</span><div class="choice-content">apple banana</div></li>
+                <li class="choice-item correct"><span class="choice-marker">&check;</span><div class="choice-content">banana strawberry</div></li>
+            </ul>
+            <div class="reason-box"><strong>เหตุผล:</strong> <code>.filter()</code> คัดเฉพาะคำที่มีความยาวตัวอักษรมากกว่า 5 ตัว (<code>'apple'</code> มี 5 ตัวจึงไม่ผ่านเงื่อนไข เหลือ <code>'banana'</code> 6 ตัว และ <code>'strawberry'</code> 10 ตัว) จากนั้น <code>.forEach()</code> จึงวนพิมพ์แต่ละคำออกมา</div>
+            <div class="supplement-box"><strong>เนื้อหาเสริม: Method Chaining</strong>
+                การเขียนเมธอดต่อกันเป็นทอดๆ ด้วยจุด (<code>.filter(...).forEach(...)</code>) ทำได้เพราะเมธอด <code>.filter()</code> คืนค่ากลับมาเป็น Array ใหม่ จึงสามารถเรียกใช้เมธอดของ Array ตัวถัดไปต่อได้ทันที
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="q-title"><span class="q-badge">ข้อ 13</span> Syntax ที่ถูกต้องสำหรับการประกาศ object literal คืออะไร</div>
+            <ul class="choices-list">
+                <li class="choice-item correct"><span class="choice-marker">&check;</span><div class="choice-content"><code>var person = {}</code></div></li>
+                <li class="choice-item"><span class="choice-marker">2</span><div class="choice-content"><code>var person = new Object()</code></div></li>
+                <li class="choice-item"><span class="choice-marker">3</span><div class="choice-content"><code>var person = Object()</code></div></li>
+                <li class="choice-item"><span class="choice-marker">4</span><div class="choice-content"><code>var person = new object()</code></div></li>
+            </ul>
+            <div class="reason-box"><strong>เหตุผล:</strong> Object Literal คือการสร้างออบเจกต์แบบตรงตัวโดยใช้วงเล็บปีกกา <code>{ }</code> ซึ่งกระชับและทำงานเร็วกว่าการใช้คำสั่ง <code>new Object()</code></div>
+            <div class="supplement-box"><strong>เนื้อหาเสริม: โครงสร้าง Key-Value Pair</strong>
+                ภายในวงเล็บปีกกาจะเก็บข้อมูลเป็นคู่ของชื่อคุณสมบัติและค่า เช่น <code>const person = { name: 'Boat', age: 19 };</code>
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="q-title"><span class="q-badge">ข้อ 14</span> คำตอบใดทำให้สามารถพิมพ์ชื่อและนามสกุลไปบนคอนโซลได้</div>
+            <pre><code>let person = {
+         firstName: 'Sarah',
+         lastName: 'Hunt',
+         fullName: function () {
+                  return this.firstName + ' ' + this.lastName;
+          },
+};</code></pre>
+            <ul class="choices-list">
+                <li class="choice-item correct"><span class="choice-marker">&check;</span><div class="choice-content"><code>console.log(person.fullName());</code></div></li>
+                <li class="choice-item"><span class="choice-marker">2</span><div class="choice-content"><code>console.log(person.fullName);</code></div></li>
+                <li class="choice-item"><span class="choice-marker">3</span><div class="choice-content"><code>console.log(this.fullName);</code></div></li>
+                <li class="choice-item"><span class="choice-marker">4</span><div class="choice-content"><code>console.log(fullName);</code></div></li>
+            </ul>
+            <div class="reason-box"><strong>เหตุผล:</strong> <code>fullName</code> เป็นฟังก์ชันที่เก็บอยู่ในออบเจกต์ <code>person</code> (Method) การเรียกใช้งานให้ทำงานและคืนค่ากลับมาต้องใส่วงเล็บ <code>()</code> ต่อท้ายเสมอ หากไม่ใส่วงเล็บจะได้โค้ดของฟังก์ชันออกมาแทน</div>
+            <div class="supplement-box"><strong>เนื้อหาเสริม: คำสั่ง this ใน Method</strong>
+                ในฟังก์ชันปกติภายในออบเจกต์ คีย์เวิร์ด <code>this</code> จะอ้างอิงถึงตัวออบเจกต์เจ้าของเมธอดนั้น (คือ <code>person</code>) แต่หากใช้ Arrow Function ค่าของ <code>this</code> จะเปลี่ยนไปอ้างอิง Scope ด้านนอกแทน
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="q-title"><span class="q-badge">ข้อ 15</span> จากโค้ดต่อไปนี้ หากต้องการให้มีข้อความ name salary พิมพ์ไปที่คอนโซล เราควรเติมคำสั่งอะไรเข้าไปต่อท้ายบรรทัด const keys =</div>
+            <pre><code>const employee = {
+  name: 'Alice',
+  salary: 30000
+}
+const keys = // Insert here
+for (const key of keys) {  
+  console.log(key);
+}</code></pre>
+            <ul class="choices-list">
+                <li class="choice-item correct"><span class="choice-marker">&check;</span><div class="choice-content"><code>object.keys(employee)</code> <em>(ในไวยากรณ์จริงตัว O พิมพ์ใหญ่: Object.keys(employee))</em></div></li>
+                <li class="choice-item"><span class="choice-marker">2</span><div class="choice-content"><code>employee.keys()</code></div></li>
+                <li class="choice-item"><span class="choice-marker">3</span><div class="choice-content"><code>object.properties(employee)</code></div></li>
+                <li class="choice-item"><span class="choice-marker">4</span><div class="choice-content"><code>employee.properties()</code></div></li>
+            </ul>
+            <div class="reason-box"><strong>เหตุผล:</strong> เมธอด <code>Object.keys(obj)</code> ใช้ดึงรายชื่อ Key ทั้งหมดของออบเจกต์ออกมาเป็น Array (<code>['name', 'salary']</code>) เพื่อให้สามารถนำไปวนลูปด้วย <code>for...of</code> ได้</div>
+            <div class="supplement-box"><strong>เนื้อหาเสริม: เมธอดตระกูล Object สำหรับดึงข้อมูล</strong>
+                - <code>Object.keys(obj)</code>: ดึงเฉพาะรายชื่อ Key เป็น Array | - <code>Object.values(obj)</code>: ดึงเฉพาะค่า Value | - <code>Object.entries(obj)</code>: ดึงทั้งคู่ <code>[key, value]</code>
+            </div>
+        </div>
+    </section>
+
+    <!-- MODULE 8 -->
+    <section id="mod8" class="module-section">
+        <div class="module-header">
+            <h2>ชุดที่ 8: สถาปัตยกรรมเครือข่ายและวิทยาการเข้ารหัสลับ (Network & Cryptography)</h2>
+            <span>จำนวน 15 ข้อ — OSI/TCP-IP, Symmetric/Asymmetric/Hybrid Encryption, Hashing, Pentest และ Risk</span>
+        </div>
+
+        <div class="question-card">
+            <div class="q-title"><span class="q-badge">ข้อ 1</span> ใน TCP/IP Model นั้น Layer ใดมีหน้าที่สำหรับการทำ Addressing, Routing, และ Fragmentation</div>
+            <ul class="choices-list">
+                <li class="choice-item correct"><span class="choice-marker">&check;</span><div class="choice-content">Network Layer</div></li>
+                <li class="choice-item"><span class="choice-marker">2</span><div class="choice-content">Transport Layer</div></li>
+                <li class="choice-item"><span class="choice-marker">3</span><div class="choice-content">Data Link Layer</div></li>
+                <li class="choice-item"><span class="choice-marker">4</span><div class="choice-content">Application Layer</div></li>
+            </ul>
+            <div class="reason-box"><strong>เหตุผล:</strong> Network Layer (หรือ Internet Layer) ทำหน้าที่ระบุที่อยู่ IP (Addressing) เลือกเส้นทางข้ามเครือข่าย (Routing) และแบ่งย่อยแพ็กเก็ตให้เหมาะกับขนาด MTU ของเครือข่าย (Fragmentation)</div>
+            <div class="supplement-box"><strong>เนื้อหาเสริม: ICMP ใน Network Layer</strong>
+                นอกจาก IP แล้ว โพรโทคอล <code>ICMP</code> (ที่ใช้ในคำสั่ง <code>ping</code> และ <code>traceroute</code> เพื่อทดสอบการเชื่อมต่อเครือข่าย) ก็ทำงานอยู่ในชั้น Network Layer นี้เช่นกัน
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="q-title"><span class="q-badge">ข้อ 2</span> ใน OSI Model นั้น Layer ใดมีหน้าที่สำหรับการแปลง Data Packages จาก Network Layer ให้พร้อมสำหรับการส่งต่อข้ามตัวกลาง Physical</div>
+            <ul class="choices-list">
+                <li class="choice-item"><span class="choice-marker">1</span><div class="choice-content">Network Layer</div></li>
+                <li class="choice-item"><span class="choice-marker">2</span><div class="choice-content">Transport Layer</div></li>
+                <li class="choice-item correct"><span class="choice-marker">&check;</span><div class="choice-content">Data Link Layer</div></li>
+                <li class="choice-item"><span class="choice-marker">4</span><div class="choice-content">Application Layer</div></li>
+            </ul>
+            <div class="reason-box"><strong>เหตุผล:</strong> Data Link Layer (Layer 2) รับ Packet มาห่อหุ้มเป็น Frame เพิ่มส่วนหัว MAC Address และส่วนท้ายสำหรับตรวจสอบความผิดพลาดก่อนส่งลงสู่สายสัญญาณใน Physical Layer</div>
+            <div class="supplement-box"><strong>เนื้อหาเสริม: การแบ่งชั้นย่อยของ Data Link Layer</strong>
+                แบ่งออกเป็น 2 ชั้นย่อย คือ <b>LLC (Logical Link Control)</b> ติดต่อกับชั้นบน และ <b>MAC (Media Access Control)</b> ควบคุมการเข้าถึงตัวกลางและจัดการ MAC Address
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="q-title"><span class="q-badge">ข้อ 3</span> ใน OSI Model นั้น Layer ใดมีหน้าที่สำหรับการสื่อสารแบบ end-to-end ระหว่างแอปพลิเคชัน รวมไปถึงการกำหนด protocols สำหรับการส่งไฟล์และอีเมล</div>
+            <ul class="choices-list">
+                <li class="choice-item"><span class="choice-marker">1</span><div class="choice-content">Network Layer</div></li>
+                <li class="choice-item"><span class="choice-marker">2</span><div class="choice-content">Transport Layer</div></li>
+                <li class="choice-item"><span class="choice-marker">3</span><div class="choice-content">Data Link Layer</div></li>
+                <li class="choice-item correct"><span class="choice-marker">&check;</span><div class="choice-content">Application Layer</div></li>
+            </ul>
+            <div class="reason-box"><strong>เหตุผล:</strong> Application Layer (Layer 7) เป็นชั้นบนสุดที่เชื่อมต่อกับซอฟต์แวร์ของผู้ใช้โดยตรง และกำหนดมาตรฐานโพรโทคอลบริการต่างๆ เช่น การโอนไฟล์ (FTP) การรับส่งอีเมล (SMTP, POP3, IMAP) และการเข้าเว็บ (HTTP)</div>
+            <div class="supplement-box"><strong>เนื้อหาเสริม: หลักการจำ OSI 7 Layers (จากล่างขึ้นบน 1 &rarr; 7)</strong>
+                <b>P</b>lease <b>D</b>o <b>N</b>ot <b>T</b>hrow <b>S</b>ausage <b>P</b>izza <b>A</b>way (Physical, Data Link, Network, Transport, Session, Presentation, Application)
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="q-title"><span class="q-badge">ข้อ 4</span> Protocol ไหน ที่ใช้ใน Application Layer (ของ OSI Model) และใช้ในการแปลงชื่อ Domain เป็น IP Address</div>
+            <ul class="choices-list">
+                <li class="choice-item"><span class="choice-marker">1</span><div class="choice-content">DHCP (Dynamic Host Configuration Protocol)</div></li>
+                <li class="choice-item correct"><span class="choice-marker">&check;</span><div class="choice-content">DNS (Domain Name System)</div></li>
+                <li class="choice-item"><span class="choice-marker">3</span><div class="choice-content">FTP (File Transfer Protocol)</div></li>
+                <li class="choice-item"><span class="choice-marker">4</span><div class="choice-content">HTTP (Hypertext Transfer Protocol)</div></li>
+            </ul>
+            <div class="reason-box"><strong>เหตุผล:</strong> DNS ทำงานในชั้น Application Layer (ใช้พอร์ต 53) ทำหน้าที่เปรียบเสมือนสมุดโทรศัพท์ของอินเทอร์เน็ต คอยแปลชื่อโดเมนที่มนุษย์อ่านง่ายให้เป็นหมายเลข IP Address</div>
+            <div class="supplement-box"><strong>เนื้อหาเสริม: หมายเลขพอร์ต (Port Number) สำคัญที่ควรรู้</strong>
+                - <b>DNS:</b> 53 | - <b>HTTP:</b> 80 | - <b>HTTPS:</b> 443 | - <b>FTP:</b> 20, 21 | - <b>SSH:</b> 22 | - <b>SMTP:</b> 25
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="q-title"><span class="q-badge">ข้อ 5</span> ข้อใดคือจุดประสงค์หลักของการทำ cryptography</div>
+            <ul class="choices-list">
+                <li class="choice-item"><span class="choice-marker">1</span><div class="choice-content">Data compression</div></li>
+                <li class="choice-item correct"><span class="choice-marker">&check;</span><div class="choice-content">Data encryption</div></li>
+                <li class="choice-item"><span class="choice-marker">3</span><div class="choice-content">Data authentication</div></li>
+                <li class="choice-item"><span class="choice-marker">4</span><div class="choice-content">Data routing</div></li>
+            </ul>
+            <div class="reason-box"><strong>เหตุผล:</strong> วิทยาการเข้ารหัสลับ (Cryptography) มีเป้าหมายหลักในการเข้ารหัสข้อมูล (Encryption) เพื่อแปลงข้อมูลให้อ่านไม่ออก ป้องกันไม่ให้บุคคลที่สามที่ไม่มีสิทธิ์ล่วงรู้ความลับ</div>
+            <div class="supplement-box"><strong>เนื้อหาเสริม: องค์ประกอบพื้นฐานของการเข้ารหัส</strong>
+                1. <b>Plaintext:</b> ข้อความปกติ | 2. <b>Algorithm (Cipher):</b> สูตรการเข้ารหัส | 3. <b>Key:</b> กุญแจรหัสลับ | 4. <b>Ciphertext:</b> ข้อความที่ถูกเข้ารหัสแล้ว
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="q-title"><span class="q-badge">ข้อ 6</span> Encryption ประเภทใดที่ใช้ key เดียวกันทั้งการ encryption และ decryption</div>
+            <ul class="choices-list">
+                <li class="choice-item correct"><span class="choice-marker">&check;</span><div class="choice-content">Symmetric encryption</div></li>
+                <li class="choice-item"><span class="choice-marker">2</span><div class="choice-content">Asymmetric encryption</div></li>
+                <li class="choice-item"><span class="choice-marker">3</span><div class="choice-content">Hybrid encryption</div></li>
+                <li class="choice-item"><span class="choice-marker">4</span><div class="choice-content">One-time pad encryption</div></li>
+            </ul>
+            <div class="reason-box"><strong>เหตุผล:</strong> การเข้ารหัสแบบสมมาตร (Symmetric) ใช้กุญแจลับ (Shared Secret Key) ดอกเดียวกันทั้งตอนเข้ารหัสและถอดรหัส ข้อดีคือประมวลผลได้รวดเร็วมาก</div>
+            <div class="supplement-box"><strong>เนื้อหาเสริม: ตัวอย่างอัลกอริทึม Symmetric Encryption</strong>
+                เช่น <b>AES</b> (Advanced Encryption Standard - มาตรฐานปัจจุบัน), <b>DES</b> และ <b>3DES</b> (แบบเก่า)
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="q-title"><span class="q-badge">ข้อ 7</span> Encryption ประเภทใดที่ใช้ key ต่างกันทั้งระหว่างการ encryption และ decryption</div>
+            <ul class="choices-list">
+                <li class="choice-item"><span class="choice-marker">1</span><div class="choice-content">Symmetric encryption</div></li>
+                <li class="choice-item correct"><span class="choice-marker">&check;</span><div class="choice-content">Asymmetric encryption</div></li>
+                <li class="choice-item"><span class="choice-marker">3</span><div class="choice-content">Hybrid encryption</div></li>
+                <li class="choice-item"><span class="choice-marker">4</span><div class="choice-content">One-time pad encryption</div></li>
+            </ul>
+            <div class="reason-box"><strong>เหตุผล:</strong> การเข้ารหัสแบบอสมมาตร (Asymmetric) หรือ Public-Key Cryptography ใช้กุญแจ 1 คู่ที่สัมพันธ์กัน ได้แก่ <b>Public Key</b> (เปิดเผยได้ ใช้เข้ารหัส) และ <b>Private Key</b> (เก็บเป็นความลับ ใช้ถอดรหัส)</div>
+            <div class="supplement-box"><strong>เนื้อหาเสริม: ตัวอย่างอัลกอริทึม Asymmetric Encryption</strong>
+                เช่น <b>RSA</b>, <b>ECC</b> (Elliptic Curve Cryptography) และ <b>Diffie-Hellman</b>
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="q-title"><span class="q-badge">ข้อ 8</span> คุณสมบัติใดของ key ที่ใช้เป็นตัวจำแนกความแตกต่างระหว่าง Asymmetric encryption และ Symmetric encryption</div>
+            <ul class="choices-list">
+                <li class="choice-item correct"><span class="choice-marker">&check;</span><div class="choice-content">การใช้ Multiple keys</div></li>
+                <li class="choice-item"><span class="choice-marker">2</span><div class="choice-content">การใช้ Single keys</div></li>
+                <li class="choice-item"><span class="choice-marker">3</span><div class="choice-content">การใช้ Hashing algorithms</div></li>
+                <li class="choice-item"><span class="choice-marker">4</span><div class="choice-content">การใช้ Digital signatures</div></li>
+            </ul>
+            <div class="reason-box"><strong>เหตุผล:</strong> ข้อแตกต่างเชิงโครงสร้างที่ชัดเจนที่สุดคือ Symmetric ใช้กุญแจดอกเดียว (Single Key) ในขณะที่ Asymmetric ใช้กุญแจหลายดอกเป็นคู่ (Multiple Keys: Public Key + Private Key)</div>
+            <div class="supplement-box"><strong>เนื้อหาเสริม: การใช้งานกลับด้านของ Asymmetric Key (Digital Signature)</strong>
+                หากใช้ <b>Private Key</b> เข้ารหัส และให้คนอื่นใช้ <b>Public Key</b> ถอดรหัส จะกลายเป็นการยืนยันตัวตนผู้ส่งและทำ <b>ลายเซ็นดิจิทัล (Digital Signature)</b>
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="q-title"><span class="q-badge">ข้อ 9</span> Encryption ประเภทใดที่ใช้ข้อได้เปรียบจากทั้ง Asymmetric encryption และ Symmetric encryption เพื่อเพิ่มความปลอดภัย</div>
+            <ul class="choices-list">
+                <li class="choice-item"><span class="choice-marker">1</span><div class="choice-content">Symmetric encryption</div></li>
+                <li class="choice-item"><span class="choice-marker">2</span><div class="choice-content">Asymmetric encryption</div></li>
+                <li class="choice-item correct"><span class="choice-marker">&check;</span><div class="choice-content">Hybrid encryption</div></li>
+                <li class="choice-item"><span class="choice-marker">4</span><div class="choice-content">One-time pad encryption</div></li>
+            </ul>
+            <div class="reason-box"><strong>เหตุผล:</strong> Hybrid Encryption แก้จุดอ่อนของทั้งสองระบบ โดยใช้ Asymmetric (ที่ปลอดภัยแต่ช้า) ในการแลกเปลี่ยนกุญแจลับ (Session Key) จากนั้นใช้ Symmetric (ที่รวดเร็ว) เข้ารหัสข้อมูลทั้งหมดตลอดการสื่อสาร</div>
+            <div class="supplement-box"><strong>เนื้อหาเสริม: ตัวอย่างการใช้งานจริงของ Hybrid Encryption</strong>
+                โพรโทคอล <b>TLS / SSL</b> ที่อยู่เบื้องหลังเว็บไซต์ <b>HTTPS</b> ทุกเว็บในปัจจุบัน ล้วนทำงานด้วยหลักการ Hybrid Encryption ทั้งสิ้น
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="q-title"><span class="q-badge">ข้อ 10</span> ข้อใดคือจุดประสงค์หลักของการใช้ hash function ใน cryptography</div>
+            <ul class="choices-list">
+                <li class="choice-item"><span class="choice-marker">1</span><div class="choice-content">Encryption</div></li>
+                <li class="choice-item"><span class="choice-marker">2</span><div class="choice-content">Decryption</div></li>
+                <li class="choice-item"><span class="choice-marker">3</span><div class="choice-content">Data compression</div></li>
+                <li class="choice-item correct"><span class="choice-marker">&check;</span><div class="choice-content">Data integrity verification</div></li>
+            </ul>
+            <div class="reason-box"><strong>เหตุผล:</strong> ฟังก์ชันแฮชจะคำนวณค่าตัวแทนขนาดคงที่ (Hash Digest) จากข้อมูลต้นฉบับ หากไฟล์ถูกแก้ไขแม้เพียงตัวอักษรเดียว ค่า Hash จะเปลี่ยนไปทันที จึงใช้ตรวจสอบความถูกต้องครบถ้วนของข้อมูล (Integrity)</div>
+            <div class="supplement-box"><strong>เนื้อหาเสริม: Hashing ไม่ใช่ Encryption</strong>
+                Hashing เป็นการแปลงแบบ <b>ทางเดียว (One-way)</b> ไม่สามารถถอดรหัสย้อนกลับไปหาข้อมูลเดิมได้ นิยมใช้เก็บรหัสผ่านในฐานข้อมูลและตรวจสอบไฟล์ดาวน์โหลด
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="q-title"><span class="q-badge">ข้อ 11</span> ข้อใดคือข้อเสียเปรียบที่เป็นไปได้ของ Symmetric encryption เมื่อเทียบกับ Asymmetric encryption</div>
+            <ul class="choices-list">
+                <li class="choice-item"><span class="choice-marker">1</span><div class="choice-content">ทำการ Encryption ได้ช้ากว่า</div></li>
+                <li class="choice-item"><span class="choice-marker">2</span><div class="choice-content">จำเป็นต้องใช้ key จำนวนมากกว่า</div></li>
+                <li class="choice-item correct"><span class="choice-marker">&check;</span><div class="choice-content">ความท้าทายในการกระจาย key</div></li>
+                <li class="choice-item"><span class="choice-marker">4</span><div class="choice-content">โอกาสเกิดช่องโหว่ และโดน brute force attacks</div></li>
+            </ul>
+            <div class="reason-box"><strong>เหตุผล:</strong> เนื่องจากทั้งผู้ส่งและผู้รับต้องใช้กุญแจดอกเดียวกัน ปัญหาใหญ่คือจะส่งมอบกุญแจดอกนั้นให้คู่สนทนาอย่างไรผ่านเครือข่ายอินเทอร์เน็ตโดยไม่ให้แฮกเกอร์ดักขโมยกุญแจไปได้ (Key Exchange Problem)</div>
+            <div class="supplement-box"><strong>เนื้อหาเสริม: ปัญหาจำนวนกุญแจในเครือข่ายใหญ่</strong>
+                หากมีผู้ใช้งาน $N$ คนต้องการคุยกันแบบเข้ารหัส 1 ต่อ 1 ด้วย Symmetric จะต้องสร้างกุญแจมากถึง $N(N-1)/2$ ดอก แต่ถ้าใช้ Asymmetric ทุกคนมีแค่คู่กุญแจของตัวเองคนละ 1 คู่ก็เพียงพอ
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="q-title"><span class="q-badge">ข้อ 12</span> ข้อใดคือคุณสมบัติของ strong cryptographic hash function</div>
+            <ul class="choices-list">
+                <li class="choice-item"><span class="choice-marker">1</span><div class="choice-content">สร้าง output ที่คล้ายกันสำหรับ inputs ที่คล้ายกัน</div></li>
+                <li class="choice-item"><span class="choice-marker">2</span><div class="choice-content">เมื่ออ่าน putput แล้ว สามารถทำให้กลับไปหา input ได้</div></li>
+                <li class="choice-item correct"><span class="choice-marker">&check;</span><div class="choice-content">สร้าง output ที่แตกต่างกันและเฉพาะเจาะจงสำหรับแต่ละ input</div></li>
+                <li class="choice-item"><span class="choice-marker">4</span><div class="choice-content">ง่ายต่อการเดา output โดยไม่จำเป็นต้องรู้ input</div></li>
+            </ul>
+            <div class="reason-box"><strong>เหตุผล:</strong> ฟังก์ชันแฮชที่แข็งแกร่งต้องมีคุณสมบัติ Collision Resistance (ข้อมูลต่างกันต้องไม่ให้ค่า Hash ซ้ำกัน) และ Avalanche Effect (ข้อมูลเปลี่ยนนิดเดียว ค่า Hash ต้องเปลี่ยนไปอย่างสิ้นเชิงและเดาย้อนกลับไม่ได้)</div>
+            <div class="supplement-box"><strong>เนื้อหาเสริม: อัลกอริทึม Hash ที่ปลอดภัย vs เลิกใช้แล้ว</strong>
+                - <b>ปลอดภัย (แนะนำ):</b> SHA-256, SHA-3, bcrypt, Argon2 (สำหรับรหัสผ่าน) | - <b>ไม่ปลอดภัย (เลิกใช้):</b> MD5, SHA-1
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="q-title"><span class="q-badge">ข้อ 13</span> ข้อใดคือวัตถุประสงค์ของการทำ Penetration Test</div>
+            <ul class="choices-list">
+                <li class="choice-item"><span class="choice-marker">1</span><div class="choice-content">เพื่อเพิ่มความปลอดภัยให้เครือข่าย</div></li>
+                <li class="choice-item correct"><span class="choice-marker">&check;</span><div class="choice-content">ชี้ให้เห็นถึงช่องโหว่ด้านความปลอดภัยเครือข่าย</div></li>
+                <li class="choice-item"><span class="choice-marker">3</span><div class="choice-content">เพิกเฉยความเสี่ยงด้านความปลอดภัยที่มีโอกาสเกิดขึ้น</div></li>
+                <li class="choice-item"><span class="choice-marker">4</span><div class="choice-content">ลดความเร็วของ Network Performance</div></li>
+            </ul>
+            <div class="reason-box"><strong>เหตุผล:</strong> Penetration Testing (Pentest) คือการจำลองการโจมตีระบบอย่างมีจริยธรรม (Ethical Hacking) เพื่อค้นหาและพิสูจน์ช่องโหว่ด้านความปลอดภัย ก่อนที่จะถูกผู้ไม่หวังดีค้นพบและโจมตีจริง</div>
+            <div class="supplement-box"><strong>เนื้อหาเสริม: ประเภทของการทำ Pentest</strong>
+                - <b>Black Box:</b> ผู้ทดสอบไม่มีข้อมูลภายในเลย | - <b>White Box:</b> เห็นซอร์สโค้ดและโครงสร้างทั้งหมด | - <b>Gray Box:</b> มีข้อมูลบางส่วน เช่น บัญชีผู้ใช้ทั่วไป
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="q-title"><span class="q-badge">ข้อ 14</span> ข้อใดคือขั้นตอนสำคัญในการทำ Risk Management</div>
+            <ul class="choices-list">
+                <li class="choice-item"><span class="choice-marker">1</span><div class="choice-content">เพิกเฉยต่อความเสี่ยง</div></li>
+                <li class="choice-item"><span class="choice-marker">2</span><div class="choice-content">ย้ายความเสี่ยงทั้งหมดไปให้กับ Thrid Party</div></li>
+                <li class="choice-item"><span class="choice-marker">3</span><div class="choice-content">ยอมรับความเสี่ยงทั้งหมด โดยไม่หาทางป้องกัน</div></li>
+                <li class="choice-item correct"><span class="choice-marker">&check;</span><div class="choice-content">หาทางบรรเทาความที่อาจเกิดขึ้น และปรับให้อยู่ในระดับที่ยอมรับได้</div></li>
+            </ul>
+            <div class="reason-box"><strong>เหตุผล:</strong> ในความเป็นจริงเราไม่สามารถกำจัดความเสี่ยงให้เหลือ 0% ได้ การบริหารความเสี่ยงจึงเน้นการประเมินโอกาสและผลกระทบ แล้วหามาตรการควบคุมเพื่อลดความเสี่ยง (Risk Mitigation) ให้อยู่ในระดับที่องค์กรยอมรับได้</div>
+            <div class="supplement-box"><strong>เนื้อหาเสริม: กลยุทธ์จัดการความเสี่ยง 4 แนวทาง</strong>
+                1. <b>Mitigate (ลด/บรรเทา)</b> | 2. <b>Transfer (โอนย้าย/ซื้อประกัน)</b> | 3. <b>Avoid (หลีกเลี่ยง)</b> | 4. <b>Accept (ยอมรับความเสี่ยงที่เหลืออยู่)</b>
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="q-title"><span class="q-badge">ข้อ 15</span> อะไรคือองค์ประกอบพื้นฐานของเครือข่ายไร้สาย</div>
+            <ul class="choices-list">
+                <li class="choice-item"><span class="choice-marker">1</span><div class="choice-content">Switches และ routers</div></li>
+                <li class="choice-item correct"><span class="choice-marker">&check;</span><div class="choice-content">Access points และ clients</div></li>
+                <li class="choice-item"><span class="choice-marker">3</span><div class="choice-content">Firewalls และ intrusion prevention systems</div></li>
+                <li class="choice-item"><span class="choice-marker">4</span><div class="choice-content">Ethernet cables และ fiber optics</div></li>
+            </ul>
+            <div class="reason-box"><strong>เหตุผล:</strong> เครือข่ายไร้สาย (Wireless LAN) ประกอบด้วยอุปกรณ์กระจายสัญญาณคลื่นวิทยุ (Access Point / Wireless Router) และอุปกรณ์ปลายทางที่เข้ามาเชื่อมต่อ (Wireless Clients เช่น มือถือ โน้ตบุ๊ก)</div>
+            <div class="supplement-box"><strong>เนื้อหาเสริม: มาตรฐานความปลอดภัย Wi-Fi</strong>
+                ควรตั้งค่าความปลอดภัยของ Access Point เป็น <b>WPA2</b> หรือ <b>WPA3</b> และหลีกเลี่ยงมาตรฐานเก่าอย่าง WEP หรือ WPA ซึ่งสามารถถูกถอดรหัสผ่านได้ภายในไม่กี่นาที
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        สรุปเฉลยพร้อมตัวเลือกครบทั้ง 8 ชุดแบบทดสอบ (126 ข้อ) &bull; เปิดใช้งานแบบ Offline ในเบราว์เซอร์ได้ทันที
+    </footer>
+</div>
+
+<script>
+    function filterModule(modId, btn) {
+        document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const sections = document.querySelectorAll('.module-section');
+        sections.forEach(sec => {
+            if (modId === 'all' || sec.id === modId) {
+                sec.style.display = 'block';
+            } else {
+                sec.style.display = 'none';
+            }
+        });
+
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+</script>
+
+</body>
+</html>
